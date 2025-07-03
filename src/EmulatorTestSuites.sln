@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF6CC39D-85D3-443F-B491-4552DB6C50FD}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		.editorconfig = .editorconfig
+		..\.gitignore = ..\.gitignore
+		..\Icon.png = ..\Icon.png
+		..\Licence.md = ..\Licence.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{FA51A712-6207-480C-8868-AA0D66A6A601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{448255F6-03C3-498E-800B-1CB149319459}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
+		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.Z80", "MrKWatkins.EmulatorTestSuites.Z80\MrKWatkins.EmulatorTestSuites.Z80.csproj", "{29D683B6-9884-489E-B3F9-624B61949985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.Z80.SingleStepTestCaseGenerator", "MrKWatkins.EmulatorTestSuites.Z80.SingleStepTestCaseGenerator\MrKWatkins.EmulatorTestSuites.Z80.SingleStepTestCaseGenerator.csproj", "{BC78D5D3-C4FC-406F-BF03-7DEE66C49983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.Z80.Tests", "MrKWatkins.EmulatorTestSuites.Z80.Tests\MrKWatkins.EmulatorTestSuites.Z80.Tests.csproj", "{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29D683B6-9884-489E-B3F9-624B61949985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D683B6-9884-489E-B3F9-624B61949985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D683B6-9884-489E-B3F9-624B61949985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D683B6-9884-489E-B3F9-624B61949985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC78D5D3-C4FC-406F-BF03-7DEE66C49983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC78D5D3-C4FC-406F-BF03-7DEE66C49983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC78D5D3-C4FC-406F-BF03-7DEE66C49983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC78D5D3-C4FC-406F-BF03-7DEE66C49983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA51A712-6207-480C-8868-AA0D66A6A601} = {CF6CC39D-85D3-443F-B491-4552DB6C50FD}
+		{448255F6-03C3-498E-800B-1CB149319459} = {FA51A712-6207-480C-8868-AA0D66A6A601}
+	EndGlobalSection
+EndGlobal

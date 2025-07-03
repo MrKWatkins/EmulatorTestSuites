@@ -1,0 +1,69 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>Latest</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations"/>
+
+        <Using Include="System.Diagnostics.CodeAnalysis"/>
+        <Using Include="System.Diagnostics.Contracts"/>
+        <Using Include="System.Diagnostics.Contracts.PureAttribute" Alias="PureAttribute"/>
+        <Using Include="JetBrains.Annotations"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="!$(MSBuildProjectName.EndsWith('Tests'))">
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+        <PackageReference Include="MrKWatkins.Assertions"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="NUnit" PrivateAssets="All" />
+        <PackageReference Include="NUnit3TestAdapter" PrivateAssets="All"/>
+
+        <Using Include="MrKWatkins.Assertions"/>
+        <Using Include="NUnit.Framework"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+        <!-- Allow underscores in test method names. -->
+        <NoWarn>CA1707</NoWarn>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('Tests')) And !$(MSBuildProjectName.EndsWith('Generator'))">
+        <IsPackable>true</IsPackable>
+        <Title>$(MSBuildProjectName)</Title>
+        <Authors>Kevin Watkins</Authors>
+        <Copyright>Kevin Watkins 2025</Copyright>
+        <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/MrKWatkins/EmulatorTestSuites</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/MrKWatkins/EmulatorTestSuites</RepositoryUrl>
+        <PackageIcon>Icon.png</PackageIcon>
+        <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <ItemGroup Condition="!$(MSBuildProjectName.EndsWith('Tests')) And !$(MSBuildProjectName.EndsWith('Generator'))">
+        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+        <Content Include="..\..\Icon.png" Pack="true" PackagePath="\">
+            <Link>Icon.png</Link>
+        </Content>
+        <Content Include="..\..\ReadMe.md" Pack="true" PackagePath="\">
+            <Link>ReadMe.md</Link>
+        </Content>
+    </ItemGroup>
+</Project>

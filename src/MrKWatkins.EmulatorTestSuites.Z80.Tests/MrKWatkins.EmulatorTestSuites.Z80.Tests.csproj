@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites.Z80\MrKWatkins.EmulatorTestSuites.Z80.csproj" />
+  </ItemGroup>
+</Project>

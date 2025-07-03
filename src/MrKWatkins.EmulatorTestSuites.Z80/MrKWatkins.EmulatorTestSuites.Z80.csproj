@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <EmbeddedResource Include="**\*.bin" />
+        <EmbeddedResource Include="**\*.rom" />
+        <EmbeddedResource Include="**\*.tap" />
+        <EmbeddedResource Include="Instruction\DAA\daaoutput.txt" />
+        <EmbeddedResource Include="Instruction\Fuse\tests.expected" />
+        <EmbeddedResource Include="Instruction\Fuse\tests.in" />
+        <EmbeddedResource Include="Instruction\SingleStep\TestCases\*" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MrKWatkins.OakAsm.Disassembly.Z80" />
+        <PackageReference Include="MrKWatkins.OakAsm.Formatting" />
+        <PackageReference Include="MrKWatkins.OakAsm.IO.ZXSpectrum" />
+        <PackageReference Include="MrKWatkins.OakAsm.Z80" />
+    </ItemGroup>
+</Project>

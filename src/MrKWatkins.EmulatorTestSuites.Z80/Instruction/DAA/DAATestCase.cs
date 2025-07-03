@@ -1,0 +1,31 @@
+namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA;
+
+public sealed class DAATestCase : InstructionTestCase
+{
+    internal DAATestCase(string name, InstructionTestSuiteOptions options, Z80InputState input, Z80ExpectedState expected)
+        : base(name, options)
+    {
+        Input = input;
+        Expected = expected;
+    }
+
+    public Z80InputState Input { get; }
+
+    public Z80ExpectedState Expected { get; }
+
+    public override void Execute<TTestHarness>(TextWriter? testOutput = null)
+    {
+        var z80 = CreateZ80<TTestHarness>(Input);
+
+        Input.Setup(z80);
+
+        z80.ExecuteInstruction();
+
+        AdjustForOverlappedRead(z80);
+
+        using (z80.CreateAssertionScope())
+        {
+            Expected.Assert(AssertionsToRun, z80);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version Number'
+        required: true
+        type: string
+
+permissions:
+  checks: write
+  contents: write
+  id-token: write
+  pages: write
+
+jobs:
+  Release:
+    name: Release ${{ inputs.version }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Publish to NuGet
+        uses: MrKWatkins/nuget-publish@main
+        with:
+          directory: src
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          version: ${{ inputs.version }}
