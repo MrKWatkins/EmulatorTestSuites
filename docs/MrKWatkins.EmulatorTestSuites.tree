@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd"[]>
+<instance-profile id="MrKWatkins.EmulatorTestSuites" name="MrKWatkins.EmulatorTestSuites" start-page="EmulatorTestSuites.md">
+  <toc-element topic="EmulatorTestSuites.md" />
+  <toc-element toc-title="Z80" id="Z80">
+    <toc-element toc-title="API" id="API">
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80">
+        <toc-element toc-title="Cycle">
+          <toc-element toc-title="Cycle" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Address" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.Address.md" />
+            <toc-element toc-title="Data" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.Data.md" />
+            <toc-element toc-title="Index" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.Index.md" />
+            <toc-element toc-title="IsOpcodeRead" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.IsOpcodeRead.md" />
+            <toc-element toc-title="Type" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.Type.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Equals" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.Equals.md" />
+            <toc-element toc-title="GetHashCode" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.GetHashCode.md" />
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.ToString.md" />
+          </toc-element>
+          <toc-element toc-title="Operators">
+            <toc-element toc-title="Equality" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.op_Equality.md" />
+            <toc-element toc-title="Inequality" topic="MrKWatkins.EmulatorTestSuites.Z80.Cycle.op_Inequality.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="CycleType" topic="MrKWatkins.EmulatorTestSuites.Z80.CycleType.md" />
+        <toc-element toc-title="IIOReader">
+          <toc-element toc-title="IIOReader" topic="MrKWatkins.EmulatorTestSuites.Z80.IIOReader.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Read" topic="MrKWatkins.EmulatorTestSuites.Z80.IIOReader.Read.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="IIOWriter">
+          <toc-element toc-title="IIOWriter" topic="MrKWatkins.EmulatorTestSuites.Z80.IIOWriter.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Write" topic="MrKWatkins.EmulatorTestSuites.Z80.IIOWriter.Write.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="NullIO">
+          <toc-element toc-title="NullIO" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.-ctor.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Read" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.Read.md" />
+            <toc-element toc-title="Write" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.Write.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="TestCase">
+          <toc-element toc-title="TestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.TestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Id" topic="MrKWatkins.EmulatorTestSuites.Z80.TestCase.Id.md" />
+            <toc-element toc-title="Name" topic="MrKWatkins.EmulatorTestSuites.Z80.TestCase.Name.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.TestCase.Execute.md" />
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.TestCase.ToString.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="TestSuite">
+          <toc-element toc-title="TestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.TestSuite.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Name" topic="MrKWatkins.EmulatorTestSuites.Z80.TestSuite.Name.md" />
+            <toc-element toc-title="Source" topic="MrKWatkins.EmulatorTestSuites.Z80.TestSuite.Source.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="OpenResource" topic="MrKWatkins.EmulatorTestSuites.Z80.TestSuite.OpenResource.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="Z80Debugging">
+          <toc-element toc-title="Z80Debugging" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80Debugging.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="WriteDebugInformation" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80Debugging.WriteDebugInformation.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="Z80TestHarness">
+          <toc-element toc-title="Z80TestHarness" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Cycles" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Cycles.md" />
+            <toc-element toc-title="FlagC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagC.md" />
+            <toc-element toc-title="FlagH" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagH.md" />
+            <toc-element toc-title="FlagN" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagN.md" />
+            <toc-element toc-title="FlagPV" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagPV.md" />
+            <toc-element toc-title="FlagS" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagS.md" />
+            <toc-element toc-title="FlagX" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagX.md" />
+            <toc-element toc-title="FlagY" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagY.md" />
+            <toc-element toc-title="FlagZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagZ.md" />
+            <toc-element toc-title="Halted" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Halted.md" />
+            <toc-element toc-title="IFF1" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF1.md" />
+            <toc-element toc-title="IFF2" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF2.md" />
+            <toc-element toc-title="IM" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IM.md" />
+            <toc-element toc-title="Interrupt" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Interrupt.md" />
+            <toc-element toc-title="IOReader" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOReader.md" />
+            <toc-element toc-title="IOWriter" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOWriter.md" />
+            <toc-element toc-title="MutableCycles" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MutableCycles.md" />
+            <toc-element toc-title="RecordCycles" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RecordCycles.md" />
+            <toc-element toc-title="RegisterA" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterA.md" />
+            <toc-element toc-title="RegisterAF" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterAF.md" />
+            <toc-element toc-title="RegisterB" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterB.md" />
+            <toc-element toc-title="RegisterBC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterBC.md" />
+            <toc-element toc-title="RegisterC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterC.md" />
+            <toc-element toc-title="RegisterD" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterD.md" />
+            <toc-element toc-title="RegisterDE" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterDE.md" />
+            <toc-element toc-title="RegisterE" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterE.md" />
+            <toc-element toc-title="RegisterF" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterF.md" />
+            <toc-element toc-title="RegisterH" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterH.md" />
+            <toc-element toc-title="RegisterHL" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterHL.md" />
+            <toc-element toc-title="RegisterI" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterI.md" />
+            <toc-element toc-title="RegisterIX" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterIX.md" />
+            <toc-element toc-title="RegisterIY" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterIY.md" />
+            <toc-element toc-title="RegisterL" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterL.md" />
+            <toc-element toc-title="RegisterPC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterPC.md" />
+            <toc-element toc-title="RegisterQ" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterQ.md" />
+            <toc-element toc-title="RegisterR" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterR.md" />
+            <toc-element toc-title="RegisterSP" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterSP.md" />
+            <toc-element toc-title="RegisterWZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterWZ.md" />
+            <toc-element toc-title="ShadowRegisterAF" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterAF.md" />
+            <toc-element toc-title="ShadowRegisterBC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterBC.md" />
+            <toc-element toc-title="ShadowRegisterDE" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterDE.md" />
+            <toc-element toc-title="ShadowRegisterHL" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterHL.md" />
+            <toc-element toc-title="TopOfRomArea" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md" />
+            <toc-element toc-title="TStates" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TStates.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="AssertEqual" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertEqual.md" />
+            <toc-element toc-title="AssertFail" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertFail.md" />
+            <toc-element toc-title="CopyToMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CopyToMemory.md" />
+            <toc-element toc-title="CreateAssertionScope" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CreateAssertionScope.md" />
+            <toc-element toc-title="ExecuteInstruction" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ExecuteInstruction.md" />
+            <toc-element toc-title="GetByteFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetByteFromMemory.md" />
+            <toc-element toc-title="GetWordFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetWordFromMemory.md" />
+            <toc-element toc-title="MemoryRead" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryRead.md" />
+            <toc-element toc-title="MemoryWrite" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryWrite.md" />
+            <toc-element toc-title="SetByteInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetByteInMemory.md" />
+            <toc-element toc-title="SetIO" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md" />
+            <toc-element toc-title="SetWordInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetWordInMemory.md" />
+            <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Step.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Instruction">
+        <toc-element toc-title="InstructionIO">
+          <toc-element toc-title="InstructionIO" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionIO.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionIO.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="IOWrites" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionIO.IOWrites.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Read" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionIO.Read.md" />
+            <toc-element toc-title="Write" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionIO.Write.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="InstructionTestCase">
+          <toc-element toc-title="InstructionTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="AssertionsToRun" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.AssertionsToRun.md" />
+            <toc-element toc-title="MemoryCycleMethod" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.MemoryCycleMethod.md" />
+            <toc-element toc-title="Name" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.Name.md" />
+            <toc-element toc-title="Opcode" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.Opcode.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="AdjustForOverlappedRead" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.AdjustForOverlappedRead.md" />
+            <toc-element toc-title="CreateZ80" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.CreateZ80.md" />
+            <toc-element toc-title="LastCycleWasOverlappedRead" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestCase.LastCycleWasOverlappedRead.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="InstructionTestSuite&lt;TTestCase&gt;">
+          <toc-element toc-title="InstructionTestSuite&lt;TTestCase&gt;" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="DefaultOptions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="GetTestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="InstructionTestSuiteOptions">
+          <toc-element toc-title="InstructionTestSuiteOptions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="AssertionsToRun" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRun.md" />
+            <toc-element toc-title="AssertionsToRunOverrides" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRunOverrides.md" />
+            <toc-element toc-title="MemoryCycleMethod" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.MemoryCycleMethod.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="GetAssertionsToRunFor" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.GetAssertionsToRunFor.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="IOEvent">
+          <toc-element toc-title="IOEvent" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.IOEvent.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.IOEvent.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Port" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.IOEvent.Port.md" />
+            <toc-element toc-title="Value" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.IOEvent.Value.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.IOEvent.ToString.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="MemoryCycleMethod" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.MemoryCycleMethod.md" />
+        <toc-element toc-title="MemoryState">
+          <toc-element toc-title="MemoryState" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.MemoryState.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Address" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.MemoryState.Address.md" />
+            <toc-element toc-title="Value" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.MemoryState.Value.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.MemoryState.ToString.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="TestAssertions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.TestAssertions.md" />
+        <toc-element toc-title="Z80ExpectedState">
+          <toc-element toc-title="Z80ExpectedState" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Cycles" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.Cycles.md" />
+            <toc-element toc-title="IOWrites" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.IOWrites.md" />
+            <toc-element toc-title="TStates" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.TStates.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Assert" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.Assert.md" />
+            <toc-element toc-title="ShouldAssertCycle" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.ShouldAssertCycle.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="Z80InputState">
+          <toc-element toc-title="Z80InputState" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="IOReads" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.IOReads.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Setup" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.Setup.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="Z80State">
+          <toc-element toc-title="Z80State" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.-ctor.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="FlagC" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagC.md" />
+            <toc-element toc-title="FlagH" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagH.md" />
+            <toc-element toc-title="FlagN" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagN.md" />
+            <toc-element toc-title="FlagPV" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagPV.md" />
+            <toc-element toc-title="FlagS" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagS.md" />
+            <toc-element toc-title="FlagX" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagX.md" />
+            <toc-element toc-title="FlagY" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagY.md" />
+            <toc-element toc-title="FlagZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.FlagZ.md" />
+            <toc-element toc-title="Halted" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.Halted.md" />
+            <toc-element toc-title="IFF1" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.IFF1.md" />
+            <toc-element toc-title="IFF2" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.IFF2.md" />
+            <toc-element toc-title="IM" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.IM.md" />
+            <toc-element toc-title="Memory" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.Memory.md" />
+            <toc-element toc-title="RegisterA" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterA.md" />
+            <toc-element toc-title="RegisterAF" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterAF.md" />
+            <toc-element toc-title="RegisterBC" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterBC.md" />
+            <toc-element toc-title="RegisterDE" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterDE.md" />
+            <toc-element toc-title="RegisterF" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterF.md" />
+            <toc-element toc-title="RegisterHL" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterHL.md" />
+            <toc-element toc-title="RegisterI" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterI.md" />
+            <toc-element toc-title="RegisterIX" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterIX.md" />
+            <toc-element toc-title="RegisterIY" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterIY.md" />
+            <toc-element toc-title="RegisterPC" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterPC.md" />
+            <toc-element toc-title="RegisterQ" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterQ.md" />
+            <toc-element toc-title="RegisterR" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterR.md" />
+            <toc-element toc-title="RegisterSP" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterSP.md" />
+            <toc-element toc-title="RegisterWZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.RegisterWZ.md" />
+            <toc-element toc-title="ShadowRegisterAF" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.ShadowRegisterAF.md" />
+            <toc-element toc-title="ShadowRegisterBC" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.ShadowRegisterBC.md" />
+            <toc-element toc-title="ShadowRegisterDE" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.ShadowRegisterDE.md" />
+            <toc-element toc-title="ShadowRegisterHL" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80State.ShadowRegisterHL.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA">
+        <toc-element toc-title="DAATestCase">
+          <toc-element toc-title="DAATestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Expected" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.Expected.md" />
+            <toc-element toc-title="Input" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.Input.md" />
+            <toc-element toc-title="Name" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.Name.md" />
+            <toc-element toc-title="Opcode" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.Opcode.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestCase.Execute.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="DAATestSuite">
+          <toc-element toc-title="DAATestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="Instance" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestSuite.Instance.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="DefaultOptions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestSuite.DefaultOptions.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="GetTestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA.DAATestSuite.GetTestCases.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse">
+        <toc-element toc-title="CycleBuilder">
+          <toc-element toc-title="CycleBuilder" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.CycleBuilder.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="BuildCycles" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.CycleBuilder.BuildCycles.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="FuseEvent">
+          <toc-element toc-title="FuseEvent" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Address" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.Address.md" />
+            <toc-element toc-title="Data" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.Data.md" />
+            <toc-element toc-title="TStatesAfter" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.TStatesAfter.md" />
+            <toc-element toc-title="Type" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.Type.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEvent.ToString.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="FuseEventType" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseEventType.md" />
+        <toc-element toc-title="FuseTestCase">
+          <toc-element toc-title="FuseTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Expected" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Expected.md" />
+            <toc-element toc-title="Input" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Input.md" />
+            <toc-element toc-title="Opcode" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Opcode.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Execute.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="FuseTestSuite">
+          <toc-element toc-title="FuseTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="DefaultAssertions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestSuite.DefaultAssertions.md" />
+            <toc-element toc-title="Instance" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestSuite.Instance.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="DefaultOptions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestSuite.DefaultOptions.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="GetTestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestSuite.GetTestCases.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="FuseZ80ExpectedState">
+          <toc-element toc-title="FuseZ80ExpectedState" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseZ80ExpectedState.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Events" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseZ80ExpectedState.Events.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="ShouldAssertCycle" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseZ80ExpectedState.ShouldAssertCycle.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="FuseZ80InputState">
+          <toc-element toc-title="FuseZ80InputState" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseZ80InputState.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="MinimumTStatesToRun" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseZ80InputState.MinimumTStatesToRun.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="MemorySection">
+          <toc-element toc-title="MemorySection" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.MemorySection.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Address" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.MemorySection.Address.md" />
+            <toc-element toc-title="Data" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.MemorySection.Data.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="ToString" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.MemorySection.ToString.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep">
+        <toc-element toc-title="CycleAdjustor">
+          <toc-element toc-title="CycleAdjustor" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.CycleAdjustor.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="AdjustTo" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.CycleAdjustor.AdjustTo.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="Pins" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.Pins.md" />
+        <toc-element toc-title="SingleStepTestCase">
+          <toc-element toc-title="SingleStepTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Opcode" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestCase.Opcode.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestCase.Execute.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="SingleStepTestSuite">
+          <toc-element toc-title="SingleStepTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="DefaultAssertions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestSuite.DefaultAssertions.md" />
+            <toc-element toc-title="Instance" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestSuite.Instance.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="DefaultOptions" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestSuite.DefaultOptions.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="GetTestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestSuite.GetTestCases.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="SingleStepZ80State">
+          <toc-element toc-title="SingleStepZ80State" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepZ80State.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepZ80State.-ctor.md" />
+        </toc-element>
+        <toc-element toc-title="Step">
+          <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.Step.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Expected" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.Step.Expected.md" />
+            <toc-element toc-title="Index" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.Step.Index.md" />
+            <toc-element toc-title="Input" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.Step.Input.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program">
+        <toc-element toc-title="ProgramTestCase">
+          <toc-element toc-title="ProgramTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestCase.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestCase.Execute.md" />
+            <toc-element toc-title="SetupTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestCase.SetupTestCase.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="ProgramTestResult" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestResult.md" />
+        <toc-element toc-title="ProgramTestSuite&lt;TTestCase&gt;">
+          <toc-element toc-title="ProgramTestSuite&lt;TTestCase&gt;" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="TestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.TestCases.md" />
+            <toc-element toc-title="TestTableStartAddress" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.TestTableStartAddress.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="CreateTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.CreateTestCase.md" />
+            <toc-element toc-title="LoadProgram" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.LoadProgram.md" />
+            <toc-element toc-title="MoveToNextTestCaseInTable" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ProgramTestSuite-1.MoveToNextTestCaseInTable.md" />
+          </toc-element>
+        </toc-element>
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass">
+        <toc-element toc-title="MarkWoodmassTestCase">
+          <toc-element toc-title="MarkWoodmassTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestCase.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="SetupTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestCase.SetupTestCase.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="MarkWoodmassTestSuite">
+          <toc-element toc-title="MarkWoodmassTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="Flags" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.Flags.md" />
+            <toc-element toc-title="Memptr" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.Memptr.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="TestTableStartAddress" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.TestTableStartAddress.md" />
+            <toc-element toc-title="Type" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.Type.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="CreateTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.CreateTestCase.md" />
+            <toc-element toc-title="Get" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.Get.md" />
+            <toc-element toc-title="LoadProgram" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.LoadProgram.md" />
+            <toc-element toc-title="MoveToNextTestCaseInTable" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.MoveToNextTestCaseInTable.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="MarkWoodmassTestType" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestType.md" />
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft">
+        <toc-element toc-title="RaxoftTestCase">
+          <toc-element toc-title="RaxoftTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestCase.md" />
+        </toc-element>
+        <toc-element toc-title="RaxoftTestSuite">
+          <toc-element toc-title="RaxoftTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="TestTableStartAddress" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.TestTableStartAddress.md" />
+            <toc-element toc-title="Type" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.Type.md" />
+            <toc-element toc-title="Version" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.Version.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="CreateTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.CreateTestCase.md" />
+            <toc-element toc-title="Get" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.Get.md" />
+            <toc-element toc-title="LoadProgram" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.LoadProgram.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="RaxoftTestType" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestType.md" />
+        <toc-element toc-title="RaxoftTestVersion" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestVersion.md" />
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL">
+        <toc-element toc-title="ZEXALLTestCase">
+          <toc-element toc-title="ZEXALLTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestCase.md" />
+        </toc-element>
+        <toc-element toc-title="ZEXALLTestSuite">
+          <toc-element toc-title="ZEXALLTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="ZEXALL" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.ZEXALL.md" />
+            <toc-element toc-title="ZEXDOC" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.ZEXDOC.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="TestTableStartAddress" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.TestTableStartAddress.md" />
+            <toc-element toc-title="Type" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.Type.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="CreateTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.CreateTestCase.md" />
+            <toc-element toc-title="Get" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.Get.md" />
+            <toc-element toc-title="LoadProgram" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestSuite.LoadProgram.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="ZEXALLTestType" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL.ZEXALLTestType.md" />
+      </toc-element>
+    </toc-element>
+  </toc-element>
+</instance-profile>

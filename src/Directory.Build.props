@@ -55,6 +55,9 @@
         <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!-- Allow missing documentation comments. -->
+        <NoWarn>CS1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup Condition="!$(MSBuildProjectName.EndsWith('Tests')) And !$(MSBuildProjectName.EndsWith('Generator'))">

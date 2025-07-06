@@ -24,3 +24,9 @@ jobs:
         with:
           name: MrKWatkins.EmulatorTestSuites
           directory: src
+          
+      - name: Build Documentation
+        uses: MrKWatkins/writerside-build@main
+        with:
+          instance: MrKWatkins.EmulatorTestSuites
+          directory: docs

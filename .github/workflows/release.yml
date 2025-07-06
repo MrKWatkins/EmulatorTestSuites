@@ -31,3 +31,11 @@ jobs:
           directory: src
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           version: ${{ inputs.version }}
+          
+      - name: Deploy Documentation
+        uses: MrKWatkins/writerside-build@main
+        with:
+          instance: MrKWatkins.EmulatorTestSuites
+          directory: docs
+          deploy: true
+          version: ${{ inputs.version }}

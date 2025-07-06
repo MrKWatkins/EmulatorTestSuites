@@ -11,6 +11,7 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="MrKWatkins.Assertions" Version="0.0.21" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Disassembly" Version="0.6.54" />
     <PackageVersion Include="MrKWatkins.OakAsm.Disassembly.Z80" Version="0.6.54" />
     <PackageVersion Include="MrKWatkins.OakAsm.Formatting" Version="0.6.54" />
     <PackageVersion Include="MrKWatkins.OakAsm.IO.ZXSpectrum" Version="0.6.54" />

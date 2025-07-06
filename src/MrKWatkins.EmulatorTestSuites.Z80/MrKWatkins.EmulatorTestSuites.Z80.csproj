@@ -10,6 +10,7 @@
         <EmbeddedResource Include="Instruction\SingleStep\TestCases\*" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="MrKWatkins.OakAsm.Disassembly" />
         <PackageReference Include="MrKWatkins.OakAsm.Disassembly.Z80" />
         <PackageReference Include="MrKWatkins.OakAsm.Formatting" />
         <PackageReference Include="MrKWatkins.OakAsm.IO.ZXSpectrum" />
