@@ -2,7 +2,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
 public sealed class FuseTestSuite : InstructionTestSuite<FuseTestCase>
 {
-    public const Assertions DefaultAssertions = Assertions.All & ~Assertions.Q;
+    public const TestAssertions DefaultAssertions = TestAssertions.All & ~TestAssertions.Q;
     public static readonly FuseTestSuite Instance = new();
 
     private FuseTestSuite()

@@ -2,7 +2,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep;
 
 public sealed class SingleStepTestSuite : InstructionTestSuite<SingleStepTestCase>
 {
-    public const Assertions DefaultAssertions = Assertions.All & ~Assertions.Halted;
+    public const TestAssertions DefaultAssertions = TestAssertions.All & ~TestAssertions.Halted;
     internal const string ResourcePrefix = "MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.TestCases.";
 
     public static readonly SingleStepTestSuite Instance = new();

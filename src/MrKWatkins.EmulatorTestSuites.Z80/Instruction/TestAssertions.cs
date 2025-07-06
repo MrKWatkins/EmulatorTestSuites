@@ -1,9 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
-// TODO: Make general version for all tests. Maybe make more granular, e.g. to register/flag level.
 [Flags]
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public enum Assertions : ulong
+public enum TestAssertions : ulong
 {
     None = 0,
 

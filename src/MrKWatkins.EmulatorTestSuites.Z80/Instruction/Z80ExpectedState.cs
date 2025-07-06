@@ -11,9 +11,9 @@ public class Z80ExpectedState : Z80State
     // ReSharper disable once InconsistentNaming
     public ulong TStates { get; internal set; }
 
-    public void Assert(Assertions assertionsToRun, Z80TestHarness z80)
+    public void Assert(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        AssertEqual(assertionsToRun, z80, Assertions.TStates, z80.TStates, TStates, $"T-States should be {TStates} but was {z80.TStates}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.TStates, z80.TStates, TStates, $"T-States should be {TStates} but was {z80.TStates}");
         AssertRegisters(assertionsToRun, z80);
         AssertFlags(assertionsToRun, z80);
         AssertInterrupts(assertionsToRun, z80);
@@ -22,50 +22,50 @@ public class Z80ExpectedState : Z80State
         AssertCycles(assertionsToRun, z80);
     }
 
-    private void AssertRegisters(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertRegisters(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        AssertEqual(assertionsToRun, z80, Assertions.A, z80.RegisterA, RegisterA, $"Register A should be 0x{RegisterA:X2} but was 0x{z80.RegisterA:X2}");
-        AssertEqual(assertionsToRun, z80, Assertions.F, z80.RegisterF, RegisterF, $"Register F should be 0x{RegisterF:X2} but was 0x{z80.RegisterF:X2}");
-        AssertEqual(assertionsToRun, z80, Assertions.BC, z80.RegisterBC, RegisterBC, $"Register BC should be 0x{RegisterBC:X4} but was 0x{z80.RegisterBC:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.DE, z80.RegisterDE, RegisterDE, $"Register DE should be 0x{RegisterDE:X4} but was 0x{z80.RegisterDE:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.HL, z80.RegisterHL, RegisterHL, $"Register HL should be 0x{RegisterHL:X4} but was 0x{z80.RegisterHL:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.PC, z80.RegisterPC, RegisterPC, $"Register PC should be 0x{RegisterPC:X4} but was 0x{z80.RegisterPC:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.SP, z80.RegisterSP, RegisterSP, $"Register SP should be 0x{RegisterSP:X4} but was 0x{z80.RegisterSP:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.IX, z80.RegisterIX, RegisterIX, $"Register IX should be 0x{RegisterIX:X4} but was 0x{z80.RegisterIX:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.IY, z80.RegisterIY, RegisterIY, $"Register IY should be 0x{RegisterIY:X4} but was 0x{z80.RegisterIY:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.WZ, z80.RegisterWZ, RegisterWZ, $"Register WZ should be 0x{RegisterWZ:X4} but was 0x{z80.RegisterWZ:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.I, z80.RegisterI, RegisterI, $"Register I should be 0x{RegisterI:X2} but was 0x{z80.RegisterI:X2}");
-        AssertEqual(assertionsToRun, z80, Assertions.R, z80.RegisterR, RegisterR, $"Register R should be 0x{RegisterR:X2} but was 0x{z80.RegisterR:X2}");
-        AssertEqual(assertionsToRun, z80, Assertions.Q, z80.RegisterQ, RegisterQ, $"Register Q should be 0x{RegisterQ:X2} but was 0x{z80.RegisterQ:X2}");
-        AssertEqual(assertionsToRun, z80, Assertions.ShadowAF, z80.ShadowRegisterAF, ShadowRegisterAF, $"Register AF' should be 0x{ShadowRegisterAF:X4} but was 0x{z80.ShadowRegisterAF:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.ShadowBC, z80.ShadowRegisterBC, ShadowRegisterBC, $"Register BC' should be 0x{ShadowRegisterBC:X4} but was 0x{z80.ShadowRegisterBC:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.ShadowDE, z80.ShadowRegisterDE, ShadowRegisterDE, $"Register DE' should be 0x{ShadowRegisterDE:X4} but was 0x{z80.ShadowRegisterDE:X4}");
-        AssertEqual(assertionsToRun, z80, Assertions.ShadowHL, z80.ShadowRegisterHL, ShadowRegisterHL, $"Register HL' should be 0x{ShadowRegisterHL:X4} but was 0x{z80.ShadowRegisterHL:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.A, z80.RegisterA, RegisterA, $"Register A should be 0x{RegisterA:X2} but was 0x{z80.RegisterA:X2}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.F, z80.RegisterF, RegisterF, $"Register F should be 0x{RegisterF:X2} but was 0x{z80.RegisterF:X2}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.BC, z80.RegisterBC, RegisterBC, $"Register BC should be 0x{RegisterBC:X4} but was 0x{z80.RegisterBC:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.DE, z80.RegisterDE, RegisterDE, $"Register DE should be 0x{RegisterDE:X4} but was 0x{z80.RegisterDE:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.HL, z80.RegisterHL, RegisterHL, $"Register HL should be 0x{RegisterHL:X4} but was 0x{z80.RegisterHL:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.PC, z80.RegisterPC, RegisterPC, $"Register PC should be 0x{RegisterPC:X4} but was 0x{z80.RegisterPC:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.SP, z80.RegisterSP, RegisterSP, $"Register SP should be 0x{RegisterSP:X4} but was 0x{z80.RegisterSP:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.IX, z80.RegisterIX, RegisterIX, $"Register IX should be 0x{RegisterIX:X4} but was 0x{z80.RegisterIX:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.IY, z80.RegisterIY, RegisterIY, $"Register IY should be 0x{RegisterIY:X4} but was 0x{z80.RegisterIY:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.WZ, z80.RegisterWZ, RegisterWZ, $"Register WZ should be 0x{RegisterWZ:X4} but was 0x{z80.RegisterWZ:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.I, z80.RegisterI, RegisterI, $"Register I should be 0x{RegisterI:X2} but was 0x{z80.RegisterI:X2}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.R, z80.RegisterR, RegisterR, $"Register R should be 0x{RegisterR:X2} but was 0x{z80.RegisterR:X2}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.Q, z80.RegisterQ, RegisterQ, $"Register Q should be 0x{RegisterQ:X2} but was 0x{z80.RegisterQ:X2}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.ShadowAF, z80.ShadowRegisterAF, ShadowRegisterAF, $"Register AF' should be 0x{ShadowRegisterAF:X4} but was 0x{z80.ShadowRegisterAF:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.ShadowBC, z80.ShadowRegisterBC, ShadowRegisterBC, $"Register BC' should be 0x{ShadowRegisterBC:X4} but was 0x{z80.ShadowRegisterBC:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.ShadowDE, z80.ShadowRegisterDE, ShadowRegisterDE, $"Register DE' should be 0x{ShadowRegisterDE:X4} but was 0x{z80.ShadowRegisterDE:X4}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.ShadowHL, z80.ShadowRegisterHL, ShadowRegisterHL, $"Register HL' should be 0x{ShadowRegisterHL:X4} but was 0x{z80.ShadowRegisterHL:X4}");
     }
 
-    private void AssertFlags(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertFlags(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        AssertEqual(assertionsToRun, z80, Assertions.C, z80.FlagC, FlagC, $"Flag C should should be {FormatFlag(FlagC)} but was {FormatFlag(z80.FlagC)}");
-        AssertEqual(assertionsToRun, z80, Assertions.N, z80.FlagN, FlagN, $"Flag N should be {FormatFlag(FlagN)} but was {FormatFlag(z80.FlagN)}");
-        AssertEqual(assertionsToRun, z80, Assertions.PV, z80.FlagPV, FlagPV, $"Flag PV should be {FormatFlag(FlagPV)} but was {FormatFlag(z80.FlagPV)}");
-        AssertEqual(assertionsToRun, z80, Assertions.X, z80.FlagX, FlagX, $"Flag X should be {FormatFlag(FlagX)} but was {FormatFlag(z80.FlagX)}");
-        AssertEqual(assertionsToRun, z80, Assertions.H, z80.FlagH, FlagH, $"Flag H should be {FormatFlag(FlagH)} but was {FormatFlag(z80.FlagH)}");
-        AssertEqual(assertionsToRun, z80, Assertions.Y, z80.FlagY, FlagY, $"Flag Y should be {FormatFlag(FlagY)} but was {FormatFlag(z80.FlagY)}");
-        AssertEqual(assertionsToRun, z80, Assertions.Z, z80.FlagZ, FlagZ, $"Flag Z should be {FormatFlag(FlagZ)} but was {FormatFlag(z80.FlagZ)}");
-        AssertEqual(assertionsToRun, z80, Assertions.S, z80.FlagS, FlagS, $"Flag S should be {FormatFlag(FlagS)} but was {FormatFlag(z80.FlagS)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.C, z80.FlagC, FlagC, $"Flag C should should be {FormatFlag(FlagC)} but was {FormatFlag(z80.FlagC)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.N, z80.FlagN, FlagN, $"Flag N should be {FormatFlag(FlagN)} but was {FormatFlag(z80.FlagN)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.PV, z80.FlagPV, FlagPV, $"Flag PV should be {FormatFlag(FlagPV)} but was {FormatFlag(z80.FlagPV)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.X, z80.FlagX, FlagX, $"Flag X should be {FormatFlag(FlagX)} but was {FormatFlag(z80.FlagX)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.H, z80.FlagH, FlagH, $"Flag H should be {FormatFlag(FlagH)} but was {FormatFlag(z80.FlagH)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.Y, z80.FlagY, FlagY, $"Flag Y should be {FormatFlag(FlagY)} but was {FormatFlag(z80.FlagY)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.Z, z80.FlagZ, FlagZ, $"Flag Z should be {FormatFlag(FlagZ)} but was {FormatFlag(z80.FlagZ)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.S, z80.FlagS, FlagS, $"Flag S should be {FormatFlag(FlagS)} but was {FormatFlag(z80.FlagS)}");
     }
 
-    private void AssertInterrupts(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertInterrupts(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        AssertEqual(assertionsToRun, z80, Assertions.IM, z80.IM, IM, $"IM should should be {IM} but was {z80.IM}");
-        AssertEqual(assertionsToRun, z80, Assertions.IFF1, z80.IFF1, IFF1, $"IFF1 should should be {FormatFlag(IFF1)} but was {FormatFlag(z80.IFF1)}");
-        AssertEqual(assertionsToRun, z80, Assertions.IFF2, z80.IFF2, IFF2, $"IFF2 should should be {FormatFlag(IFF2)} but was {FormatFlag(z80.IFF2)}");
-        AssertEqual(assertionsToRun, z80, Assertions.Halted, z80.Halted, Halted, $"Halted should should be {Halted} but was {z80.Halted}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.IM, z80.IM, IM, $"IM should should be {IM} but was {z80.IM}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.IFF1, z80.IFF1, IFF1, $"IFF1 should should be {FormatFlag(IFF1)} but was {FormatFlag(z80.IFF1)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.IFF2, z80.IFF2, IFF2, $"IFF2 should should be {FormatFlag(IFF2)} but was {FormatFlag(z80.IFF2)}");
+        AssertEqual(assertionsToRun, z80, TestAssertions.Halted, z80.Halted, Halted, $"Halted should should be {Halted} but was {z80.Halted}");
     }
 
-    private void AssertMemory(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertMemory(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        if (!assertionsToRun.HasFlag(Assertions.Memory))
+        if (!assertionsToRun.HasFlag(TestAssertions.Memory))
         {
             return;
         }
@@ -79,9 +79,9 @@ public class Z80ExpectedState : Z80State
         }
     }
 
-    private void AssertCycles(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertCycles(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        if (!assertionsToRun.HasFlag(Assertions.Cycles))
+        if (!assertionsToRun.HasFlag(TestAssertions.Cycles))
         {
             return;
         }
@@ -109,9 +109,9 @@ public class Z80ExpectedState : Z80State
 
     protected virtual bool ShouldAssertCycle(Cycle cycle) => true;
 
-    private void AssertIOWrites(Assertions assertionsToRun, Z80TestHarness z80)
+    private void AssertIOWrites(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
-        if (!assertionsToRun.HasFlag(Assertions.IOWrites))
+        if (!assertionsToRun.HasFlag(TestAssertions.IOWrites))
         {
             return;
         }
@@ -139,7 +139,7 @@ public class Z80ExpectedState : Z80State
 
     private static char FormatFlag(bool flag) => flag ? '1' : '0';
 
-    private static void AssertEqual<T>(Assertions assertionsToRun, Z80TestHarness z80, Assertions assertionsCategory, T actual, T expected, DefaultInterpolatedStringHandler message)
+    private static void AssertEqual<T>(TestAssertions assertionsToRun, Z80TestHarness z80, TestAssertions assertionsCategory, T actual, T expected, DefaultInterpolatedStringHandler message)
     {
         if (assertionsToRun.HasFlag(assertionsCategory))
         {

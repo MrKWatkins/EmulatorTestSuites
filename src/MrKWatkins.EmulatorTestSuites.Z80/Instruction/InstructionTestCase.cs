@@ -9,7 +9,7 @@ public abstract class InstructionTestCase : TestCase
         MemoryCycleMethod = options.MemoryCycleMethod;
     }
 
-    public Assertions AssertionsToRun { get; }
+    public TestAssertions AssertionsToRun { get; }
 
     public MemoryCycleMethod MemoryCycleMethod { get; }
 
