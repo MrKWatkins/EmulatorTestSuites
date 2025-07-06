@@ -20,7 +20,7 @@ public sealed class Step
     [Pure]
     internal static IEnumerable<Step> Load(SingleStepTestCase testCase)
     {
-        using var stream = typeof(Step).Assembly.GetManifestResourceStream(SingleStepTestSuite.ResourcePrefix + testCase.Name) ?? throw new InvalidOperationException($"Resource {testCase.Name} not found.");
+        using var stream = typeof(Step).Assembly.GetManifestResourceStream(SingleStepTestSuite.ResourcePrefix + testCase.Id) ?? throw new InvalidOperationException($"Resource {testCase.Id} not found.");
         using var brotli = new BrotliStream(stream, CompressionMode.Decompress);
         using var reader = new BinaryReader(brotli);
 

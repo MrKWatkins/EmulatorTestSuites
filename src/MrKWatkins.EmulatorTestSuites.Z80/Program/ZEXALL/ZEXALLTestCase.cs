@@ -2,8 +2,8 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL;
 
 public sealed class ZEXALLTestCase : ProgramTestCase
 {
-    internal ZEXALLTestCase(string name, ushort testAddress, byte[] memory)
-        : base(name, testAddress, memory)
+    internal ZEXALLTestCase(string id, ushort testAddress, byte[] memory)
+        : base(id, testAddress, memory)
     {
     }
 

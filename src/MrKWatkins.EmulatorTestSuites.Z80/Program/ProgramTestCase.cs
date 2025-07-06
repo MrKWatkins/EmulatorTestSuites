@@ -5,16 +5,16 @@ public abstract class ProgramTestCase : TestCase
     private readonly ushort testAddress;
     private readonly byte[] memory;
 
-    private protected ProgramTestCase(string name, ushort testAddress, byte[] memory)
-        : base(name)
+    private protected ProgramTestCase(string id, ushort testAddress, byte[] memory)
+        : base(id)
     {
         this.testAddress = testAddress;
         this.memory = memory;
     }
 
-    public sealed override void Execute<TTestHarness>(TextWriter? testOutput = null) => Execute<TTestHarness>(testOutput);
+    public sealed override void Execute<TTestHarness>(TextWriter? testOutput = null) => Execute<TTestHarness>(testOutput, null);
 
-    public void Execute<TTestHarness>(TextWriter? testOutput = null, TextWriter? debugOutput = null)
+    public void Execute<TTestHarness>(TextWriter? testOutput, TextWriter? debugOutput)
         where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness

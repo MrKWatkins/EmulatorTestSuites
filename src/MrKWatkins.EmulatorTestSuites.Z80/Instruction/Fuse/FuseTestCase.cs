@@ -2,8 +2,8 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
 public sealed class FuseTestCase : InstructionTestCase
 {
-    internal FuseTestCase(string name, InstructionTestSuiteOptions options, FuseZ80InputState input, FuseZ80ExpectedState expected)
-        : base(name, options)
+    internal FuseTestCase(string id, InstructionTestSuiteOptions options, FuseZ80InputState input, FuseZ80ExpectedState expected)
+        : base(id, options)
     {
         Input = input;
         Expected = expected;
@@ -14,6 +14,8 @@ public sealed class FuseTestCase : InstructionTestCase
         // We could infer some from the MemoryContends, but not all, plus Fuse puts IR on the address bus after incrementing R; it should be before.
         Expected.Cycles = CycleBuilder.BuildCycles(expected.Events, MemoryCycleMethod).ToList();
     }
+
+    public override string Opcode => OpcodeLookup.Get(Id.Split('_')[0]);
 
     public FuseZ80InputState Input { get; }
 

@@ -2,12 +2,16 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA;
 
 public sealed class DAATestCase : InstructionTestCase
 {
-    internal DAATestCase(string name, InstructionTestSuiteOptions options, Z80InputState input, Z80ExpectedState expected)
-        : base(name, options)
+    internal DAATestCase(string id, InstructionTestSuiteOptions options, Z80InputState input, Z80ExpectedState expected)
+        : base(id, options)
     {
         Input = input;
         Expected = expected;
     }
+
+    public override string Name => Id;
+
+    public override string Opcode => "DAA";
 
     public Z80InputState Input { get; }
 

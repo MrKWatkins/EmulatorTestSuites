@@ -4,8 +4,8 @@ public sealed class RaxoftTestCase : ProgramTestCase
 {
     private const ushort StartAddress = 0x8000;
 
-    internal RaxoftTestCase(string name, ushort testAddress, byte[] memory, ushort testTableStartAddress)
-        : base(name, testAddress, memory)
+    internal RaxoftTestCase(string id, ushort testAddress, byte[] memory, ushort testTableStartAddress)
+        : base(id, testAddress, memory)
     {
         TestTableStartAddress = testTableStartAddress;
     }

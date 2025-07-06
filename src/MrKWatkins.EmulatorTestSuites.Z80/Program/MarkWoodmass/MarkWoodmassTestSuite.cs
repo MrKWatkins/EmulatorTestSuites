@@ -43,9 +43,9 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
 
         var tap = TapFormat.Instance.Read(stream);
 
-        if (!tap.Blocks.Last().TryLoadInto(memory))
+        if (!tap.Blocks[^1].TryLoadInto(memory))
         {
-            throw new InvalidOperationException($"Could not load z80tests.tap.");
+            throw new InvalidOperationException("Could not load z80tests.tap.");
         }
     }
 

@@ -2,12 +2,16 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
 public abstract class InstructionTestCase : TestCase
 {
-    private protected InstructionTestCase(string name, InstructionTestSuiteOptions options)
-        : base(name)
+    private protected InstructionTestCase(string id, InstructionTestSuiteOptions options)
+        : base(id)
     {
-        AssertionsToRun = options.GetAssertionsToRunFor(name);
+        AssertionsToRun = options.GetAssertionsToRunFor(id);
         MemoryCycleMethod = options.MemoryCycleMethod;
     }
+
+    public override string Name => $"{Id} - {Opcode}";
+
+    public abstract string Opcode { get; }
 
     public TestAssertions AssertionsToRun { get; }
 

@@ -27,7 +27,7 @@ public sealed class RaxoftTestSuite : ProgramTestSuite<RaxoftTestCase>
 
         var tap = TapFormat.Instance.Read(stream);
 
-        if (!tap.Blocks.Last().TryLoadInto(memory))
+        if (!tap.Blocks[^1].TryLoadInto(memory))
         {
             throw new InvalidOperationException($"Could not load {resource}.");
         }

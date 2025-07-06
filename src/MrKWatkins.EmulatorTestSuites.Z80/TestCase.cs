@@ -2,12 +2,14 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 
 public abstract class TestCase
 {
-    private protected TestCase(string name)
+    private protected TestCase(string id)
     {
-        Name = name;
+        Id = id;
     }
 
-    public string Name { get; }
+    public string Id { get; }
+
+    public virtual string Name => Id;
 
     public abstract void Execute<TTestHarness>(TextWriter? testOutput = null)
         where TTestHarness : Z80TestHarness, new();

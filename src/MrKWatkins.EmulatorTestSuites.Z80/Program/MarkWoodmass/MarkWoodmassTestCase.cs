@@ -5,8 +5,8 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
     private readonly ushort startAddress;
     private readonly ushort endOfTestAddress;
 
-    internal MarkWoodmassTestCase(string name, ushort testAddress, byte[] memory, ushort startAddress, ushort testTableStartAddress, ushort endOfTestAddress)
-        : base(name, testAddress, memory)
+    internal MarkWoodmassTestCase(string id, ushort testAddress, byte[] memory, ushort startAddress, ushort testTableStartAddress, ushort endOfTestAddress)
+        : base(id, testAddress, memory)
     {
         TestTableStartAddress = testTableStartAddress;
         this.startAddress = startAddress;

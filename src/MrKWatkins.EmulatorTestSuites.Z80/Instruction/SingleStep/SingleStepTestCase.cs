@@ -1,11 +1,18 @@
+using System.Text.RegularExpressions;
+
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep;
 
-public sealed class SingleStepTestCase : InstructionTestCase
+public sealed partial class SingleStepTestCase : InstructionTestCase
 {
-    internal SingleStepTestCase(string name, InstructionTestSuiteOptions options)
-        : base(name, options)
+    [GeneratedRegex("[ _]")]
+    private static partial Regex SuperfluousIdCharactersRegex();
+
+    internal SingleStepTestCase(string id, InstructionTestSuiteOptions options)
+        : base(id, options)
     {
     }
+
+    public override string Opcode => OpcodeLookup.Get(SuperfluousIdCharactersRegex().Replace(Id, ""));
 
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
