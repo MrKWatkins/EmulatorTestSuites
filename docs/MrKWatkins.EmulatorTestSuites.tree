@@ -2,7 +2,14 @@
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd"[]>
 <instance-profile id="MrKWatkins.EmulatorTestSuites" name="MrKWatkins.EmulatorTestSuites" start-page="EmulatorTestSuites.md">
   <toc-element topic="EmulatorTestSuites.md" />
-  <toc-element toc-title="Z80" id="Z80">
+  <toc-element id="Z80" topic="Z80.md">
+    <toc-element id="DAA" topic="DAA.md" />
+    <toc-element id="Fuse" topic="Fuse.md" />
+    <toc-element id="MarkWoodmass" topic="MarkWoodmass.md" />
+    <toc-element id="Raxoft" topic="Raxoft.md" />
+    <toc-element id="SingleStep" topic="SingleStep.md" />
+    <toc-element id="ZEXALL" topic="ZEXALL.md" />
+    
     <toc-element toc-title="API" id="API">
       <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80">
         <toc-element toc-title="Cycle">

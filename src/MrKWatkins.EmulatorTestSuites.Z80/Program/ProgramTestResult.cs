@@ -1,6 +1,6 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program;
 
-public enum ProgramTestResult
+internal enum ProgramTestResult
 {
     None,
     Passed,

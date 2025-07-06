@@ -18,7 +18,7 @@ public abstract class InstructionTestCase : TestCase
     public MemoryCycleMethod MemoryCycleMethod { get; }
 
     [Pure]
-    protected static TTestHarness CreateZ80<TTestHarness>(Z80InputState inputState)
+    private protected static TTestHarness CreateZ80<TTestHarness>(Z80InputState inputState)
         where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness { RecordCycles = true };
@@ -27,7 +27,7 @@ public abstract class InstructionTestCase : TestCase
     }
 
     // TODO: Move to test harness?
-    protected static void AdjustForOverlappedRead(Z80TestHarness z80)
+    private protected static void AdjustForOverlappedRead(Z80TestHarness z80)
     {
         // If the last cycle was a MemoryRead, then we've had an overlapped read. The instruction tests (obviously) assume instruction level execution so won't
         // take this into account. We need to change the event to a None, however we do not need to adjust PC as we do that in the second opcode read step.
@@ -40,5 +40,5 @@ public abstract class InstructionTestCase : TestCase
     }
 
     [Pure]
-    protected static bool LastCycleWasOverlappedRead(Z80TestHarness z80) => z80.MutableCycles?.LastOrDefault()?.IsOpcodeRead == true;
+    private protected static bool LastCycleWasOverlappedRead(Z80TestHarness z80) => z80.MutableCycles?.LastOrDefault()?.IsOpcodeRead == true;
 }

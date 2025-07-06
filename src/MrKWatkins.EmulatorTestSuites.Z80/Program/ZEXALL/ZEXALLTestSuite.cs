@@ -24,16 +24,16 @@ public sealed class ZEXALLTestSuite : ProgramTestSuite<ZEXALLTestCase>
 
     public ZEXALLTestType Type { get; }
 
-    protected override void LoadProgram(byte[] memory)
+    private protected override void LoadProgram(byte[] memory)
     {
         using var stream = OpenResource($"{Type.ToString().ToLowerInvariant()}.bin");
 
         _ = stream.Read(memory.AsSpan(StartAddress));
     }
 
-    protected override ushort TestTableStartAddress => 0x013A;
+    private protected override ushort TestTableStartAddress => 0x013A;
 
-    protected override ZEXALLTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) => new(GetTestCaseName(memory, testAddress), testAddress, memory);
+    private protected override ZEXALLTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) => new(GetTestCaseName(memory, testAddress), testAddress, memory);
 
     [Pure]
     private static string GetTestCaseName(byte[] memory, ushort testCaseAddress)

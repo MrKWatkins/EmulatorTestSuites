@@ -10,5 +10,5 @@ public sealed class FuseZ80ExpectedState : Z80ExpectedState
 
     public IReadOnlyList<FuseEvent> Events { get; }
 
-    protected override bool ShouldAssertCycle(Cycle cycle) => cycle.Type != CycleType.None;
+    private protected override bool ShouldAssertCycle(Cycle cycle) => cycle.Type != CycleType.None;
 }

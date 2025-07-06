@@ -13,7 +13,7 @@ public abstract class ProgramTestSuite<TTestCase> : TestSuite
         lazyTestCases = new Lazy<IReadOnlyList<TTestCase>>(() => EnumerateTestCases().ToList());
     }
 
-    protected abstract ushort TestTableStartAddress { get; }
+    private protected abstract ushort TestTableStartAddress { get; }
 
     public IReadOnlyList<TTestCase> TestCases => lazyTestCases.Value;
 
@@ -39,10 +39,10 @@ public abstract class ProgramTestSuite<TTestCase> : TestSuite
     }
 
     [Pure]
-    protected abstract TTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress);
+    private protected abstract TTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress);
 
     [Pure]
-    protected virtual ushort MoveToNextTestCaseInTable(byte[] memory, ushort testTableAddress) => (ushort)(testTableAddress + 2);
+    private protected virtual ushort MoveToNextTestCaseInTable(byte[] memory, ushort testTableAddress) => (ushort)(testTableAddress + 2);
 
-    protected abstract void LoadProgram(byte[] memory);
+    private protected abstract void LoadProgram(byte[] memory);
 }

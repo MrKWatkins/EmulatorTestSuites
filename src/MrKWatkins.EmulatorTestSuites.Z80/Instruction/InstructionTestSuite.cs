@@ -14,6 +14,9 @@ public abstract class InstructionTestSuite<TTestCase> : TestSuite
     public IEnumerable<TTestCase> GetTestCases() => GetTestCases(DefaultOptions);
 
     [Pure]
+    public IEnumerable<TTestCase> GetTestCases(TestAssertions assertionsToRun) => GetTestCases(DefaultOptions with { AssertionsToRun = assertionsToRun });
+
+    [Pure]
     public IEnumerable<TTestCase> GetTestCases(IReadOnlyDictionary<string, TestAssertions> assertionsToRunOverrides) =>
         GetTestCases(DefaultOptions with { AssertionsToRunOverrides = assertionsToRunOverrides });
 

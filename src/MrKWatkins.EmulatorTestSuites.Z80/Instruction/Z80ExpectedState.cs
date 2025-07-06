@@ -107,7 +107,7 @@ public class Z80ExpectedState : Z80State
         }
     }
 
-    protected virtual bool ShouldAssertCycle(Cycle cycle) => true;
+    private protected virtual bool ShouldAssertCycle(Cycle cycle) => true;
 
     private void AssertIOWrites(TestAssertions assertionsToRun, Z80TestHarness z80)
     {

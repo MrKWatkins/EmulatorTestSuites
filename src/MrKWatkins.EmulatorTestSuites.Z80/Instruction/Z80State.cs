@@ -4,6 +4,10 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public abstract class Z80State
 {
+    private protected Z80State()
+    {
+    }
+
     public ushort RegisterAF { get; internal set; }
 
     public byte RegisterA

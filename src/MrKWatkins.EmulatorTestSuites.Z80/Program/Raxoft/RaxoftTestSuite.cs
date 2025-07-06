@@ -19,7 +19,7 @@ public sealed class RaxoftTestSuite : ProgramTestSuite<RaxoftTestCase>
 
     public RaxoftTestVersion Version { get; }
 
-    protected override void LoadProgram(byte[] memory)
+    private protected override void LoadProgram(byte[] memory)
     {
         var resource = $"{Version}.z80{Type.ToString().ToLowerInvariant()}.tap";
 
@@ -33,13 +33,13 @@ public sealed class RaxoftTestSuite : ProgramTestSuite<RaxoftTestCase>
         }
     }
 
-    protected override ushort TestTableStartAddress => Type switch
+    private protected override ushort TestTableStartAddress => Type switch
     {
         RaxoftTestType.Ccf => 0x887F,
         _ => 0x887A
     };
 
-    protected override RaxoftTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) => new(GetTestCaseName(memory, testAddress), testAddress, memory, TestTableStartAddress);
+    private protected override RaxoftTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) => new(GetTestCaseName(memory, testAddress), testAddress, memory, TestTableStartAddress);
 
     [Pure]
     private string GetTestCaseName(byte[] memory, ushort testAddress)

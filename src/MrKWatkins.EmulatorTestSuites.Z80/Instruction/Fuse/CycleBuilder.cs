@@ -1,6 +1,6 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
-public static class CycleBuilder
+internal static class CycleBuilder
 {
     // TODO: Accurate and End.
     [Pure]

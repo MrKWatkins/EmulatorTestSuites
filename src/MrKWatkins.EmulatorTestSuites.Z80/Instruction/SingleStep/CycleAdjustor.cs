@@ -4,7 +4,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep;
 /// The SingleStepTests have been generated with the 'use simplified memory access T-states' option set. Memory read and write pins are set on the second T-State of the cycle,
 /// which corresponds to <see cref="MemoryCycleMethod.End" />. This type adjusts them to match the specified method.
 /// </summary>
-public static class CycleAdjustor
+internal static class CycleAdjustor
 {
     [Pure]
     public static IEnumerable<Cycle> AdjustTo(MemoryCycleMethod method, IEnumerable<Cycle> cycles) => method switch

@@ -24,7 +24,7 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
 
     public MarkWoodmassTestType Type { get; }
 
-    protected override void LoadProgram(byte[] memory)
+    private protected override void LoadProgram(byte[] memory)
     {
         LoadRom(memory);
         LoadTests(memory);
@@ -49,7 +49,7 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
         }
     }
 
-    protected override ushort TestTableStartAddress => Type switch
+    private protected override ushort TestTableStartAddress => Type switch
     {
         MarkWoodmassTestType.Flags => 0x822B,
         _ => 0x8407
@@ -61,10 +61,10 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
         _ => 0x805F
     };
 
-    protected override MarkWoodmassTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) =>
+    private protected override MarkWoodmassTestCase CreateTestCase(byte[] memory, ushort testTableAddress, ushort testAddress) =>
         new(GetTestCaseName(memory, testTableAddress), testAddress, memory, StartAddress, testTableAddress, MoveToNextTestCaseInTable(memory, testTableAddress));
 
-    protected override ushort MoveToNextTestCaseInTable(byte[] memory, ushort testTableAddress)
+    private protected override ushort MoveToNextTestCaseInTable(byte[] memory, ushort testTableAddress)
     {
         // Skip over the test address.
         testTableAddress += 2;
