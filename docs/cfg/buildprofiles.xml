@@ -10,6 +10,9 @@
             <download-page>https://github.com/MrKWatkins/EmulatorTestSuites</download-page>
             <showDownloadButton>true</showDownloadButton>
             <custom-css>custom.css</custom-css>
+            <content-max-width>10000</content-max-width>
+            <primary-color>Emerald</primary-color>
+            <link-color>Emerald</link-color>
         </variables>
         <footer>
             <copyright>Kevin Watkins 2025</copyright>
