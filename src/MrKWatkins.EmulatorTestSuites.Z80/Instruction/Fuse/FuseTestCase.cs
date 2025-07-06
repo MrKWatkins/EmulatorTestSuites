@@ -15,7 +15,7 @@ public sealed class FuseTestCase : InstructionTestCase
         Expected.Cycles = CycleBuilder.BuildCycles(expected.Events, MemoryCycleMethod).ToList();
     }
 
-    public override string Opcode => OpcodeLookup.Get(Id.Split('_')[0]);
+    public override string? Opcode => OpcodeLookup.GetOrNull(Id.Split('_')[0]);
 
     public FuseZ80InputState Input { get; }
 

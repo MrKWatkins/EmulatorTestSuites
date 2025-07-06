@@ -11,5 +11,5 @@ public sealed record InstructionTestSuiteOptions
     public IReadOnlyDictionary<string, TestAssertions> AssertionsToRunOverrides { get; init; } = FrozenDictionary<string, TestAssertions>.Empty;
 
     [Pure]
-    public TestAssertions GetAssertionsToRunFor(string testName) => AssertionsToRunOverrides.GetValueOrDefault(testName, AssertionsToRun);
+    public TestAssertions GetAssertionsToRunFor(string testId) => AssertionsToRunOverrides.GetValueOrDefault(testId, AssertionsToRun);
 }

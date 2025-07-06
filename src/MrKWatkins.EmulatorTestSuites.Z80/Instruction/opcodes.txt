@@ -528,7 +528,7 @@ DD32|LD (nn), A
 DD33|INC SP
 DD34|INC (IX + n)
 DD35|DEC (IX + n)
-DD36P1|LD (IX + n), n
+DD36|LD (IX + n), n
 DD37|SCF
 DD38|JR C, d
 DD39|ADD IX, SP
@@ -1282,7 +1282,7 @@ FD32|LD (nn), A
 FD33|INC SP
 FD34|INC (IY + n)
 FD35|DEC (IY + n)
-FD36P1|LD (IY + n), n
+FD36|LD (IY + n), n
 FD37|SCF
 FD38|JR C, d
 FD39|ADD IY, SP

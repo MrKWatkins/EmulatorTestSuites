@@ -9,6 +9,11 @@ public sealed class SingleStepTestSuitesTest
     {
         var testCases = SingleStepTestSuite.Instance.GetTestCases().ToList();
         testCases.Should().HaveCount(1610);
+
+        foreach (var testCase in testCases)
+        {
+            AssertThat.Invoking(() => testCase.Name).Should().NotThrow();
+        }
     }
 
     [TestCase("00", "00 - NOP")]

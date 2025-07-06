@@ -12,7 +12,7 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
     {
     }
 
-    public override string Opcode => OpcodeLookup.Get(SuperfluousIdCharactersRegex().Replace(Id, ""));
+    public override string? Opcode => OpcodeLookup.GetOrNull(SuperfluousIdCharactersRegex().Replace(Id, ""));
 
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {

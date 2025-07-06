@@ -9,9 +9,9 @@ public abstract class InstructionTestCase : TestCase
         MemoryCycleMethod = options.MemoryCycleMethod;
     }
 
-    public override string Name => $"{Id} - {Opcode}";
+    public override string Name => Opcode != null ? $"{Id} - {Opcode}" : Id;
 
-    public abstract string Opcode { get; }
+    public abstract string? Opcode { get; }
 
     public TestAssertions AssertionsToRun { get; }
 

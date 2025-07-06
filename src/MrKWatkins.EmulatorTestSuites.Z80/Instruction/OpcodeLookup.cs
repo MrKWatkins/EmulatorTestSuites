@@ -7,7 +7,7 @@ internal static class OpcodeLookup
     private static readonly Lazy<FrozenDictionary<string, string>> LazyLookup = new(BuildLookup);
 
     [Pure]
-    internal static string Get(string name) => LazyLookup.Value[name];
+    internal static string? GetOrNull(string key) => LazyLookup.Value.GetValueOrDefault(key);
 
     [Pure]
     private static FrozenDictionary<string, string> BuildLookup()

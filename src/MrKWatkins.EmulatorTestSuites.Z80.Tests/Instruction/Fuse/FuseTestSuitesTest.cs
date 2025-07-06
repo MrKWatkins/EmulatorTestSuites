@@ -9,6 +9,11 @@ public sealed class FuseTestSuitesTest
     {
         var testCases = FuseTestSuite.Instance.GetTestCases().ToList();
         testCases.Should().HaveCount(1356);
+
+        foreach (var testCase in testCases)
+        {
+            AssertThat.Invoking(() => testCase.Name).Should().NotThrow();
+        }
     }
 
     [TestCase("00", "00 - NOP")]
