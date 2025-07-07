@@ -2,15 +2,32 @@ using System.Runtime.CompilerServices;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
+/// <summary>
+/// Represents the expected state of a Z80 after executing an <see cref="InstructionTestCase" />.
+/// </summary>
 public class Z80ExpectedState : Z80State
 {
+    /// <summary>
+    /// Gets the expected list of I/O write events that occurred during instruction execution.
+    /// </summary>
     public IReadOnlyList<IOEvent> IOWrites { get; internal set; } = [];
 
+    /// <summary>
+    /// Gets the expected list of cycles that occurred during instruction execution.
+    /// </summary>
     public IReadOnlyList<Cycle> Cycles { get; internal set; } = [];
 
+    /// <summary>
+    /// Gets the expected number of T-states taken to execute the instruction.
+    /// </summary>
     // ReSharper disable once InconsistentNaming
     public ulong TStates { get; internal set; }
 
+    /// <summary>
+    /// Asserts that the actual Z80 state matches the expected state according to the specified assertions.
+    /// </summary>
+    /// <param name="assertionsToRun">The set of assertions to perform.</param>
+    /// <param name="z80">The Z80 test harness containing the actual state to verify.</param>
     public void Assert(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         AssertEqual(assertionsToRun, z80, TestAssertions.TStates, z80.TStates, TStates, $"T-States should be {TStates} but was {z80.TStates}");

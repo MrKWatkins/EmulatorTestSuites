@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL;
 
+/// <summary>
+/// A test case from the <see cref="ZEXALLTestSuite" />.
+/// </summary>
 public sealed class ZEXALLTestCase : ProgramTestCase
 {
     internal ZEXALLTestCase(string id, ushort testAddress, byte[] memory)

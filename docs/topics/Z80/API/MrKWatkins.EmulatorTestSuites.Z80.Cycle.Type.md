@@ -1,6 +1,8 @@
 # Cycle.Type Property
 ## Definition
 
+Gets the type of CPU cycle.
+
 ```c#
 public CycleType Type { get; }
 ```

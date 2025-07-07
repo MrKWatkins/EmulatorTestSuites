@@ -1,8 +1,10 @@
 # Z80State.FlagN Property
 ## Definition
 
+Gets the add/subtract flag, N.
+
 ```c#
-public bool FlagN { get; set; }
+public bool FlagN { get; }
 ```
 
 ## Property Value

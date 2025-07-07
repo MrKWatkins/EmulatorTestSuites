@@ -2,8 +2,16 @@ using System.Globalization;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA;
 
+/// <summary>
+/// The DAA test suite.
+/// </summary>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/daa.html">Documentation</seealso>
+/// <seealso href="https://github.com/ruyrybeyro/daatable">Original test suite</seealso>
 public sealed class DAATestSuite : InstructionTestSuite<DAATestCase>
 {
+    /// <summary>
+    /// Gets the singleton instance of the <see cref="DAATestSuite" />.
+    /// </summary>
     public static readonly DAATestSuite Instance = new();
 
     private DAATestSuite()
@@ -11,8 +19,16 @@ public sealed class DAATestSuite : InstructionTestSuite<DAATestCase>
     {
     }
 
+    /// <summary>
+    /// Gets the default options for the DAA test suite.
+    /// </summary>
     public override InstructionTestSuiteOptions DefaultOptions { get; } = new();
 
+    /// <summary>
+    /// Gets all the test cases using the specified <see cref="InstructionTestSuiteOptions" />.
+    /// </summary>
+    /// <paramref name="options">The <see cref="InstructionTestSuiteOptions" /> to use.</paramref>
+    /// <returns>A sequence of test cases.</returns>
     public override IEnumerable<DAATestCase> GetTestCases(InstructionTestSuiteOptions options)
     {
         using var stream = OpenResource("daaoutput.txt");

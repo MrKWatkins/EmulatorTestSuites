@@ -1,6 +1,8 @@
 # Z80ExpectedState.Cycles Property
 ## Definition
 
+Gets the expected list of cycles that occurred during instruction execution.
+
 ```c#
 public IReadOnlyList<Cycle> Cycles { get; }
 ```

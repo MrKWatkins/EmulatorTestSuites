@@ -1,6 +1,8 @@
 # Z80State.Memory Property
 ## Definition
 
+Gets the memory state.
+
 ```c#
 public IReadOnlyList<MemoryState> Memory { get; }
 ```

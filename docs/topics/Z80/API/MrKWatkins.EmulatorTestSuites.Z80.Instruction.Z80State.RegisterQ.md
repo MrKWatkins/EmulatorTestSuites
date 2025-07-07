@@ -1,6 +1,8 @@
 # Z80State.RegisterQ Property
 ## Definition
 
+Gets the internal Q register.
+
 ```c#
 public Byte RegisterQ { get; }
 ```

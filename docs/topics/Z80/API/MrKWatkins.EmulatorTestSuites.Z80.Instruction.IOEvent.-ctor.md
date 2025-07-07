@@ -1,13 +1,15 @@
 # IOEvent Constructors
 
+Represents an Input/Output event in the Z80 emulator, containing port and value information.
+
 ```c#
-public IOEvent(ushort Port, Byte Value);
+public IOEvent(ushort port, Byte value);
 ```
 
 ## Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| Port | [UInt16](https://learn.microsoft.com/en-gb/dotnet/api/System.UInt16) |  |
-| Value | [Byte](https://learn.microsoft.com/en-gb/dotnet/api/System.Byte) |  |
+| port | [UInt16](https://learn.microsoft.com/en-gb/dotnet/api/System.UInt16) | The I/O port address. |
+| value | [Byte](https://learn.microsoft.com/en-gb/dotnet/api/System.Byte) | The value read from or written to the port. |
 

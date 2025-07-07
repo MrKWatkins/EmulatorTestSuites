@@ -1,6 +1,8 @@
 # MemoryCycleMethod Enum
 ## Definition
 
+How memory cycles are represented in a Z80 emulator.
+
 ```c#
 public enum MemoryCycleMethod
 ```

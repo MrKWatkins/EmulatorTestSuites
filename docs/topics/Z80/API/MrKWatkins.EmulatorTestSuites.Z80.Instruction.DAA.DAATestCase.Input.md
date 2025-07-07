@@ -1,6 +1,8 @@
 # DAATestCase.Input Property
 ## Definition
 
+Gets the initial Z80 state for this test case.
+
 ```c#
 public Z80InputState Input { get; }
 ```

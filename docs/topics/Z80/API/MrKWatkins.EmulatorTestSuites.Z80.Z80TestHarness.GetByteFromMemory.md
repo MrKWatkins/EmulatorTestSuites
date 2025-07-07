@@ -1,6 +1,8 @@
 # Z80TestHarness.GetByteFromMemory Method
 ## Definition
 
+Gets a byte from memory.
+
 ```c#
 public ushort GetByteFromMemory(ushort address);
 ```

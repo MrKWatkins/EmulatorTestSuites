@@ -1,6 +1,8 @@
 # Z80State.RegisterIY Property
 ## Definition
 
+Gets the IY register pair.
+
 ```c#
 public ushort RegisterIY { get; }
 ```

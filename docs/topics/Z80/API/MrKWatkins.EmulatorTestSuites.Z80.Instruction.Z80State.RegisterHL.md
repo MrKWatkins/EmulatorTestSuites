@@ -1,6 +1,8 @@
 # Z80State.RegisterHL Property
 ## Definition
 
+Gets the HL register pair.
+
 ```c#
 public ushort RegisterHL { get; }
 ```

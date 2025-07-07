@@ -1,6 +1,8 @@
 # Z80TestHarness.ShadowRegisterDE Property
 ## Definition
 
+Gets or sets the DE&#39; register pair.
+
 ```c#
 public abstract ushort ShadowRegisterDE { get; set; }
 ```

@@ -1,6 +1,8 @@
 # MarkWoodmassTestSuite.Type Property
 ## Definition
 
+Gets the type of test suite.
+
 ```c#
 public MarkWoodmassTestType Type { get; }
 ```

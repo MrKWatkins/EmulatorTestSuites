@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterIX Property
 ## Definition
 
+Gets or sets the IX register pair.
+
 ```c#
 public abstract ushort RegisterIX { get; set; }
 ```

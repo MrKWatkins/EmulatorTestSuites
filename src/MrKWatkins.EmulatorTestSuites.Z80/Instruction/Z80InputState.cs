@@ -1,10 +1,20 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
+/// <summary>
+/// Represents the input state of a Z80 in an <see cref="InstructionTestCase" />.
+/// </summary>
 public class Z80InputState : Z80State
 {
+    /// <summary>
+    /// Gets the list of I/O read events that occurred during execution.
+    /// </summary>
     public IReadOnlyList<IOEvent> IOReads { get; internal set; } = [];
 
-    public virtual void Setup(Z80TestHarness z80)
+    /// <summary>
+    /// Sets up the Z80 test harness with the current state values.
+    /// </summary>
+    /// <param name="z80">The Z80 test harness to configure.</param>
+    public void Setup(Z80TestHarness z80)
     {
         z80.RegisterAF = RegisterAF;
         z80.RegisterBC = RegisterBC;

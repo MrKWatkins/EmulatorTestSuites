@@ -1,6 +1,8 @@
 # FuseTestCase.Input Property
 ## Definition
 
+Gets the initial Z80 state for this test case.
+
 ```c#
 public FuseZ80InputState Input { get; }
 ```

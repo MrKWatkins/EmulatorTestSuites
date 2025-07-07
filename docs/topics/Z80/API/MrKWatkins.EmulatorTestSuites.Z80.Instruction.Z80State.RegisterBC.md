@@ -1,6 +1,8 @@
 # Z80State.RegisterBC Property
 ## Definition
 
+Gets the BC register pair.
+
 ```c#
 public ushort RegisterBC { get; }
 ```

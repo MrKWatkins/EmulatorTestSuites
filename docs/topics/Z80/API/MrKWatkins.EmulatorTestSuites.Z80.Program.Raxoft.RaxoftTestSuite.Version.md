@@ -1,6 +1,8 @@
 # RaxoftTestSuite.Version Property
 ## Definition
 
+Gets the version of the test suite.
+
 ```c#
 public RaxoftTestVersion Version { get; }
 ```

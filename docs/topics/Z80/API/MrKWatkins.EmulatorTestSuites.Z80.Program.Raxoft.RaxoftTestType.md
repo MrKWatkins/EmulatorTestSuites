@@ -1,6 +1,8 @@
 # RaxoftTestType Enum
 ## Definition
 
+Specifies the type of [RaxoftTestSuite](MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestSuite.md).
+
 ```c#
 public enum RaxoftTestType
 ```

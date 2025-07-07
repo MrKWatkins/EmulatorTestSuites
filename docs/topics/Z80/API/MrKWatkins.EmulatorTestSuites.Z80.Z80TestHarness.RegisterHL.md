@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterHL Property
 ## Definition
 
+Gets or sets the HL register pair.
+
 ```c#
 public abstract ushort RegisterHL { get; set; }
 ```

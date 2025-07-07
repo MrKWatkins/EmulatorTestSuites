@@ -1,5 +1,7 @@
 # NullIO Constructors
 
+A null implementation of I/O operations that returns a constant value for reads and ignores writes.
+
 ```c#
 public NullIO(Byte readValue = 255);
 ```

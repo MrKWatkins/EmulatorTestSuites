@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterPC Property
 ## Definition
 
+Gets or sets the PC register.
+
 ```c#
 public abstract ushort RegisterPC { get; set; }
 ```

@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft;
 
+/// <summary>
+/// Specifies the type of <see cref="RaxoftTestSuite"/>.
+/// </summary>
 public enum RaxoftTestType
 {
     /// <summary>

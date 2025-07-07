@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft;
 
+/// <summary>
+/// A test case from the <see cref="RaxoftTestSuite" />.
+/// </summary>
 public sealed class RaxoftTestCase : ProgramTestCase
 {
     private const ushort StartAddress = 0x8000;

@@ -1,6 +1,8 @@
 # FuseZ80InputState.MinimumTStatesToRun Property
 ## Definition
 
+Gets or sets the minimum number of T-states that must be run for this test case.
+
 ```c#
 public ulong MinimumTStatesToRun { get; }
 ```

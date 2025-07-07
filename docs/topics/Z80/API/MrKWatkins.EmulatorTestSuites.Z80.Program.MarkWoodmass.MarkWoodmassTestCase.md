@@ -1,13 +1,9 @@
 # MarkWoodmassTestCase Class
 ## Definition
 
+A test case from the [MarkWoodmassTestSuite](MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestSuite.md).
+
 ```c#
 public sealed class MarkWoodmassTestCase : ProgramTestCase
 ```
-
-## Methods
-
-| Name | Description |
-| ---- | ----------- |
-| [SetupTestCase(Z80TestHarness)](MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass.MarkWoodmassTestCase.SetupTestCase.md) |  |
 

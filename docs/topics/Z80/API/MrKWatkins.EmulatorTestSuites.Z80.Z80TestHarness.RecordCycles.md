@@ -1,6 +1,8 @@
 # Z80TestHarness.RecordCycles Property
 ## Definition
 
+Gets or sets whether CPU cycles should be recorded.
+
 ```c#
 public bool RecordCycles { get; set; }
 ```

@@ -1,6 +1,8 @@
 # Z80InputState.IOReads Property
 ## Definition
 
+Gets the list of I/O read events that occurred during execution.
+
 ```c#
 public IReadOnlyList<IOEvent> IOReads { get; }
 ```

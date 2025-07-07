@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterAF Property
 ## Definition
 
+Gets or sets the AF register pair.
+
 ```c#
 public abstract ushort RegisterAF { get; set; }
 ```

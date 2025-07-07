@@ -1,6 +1,8 @@
 # DAATestSuite.DefaultOptions Property
 ## Definition
 
+Gets the default options for the DAA test suite.
+
 ```c#
 public override InstructionTestSuiteOptions DefaultOptions { get; }
 ```

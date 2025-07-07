@@ -1,8 +1,10 @@
 # Z80State.FlagS Property
 ## Definition
 
+Gets the sign flag, S.
+
 ```c#
-public bool FlagS { get; set; }
+public bool FlagS { get; }
 ```
 
 ## Property Value

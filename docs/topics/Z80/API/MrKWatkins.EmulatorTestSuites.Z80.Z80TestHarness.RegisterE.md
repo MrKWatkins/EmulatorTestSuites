@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterE Property
 ## Definition
 
+Gets or sets the E register.
+
 ```c#
 public Byte RegisterE { get; set; }
 ```

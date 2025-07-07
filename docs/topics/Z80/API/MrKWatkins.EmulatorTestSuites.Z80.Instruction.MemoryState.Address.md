@@ -1,6 +1,8 @@
 # MemoryState.Address Property
 ## Definition
 
+Gets the memory address.
+
 ```c#
 public ushort Address { get; }
 ```

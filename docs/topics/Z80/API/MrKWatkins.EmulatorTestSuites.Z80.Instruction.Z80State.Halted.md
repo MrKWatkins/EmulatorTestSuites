@@ -1,6 +1,8 @@
 # Z80State.Halted Property
 ## Definition
 
+Gets whether the CPU is in the halted state.
+
 ```c#
 public bool Halted { get; }
 ```

@@ -1,6 +1,8 @@
 # Z80TestHarness.FlagN Property
 ## Definition
 
+Gets or sets the add/subtract flag, N.
+
 ```c#
 public abstract bool FlagN { get; set; }
 ```

@@ -1,6 +1,8 @@
 # TestSuite.Source Property
 ## Definition
 
+Gets the URL indicating the source of the original test suite.
+
 ```c#
 public Uri Source { get; }
 ```

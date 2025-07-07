@@ -1,6 +1,8 @@
 # Step.Input Property
 ## Definition
 
+Gets the input state of the Z80 for this step.
+
 ```c#
 public Z80InputState Input { get; }
 ```

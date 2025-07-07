@@ -1,6 +1,8 @@
 # Z80State.RegisterDE Property
 ## Definition
 
+Gets the DE register pair.
+
 ```c#
 public ushort RegisterDE { get; }
 ```

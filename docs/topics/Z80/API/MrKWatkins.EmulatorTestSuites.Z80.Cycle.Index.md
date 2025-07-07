@@ -1,6 +1,8 @@
 # Cycle.Index Property
 ## Definition
 
+Gets the sequential index of the cycle.
+
 ```c#
 public ulong Index { get; }
 ```

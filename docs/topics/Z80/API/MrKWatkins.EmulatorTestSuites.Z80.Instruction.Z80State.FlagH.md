@@ -1,8 +1,10 @@
 # Z80State.FlagH Property
 ## Definition
 
+Gets the half-carry flag, H.
+
 ```c#
-public bool FlagH { get; set; }
+public bool FlagH { get; }
 ```
 
 ## Property Value

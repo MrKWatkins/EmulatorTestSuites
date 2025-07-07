@@ -5,10 +5,18 @@ using MrKWatkins.OakAsm.Z80;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80;
 
+/// <summary>
+/// Utilities for debugging Z80 emulators by writing debug information.
+/// </summary>
 public static class Z80Debugging
 {
     private static readonly TrieCachedOpcodeReader OpcodeReader = new(new OpcodeInstructionLookup(Z80Assembly.OpcodeDefinitions));
 
+    /// <summary>
+    /// Writes debugging information for the specified <see cref="Z80TestHarness" /> to the specified <see cref="TextWriter" />.
+    /// </summary>
+    /// <param name="z80">The <see cref="Z80TestHarness" /> to be described in the debugging output. </param>
+    /// <param name="debug">The <see cref="TextWriter" /> to write debug information to. If <c>null</c>, no output will be written.</param>
     public static void WriteDebugInformation(Z80TestHarness z80, TextWriter? debug)
     {
         if (debug == null)

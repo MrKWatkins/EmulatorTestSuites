@@ -2,6 +2,9 @@ using System.IO.Compression;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep;
 
+/// <summary>
+/// Represents a single step in a <see cref="SingleStepTestCase"/> containing input state and expected output state.
+/// </summary>
 public sealed class Step
 {
     private Step(int index, Z80InputState input, Z80ExpectedState expected)
@@ -11,10 +14,19 @@ public sealed class Step
         Expected = expected;
     }
 
+    /// <summary>
+    /// Gets the zero-based index of this step within the test case.
+    /// </summary>
     public int Index { get; }
 
+    /// <summary>
+    /// Gets the input state of the Z80 for this step.
+    /// </summary>
     public Z80InputState Input { get; }
 
+    /// <summary>
+    /// Gets the expected state of the Z80 after executing this step.
+    /// </summary>
     public Z80ExpectedState Expected { get; }
 
     [Pure]

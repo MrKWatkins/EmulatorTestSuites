@@ -2,6 +2,11 @@ using System.Buffers.Binary;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program;
 
+/// <summary>
+/// Base class for program-based test suites that provide <typeparamref name="TTestCase"/>s for Z80 emulator implementations.
+/// </summary>
+/// <typeparam name="TTestCase">The type of test cases provided by this test suite.</typeparam>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/z80.html#program-test-suites">Documentation</seealso>
 public abstract class ProgramTestSuite<TTestCase> : TestSuite
     where TTestCase : TestCase
 {
@@ -15,6 +20,9 @@ public abstract class ProgramTestSuite<TTestCase> : TestSuite
 
     private protected abstract ushort TestTableStartAddress { get; }
 
+    /// <summary>
+    /// Gets the list of test cases in this test suite.
+    /// </summary>
     public IReadOnlyList<TTestCase> TestCases => lazyTestCases.Value;
 
     [Pure]

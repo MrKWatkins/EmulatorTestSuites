@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
+/// <summary>
+/// A test case from an <see cref="InstructionTestSuite{TTestCase}" />.
+/// </summary>
 public abstract class InstructionTestCase : TestCase
 {
     private protected InstructionTestCase(string id, InstructionTestSuiteOptions options)
@@ -9,12 +12,26 @@ public abstract class InstructionTestCase : TestCase
         MemoryCycleMethod = options.MemoryCycleMethod;
     }
 
-    public override string Name => Opcode != null ? $"{Id} - {Opcode}" : Id;
+    /// <summary>
+    /// Gets the name of the test case.
+    /// </summary>
+    public override string Name => OpcodeName != null ? $"{Id} - {OpcodeName}" : Id;
 
-    public abstract string? Opcode { get; }
+    /// <summary>
+    /// Gets the name of the opcode being tested.
+    /// </summary>
+    /// <returns>The name of the opcode, or <c>null</c> if the opcode cannot be determined for the test case.</returns>
+    public abstract string? OpcodeName { get; }
 
+    /// <summary>
+    /// The <see cref="TestAssertions" /> to run for this test case.
+    /// </summary>
     public TestAssertions AssertionsToRun { get; }
 
+    // TODO: This should be on the test harness.
+    /// <summary>
+    /// The <see cref="MemoryCycleMethod" /> used by the emulator being tested.
+    /// </summary>
     public MemoryCycleMethod MemoryCycleMethod { get; }
 
     [Pure]
@@ -26,7 +43,7 @@ public abstract class InstructionTestCase : TestCase
         return z80;
     }
 
-    // TODO: Move to test harness?
+    // TODO: This should be on the test harness and up to the user.
     private protected static void AdjustForOverlappedRead(Z80TestHarness z80)
     {
         // If the last cycle was a MemoryRead, then we've had an overlapped read. The instruction tests (obviously) assume instruction level execution so won't

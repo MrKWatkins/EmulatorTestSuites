@@ -1,6 +1,8 @@
 # Z80State.RegisterPC Property
 ## Definition
 
+Gets the PC register.
+
 ```c#
 public ushort RegisterPC { get; }
 ```

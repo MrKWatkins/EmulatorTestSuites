@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
 
+/// <summary>
+/// A test case from the <see cref="MarkWoodmassTestSuite" />.
+/// </summary>
 public sealed class MarkWoodmassTestCase : ProgramTestCase
 {
     private readonly ushort startAddress;
@@ -41,7 +44,7 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
         z80.SetByteInMemory(0x80DA, 0xC9);
     }
 
-    protected override void SetupTestCase(Z80TestHarness z80)
+    private protected override void SetupTestCase(Z80TestHarness z80)
     {
         z80.SetWordInMemory((ushort)(startAddress - 2), 0x0000);
 

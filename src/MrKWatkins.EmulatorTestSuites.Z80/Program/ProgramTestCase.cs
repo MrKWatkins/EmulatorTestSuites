@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program;
 
+/// <summary>
+/// Base class for Z80 test cases that execute a full program and verify the results.
+/// </summary>
 public abstract class ProgramTestCase : TestCase
 {
     private readonly ushort testAddress;
@@ -12,8 +15,19 @@ public abstract class ProgramTestCase : TestCase
         this.memory = memory;
     }
 
+    /// <summary>
+    /// Executes the test case with the specified test output.
+    /// </summary>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
+    /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
     public sealed override void Execute<TTestHarness>(TextWriter? testOutput = null) => Execute<TTestHarness>(testOutput, null);
 
+    /// <summary>
+    /// Executes the test case with the specified test and debug output.
+    /// </summary>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
+    /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
+    /// <param name="debugOutput">Optional writer for debug output. This will be the state of the emulator before each instruction.</param>
     public void Execute<TTestHarness>(TextWriter? testOutput, TextWriter? debugOutput)
         where TTestHarness : Z80TestHarness, new()
     {
@@ -59,7 +73,7 @@ public abstract class ProgramTestCase : TestCase
         }
     }
 
-    protected virtual void SetupTestCase(Z80TestHarness z80)
+    private protected virtual void SetupTestCase(Z80TestHarness z80)
     {
         // Write the address of the test at the start of the test table.
         z80.SetWordInMemory(TestTableStartAddress, testAddress);

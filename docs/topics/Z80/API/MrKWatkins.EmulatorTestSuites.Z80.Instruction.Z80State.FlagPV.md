@@ -1,8 +1,10 @@
 # Z80State.FlagPV Property
 ## Definition
 
+Gets the parity/overflow flag, P/V.
+
 ```c#
-public bool FlagPV { get; set; }
+public bool FlagPV { get; }
 ```
 
 ## Property Value

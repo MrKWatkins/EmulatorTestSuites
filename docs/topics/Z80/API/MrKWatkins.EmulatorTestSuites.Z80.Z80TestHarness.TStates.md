@@ -1,6 +1,8 @@
 # Z80TestHarness.TStates Property
 ## Definition
 
+Gets or sets the number of T-states (clock cycles) executed.
+
 ```c#
 public ulong TStates { get; set; }
 ```

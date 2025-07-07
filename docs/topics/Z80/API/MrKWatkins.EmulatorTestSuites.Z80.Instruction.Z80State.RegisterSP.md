@@ -1,6 +1,8 @@
 # Z80State.RegisterSP Property
 ## Definition
 
+Gets the SP register.
+
 ```c#
 public ushort RegisterSP { get; }
 ```

@@ -1,6 +1,8 @@
 # Z80TestHarness.FlagS Property
 ## Definition
 
+Gets or sets the sign flag, S.
+
 ```c#
 public abstract bool FlagS { get; set; }
 ```

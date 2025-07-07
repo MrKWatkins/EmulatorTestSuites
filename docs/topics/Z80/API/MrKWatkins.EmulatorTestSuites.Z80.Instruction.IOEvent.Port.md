@@ -1,8 +1,10 @@
 # IOEvent.Port Property
 ## Definition
 
+Gets the I/O port address.
+
 ```c#
-public ushort Port { get; init; }
+public ushort Port { get; }
 ```
 
 ## Property Value

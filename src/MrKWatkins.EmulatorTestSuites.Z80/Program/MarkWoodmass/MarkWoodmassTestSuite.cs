@@ -3,11 +3,29 @@ using MrKWatkins.OakAsm.IO.ZXSpectrum.Tap;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
 
+/// <summary>
+/// Mark Woodmass's test suite.
+/// </summary>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/markwoodmass.html">Documentation</seealso>
+/// <seealso href="https://worldofspectrum.org/forums/discussion/20345">Original test suite</seealso>
 public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCase>
 {
+    /// <summary>
+    /// Gets the <see cref="MarkWoodmassTestType.Flags" /> test suite that tests the flags for various DD/FD/CB instructions.
+    /// </summary>
     public static readonly MarkWoodmassTestSuite Flags = new(MarkWoodmassTestType.Flags);
+
+    /// <summary>
+    /// Gets the <see cref="MarkWoodmassTestType.Memptr" /> test suite that tests MEMPTR (<see cref="Z80TestHarness.RegisterWZ">WZ</see>) implementations.
+    /// </summary>
     public static readonly MarkWoodmassTestSuite Memptr = new(MarkWoodmassTestType.Memptr);
 
+    /// <summary>
+    /// Gets a test suite instance for the specified <see cref="MarkWoodmassTestType" />.
+    /// </summary>
+    /// <param name="type">The type of test suite to retrieve.</param>
+    /// <returns>The corresponding <see cref="MarkWoodmassTestSuite"/> instance.</returns>
+    /// <exception cref="NotSupportedException">Thrown when <paramref name="type"/> is not supported.</exception>
     [Pure]
     public static MarkWoodmassTestSuite Get(MarkWoodmassTestType type) => type switch
     {
@@ -22,6 +40,9 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
         Type = type;
     }
 
+    /// <summary>
+    /// Gets the type of test suite.
+    /// </summary>
     public MarkWoodmassTestType Type { get; }
 
     private protected override void LoadProgram(byte[] memory)

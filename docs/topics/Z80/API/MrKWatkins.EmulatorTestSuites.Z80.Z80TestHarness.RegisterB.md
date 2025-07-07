@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterB Property
 ## Definition
 
+Gets or sets the B register.
+
 ```c#
 public Byte RegisterB { get; set; }
 ```

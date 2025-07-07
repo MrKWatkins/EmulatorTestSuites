@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterD Property
 ## Definition
 
+Gets or sets the D register.
+
 ```c#
 public Byte RegisterD { get; set; }
 ```

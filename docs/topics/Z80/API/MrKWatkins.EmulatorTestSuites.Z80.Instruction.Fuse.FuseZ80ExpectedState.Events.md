@@ -1,6 +1,8 @@
 # FuseZ80ExpectedState.Events Property
 ## Definition
 
+The expected events.
+
 ```c#
 public IReadOnlyList<FuseEvent> Events { get; }
 ```

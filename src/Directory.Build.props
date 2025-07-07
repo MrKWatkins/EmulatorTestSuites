@@ -49,7 +49,6 @@
         <Authors>Kevin Watkins</Authors>
         <Copyright>Kevin Watkins 2025</Copyright>
         <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/MrKWatkins/EmulatorTestSuites</PackageProjectUrl>
         <RepositoryUrl>https://github.com/MrKWatkins/EmulatorTestSuites</RepositoryUrl>
         <PackageIcon>Icon.png</PackageIcon>
         <PackageReadmeFile>ReadMe.md</PackageReadmeFile>

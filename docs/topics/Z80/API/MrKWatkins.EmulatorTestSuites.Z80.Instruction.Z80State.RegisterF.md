@@ -1,6 +1,8 @@
 # Z80State.RegisterF Property
 ## Definition
 
+Gets the F register.
+
 ```c#
 public Byte RegisterF { get; }
 ```

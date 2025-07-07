@@ -1,6 +1,8 @@
 # ProgramTestSuite&lt;TTestCase&gt;.TestCases Property
 ## Definition
 
+Gets the list of test cases in this test suite.
+
 ```c#
 public IReadOnlyList<TTestCase> TestCases { get; }
 ```

@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterSP Property
 ## Definition
 
+Gets or sets the SP register.
+
 ```c#
 public abstract ushort RegisterSP { get; set; }
 ```

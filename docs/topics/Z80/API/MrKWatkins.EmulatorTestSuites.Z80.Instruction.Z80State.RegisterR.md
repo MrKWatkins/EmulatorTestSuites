@@ -1,6 +1,8 @@
 # Z80State.RegisterR Property
 ## Definition
 
+Gets the R register.
+
 ```c#
 public Byte RegisterR { get; }
 ```

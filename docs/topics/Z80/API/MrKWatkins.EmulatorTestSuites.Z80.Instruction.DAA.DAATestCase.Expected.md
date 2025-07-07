@@ -1,6 +1,8 @@
 # DAATestCase.Expected Property
 ## Definition
 
+Gets the expected Z80 state after executing the DAA instruction.
+
 ```c#
 public Z80ExpectedState Expected { get; }
 ```

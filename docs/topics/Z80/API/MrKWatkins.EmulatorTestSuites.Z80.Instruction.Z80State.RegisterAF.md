@@ -1,6 +1,8 @@
 # Z80State.RegisterAF Property
 ## Definition
 
+Gets the AF register pair.
+
 ```c#
 public ushort RegisterAF { get; }
 ```

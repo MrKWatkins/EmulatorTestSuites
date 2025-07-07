@@ -1,6 +1,8 @@
 # TestSuite.Name Property
 ## Definition
 
+Gets the name of the test suite.
+
 ```c#
 public string Name { get; }
 ```

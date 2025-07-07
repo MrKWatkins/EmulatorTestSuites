@@ -1,6 +1,8 @@
 # DAATestSuite.GetTestCases Method
 ## Definition
 
+Gets all the test cases using the specified [InstructionTestSuiteOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.md).
+
 ```c#
 public override IEnumerable<DAATestCase> GetTestCases(InstructionTestSuiteOptions options);
 ```
@@ -14,3 +16,5 @@ public override IEnumerable<DAATestCase> GetTestCases(InstructionTestSuiteOption
 ## Returns
 
 [IEnumerable&lt;DAATestCase&gt;](https://learn.microsoft.com/en-gb/dotnet/api/System.Collections.Generic.IEnumerable-1)
+
+A sequence of test cases.

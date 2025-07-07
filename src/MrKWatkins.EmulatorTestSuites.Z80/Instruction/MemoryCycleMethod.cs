@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
+/// <summary>
+/// How memory cycles are represented in a Z80 emulator.
+/// </summary>
 public enum MemoryCycleMethod
 {
     /// <summary>

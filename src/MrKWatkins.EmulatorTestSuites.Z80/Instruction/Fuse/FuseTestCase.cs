@@ -1,5 +1,8 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
+/// <summary>
+/// A test case from the <see cref="FuseTestSuite" />.
+/// </summary>
 public sealed class FuseTestCase : InstructionTestCase
 {
     internal FuseTestCase(string id, InstructionTestSuiteOptions options, FuseZ80InputState input, FuseZ80ExpectedState expected)
@@ -15,12 +18,27 @@ public sealed class FuseTestCase : InstructionTestCase
         Expected.Cycles = CycleBuilder.BuildCycles(expected.Events, MemoryCycleMethod).ToList();
     }
 
-    public override string? Opcode => OpcodeLookup.GetOrNull(Id.Split('_')[0]);
+    /// <summary>
+    /// Gets the name of the opcode being tested.
+    /// </summary>
+    /// <returns>The name of the opcode, or <c>null</c> if the opcode cannot be determined for the test case.</returns>
+    public override string? OpcodeName => OpcodeLookup.GetOrNull(Id.Split('_')[0]);
 
+    /// <summary>
+    /// Gets the initial Z80 state for this test case.
+    /// </summary>
     public FuseZ80InputState Input { get; }
 
+    /// <summary>
+    /// Gets the expected Z80 state after executing the DAA instruction.
+    /// </summary>
     public FuseZ80ExpectedState Expected { get; }
 
+    /// <summary>
+    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
+    /// </summary>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use for execution.</typeparam>
+    /// <param name="testOutput">Optional <see cref="TextWriter" /> for test output. If <c>null</c>, no output will be written.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
         var z80 = CreateZ80<TTestHarness>(Input);

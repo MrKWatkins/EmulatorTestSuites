@@ -1,6 +1,8 @@
 # Z80TestHarness.ShadowRegisterBC Property
 ## Definition
 
+Gets or sets the BC&#39; register pair.
+
 ```c#
 public abstract ushort ShadowRegisterBC { get; set; }
 ```

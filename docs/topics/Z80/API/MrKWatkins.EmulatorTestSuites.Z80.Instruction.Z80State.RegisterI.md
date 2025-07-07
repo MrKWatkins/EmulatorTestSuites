@@ -1,6 +1,8 @@
 # Z80State.RegisterI Property
 ## Definition
 
+Gets the I register.
+
 ```c#
 public Byte RegisterI { get; }
 ```

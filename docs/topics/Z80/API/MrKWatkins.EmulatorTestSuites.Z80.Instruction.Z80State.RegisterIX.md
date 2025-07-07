@@ -1,6 +1,8 @@
 # Z80State.RegisterIX Property
 ## Definition
 
+Gets the IX register pair.
+
 ```c#
 public ushort RegisterIX { get; }
 ```

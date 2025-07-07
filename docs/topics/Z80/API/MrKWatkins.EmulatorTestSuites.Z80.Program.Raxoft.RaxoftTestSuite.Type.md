@@ -1,6 +1,8 @@
 # RaxoftTestSuite.Type Property
 ## Definition
 
+Gets the type of test suite.
+
 ```c#
 public RaxoftTestType Type { get; }
 ```

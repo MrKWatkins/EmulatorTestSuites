@@ -16,5 +16,10 @@ public sealed class RaxoftTestSuiteTests
     [TestCase(RaxoftTestType.Flags, RaxoftTestVersion.V1_2A, ExpectedResult = 160)]
     [TestCase(RaxoftTestType.Full, RaxoftTestVersion.V1_2A, ExpectedResult = 160)]
     [TestCase(RaxoftTestType.Memptr, RaxoftTestVersion.V1_2A, ExpectedResult = 160)]
-    public int GetTestCases(RaxoftTestType type, RaxoftTestVersion version) => RaxoftTestSuite.Get(type, version).TestCases.Count;
+    public int GetTestCases(RaxoftTestType type, RaxoftTestVersion version)
+    {
+        var suite = RaxoftTestSuite.Get(type, version);
+        suite.Type.Should().Equal(type);
+        return suite.TestCases.Count;
+    }
 }

@@ -1,6 +1,8 @@
 # NullIO.Write Method
 ## Definition
 
+Writes a byte to the specified I/O port. This implementation ignores the write operation.
+
 ```c#
 public void Write(ushort port, Byte value);
 ```
@@ -9,6 +11,6 @@ public void Write(ushort port, Byte value);
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| port | [UInt16](https://learn.microsoft.com/en-gb/dotnet/api/System.UInt16) |  |
-| value | [Byte](https://learn.microsoft.com/en-gb/dotnet/api/System.Byte) |  |
+| port | [UInt16](https://learn.microsoft.com/en-gb/dotnet/api/System.UInt16) | The port address to write to. |
+| value | [Byte](https://learn.microsoft.com/en-gb/dotnet/api/System.Byte) | The value to write. |
 

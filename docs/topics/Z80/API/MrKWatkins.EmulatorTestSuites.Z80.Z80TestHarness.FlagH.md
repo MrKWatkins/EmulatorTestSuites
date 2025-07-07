@@ -1,6 +1,8 @@
 # Z80TestHarness.FlagH Property
 ## Definition
 
+Gets or sets the half-carry flag, H.
+
 ```c#
 public abstract bool FlagH { get; set; }
 ```

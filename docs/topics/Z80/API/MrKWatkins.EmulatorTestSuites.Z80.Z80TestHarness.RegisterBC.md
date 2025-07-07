@@ -1,6 +1,8 @@
 # Z80TestHarness.RegisterBC Property
 ## Definition
 
+Gets or sets the BC register pair.
+
 ```c#
 public abstract ushort RegisterBC { get; set; }
 ```

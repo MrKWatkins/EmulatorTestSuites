@@ -1,6 +1,8 @@
 # Z80TestHarness.ShadowRegisterHL Property
 ## Definition
 
+Gets or sets the HL&#39; register pair.
+
 ```c#
 public abstract ushort ShadowRegisterHL { get; set; }
 ```

@@ -1,6 +1,8 @@
 # Z80State.ShadowRegisterAF Property
 ## Definition
 
+Gets the AF&#39; register pair.
+
 ```c#
 public ushort ShadowRegisterAF { get; }
 ```

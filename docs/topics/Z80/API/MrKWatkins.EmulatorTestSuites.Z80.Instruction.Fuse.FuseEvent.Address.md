@@ -1,6 +1,8 @@
 # FuseEvent.Address Property
 ## Definition
 
+Gets the memory address associated with the event.
+
 ```c#
 public ushort Address { get; }
 ```

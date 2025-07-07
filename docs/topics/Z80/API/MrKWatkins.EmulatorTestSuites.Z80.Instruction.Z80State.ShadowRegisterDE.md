@@ -1,6 +1,8 @@
 # Z80State.ShadowRegisterDE Property
 ## Definition
 
+Gets the DE&#39; register pair.
+
 ```c#
 public ushort ShadowRegisterDE { get; }
 ```

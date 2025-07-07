@@ -1,6 +1,8 @@
 # FuseEvent.TStatesAfter Property
 ## Definition
 
+Gets the number of T-states after the event occurred.
+
 ```c#
 public ulong TStatesAfter { get; }
 ```

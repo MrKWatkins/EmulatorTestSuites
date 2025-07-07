@@ -1,6 +1,8 @@
 # CycleType Enum
 ## Definition
 
+Represents the type of memory or I/O operation cycle performed by the Z80 during emulation.
+
 ```c#
 public enum CycleType
 ```
@@ -9,9 +11,9 @@ public enum CycleType
 
 | Name | Description |
 | ---- | ----------- |
-| [IORead](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) |  |
-| [IOWrite](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) |  |
-| [MemoryRead](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) |  |
-| [MemoryWrite](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) |  |
-| [None](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) |  |
+| [IORead](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) | Represents an I/O port read operation. |
+| [IOWrite](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) | Represents an I/O port write operation. |
+| [MemoryRead](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) | Represents a memory read operation. |
+| [MemoryWrite](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) | Represents a memory write operation. |
+| [None](MrKWatkins.EmulatorTestSuites.Z80.CycleType.md#fields) | Represents no operation. |
 

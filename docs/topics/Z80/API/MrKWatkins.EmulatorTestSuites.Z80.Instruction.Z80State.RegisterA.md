@@ -1,6 +1,8 @@
 # Z80State.RegisterA Property
 ## Definition
 
+Gets the A register.
+
 ```c#
 public Byte RegisterA { get; }
 ```
