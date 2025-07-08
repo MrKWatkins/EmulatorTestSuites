@@ -1,10 +1,13 @@
 # ZEXALL
 
-> Tests from the ZEXALL test suite
+[Program-based](Z80.md#program-test-suites) tests from the [ZEXALL test suite](https://github.com/raxoft/z80test).
 
-## The Test Suite
+## Details
 
-This suite includes the tests from the [ZEXALL test suite](https://github.com/raxoft/z80test).
+The suite has two variants:
+
+1. ZEXDOC - tests just the documented flags for various instructions.
+2. ZEXALL - tests the documented and undocumented flags for various instructions.
 
 ## Original Tests
 
