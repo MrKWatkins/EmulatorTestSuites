@@ -76,6 +76,13 @@
             <toc-element toc-title="WriteDebugInformation" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80Debugging.WriteDebugInformation.md" />
           </toc-element>
         </toc-element>
+        <toc-element toc-title="Z80SteppableTestHarness">
+          <toc-element toc-title="Z80SteppableTestHarness" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.md" />
+          <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.-ctor.md" />
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md" />
+          </toc-element>
+        </toc-element>
         <toc-element toc-title="Z80TestHarness">
           <toc-element toc-title="Z80TestHarness" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md" />
           <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.-ctor.md" />
@@ -142,7 +149,6 @@
             <toc-element toc-title="SetByteInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetByteInMemory.md" />
             <toc-element toc-title="SetIO" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md" />
             <toc-element toc-title="SetWordInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetWordInMemory.md" />
-            <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Step.md" />
           </toc-element>
         </toc-element>
       </toc-element>

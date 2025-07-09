@@ -4,7 +4,7 @@
 Sets a byte in memory. Does not take [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account so it will update the ROM area.
 
 ```c#
-public void SetByteInMemory(ushort address, Byte value);
+public abstract void SetByteInMemory(ushort address, Byte value);
 ```
 
 ## Parameters

@@ -10,7 +10,6 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 public abstract class Z80TestHarness
 #pragma warning restore CA1001
 {
-    private readonly byte[] memory = new byte[65536];
     private AssertionScope? assertionScope;
 
     /// <summary>
@@ -282,19 +281,13 @@ public abstract class Z80TestHarness
     /// </summary>
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public byte MemoryRead(ushort address) => memory[address];
+    public byte MemoryRead(ushort address) => GetByteFromMemory(address);
 
     /// <summary>
     /// Performs a memory write for the emulator. Takes <see cref="TopOfRomArea" /> into account and will not overwrite memory in the ROM area.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void MemoryWrite(ushort address, byte value)
-    {
-        if (address > TopOfRomArea)
-        {
-            memory[address] = value;
-        }
-    }
+    public void MemoryWrite(ushort address, byte value) => SetByteInMemory(address, value);
 
     /// <summary>
     /// Copies a span of bytes into the memory starting at the specified address.
@@ -302,18 +295,25 @@ public abstract class Z80TestHarness
     /// <param name="address">The starting address in memory where the bytes will be copied.</param>
     /// <param name="source">The span of bytes to copy into memory.</param>
     [OverloadResolutionPriority(1)]
-    public void CopyToMemory(ushort address, ReadOnlySpan<byte> source) => source.CopyTo(memory.AsSpan(address));
+    public virtual void CopyToMemory(ushort address, ReadOnlySpan<byte> source)
+    {
+        foreach (var @byte in source)
+        {
+            SetByteInMemory(address, @byte);
+            address++;
+        }
+    }
 
     /// <summary>
     /// Copies a sequence of bytes into memory starting at the specified address.
     /// </summary>
     /// <param name="address">The starting memory address where the bytes will be copied.</param>
     /// <param name="source">The sequence of bytes to copy into memory.</param>
-    public void CopyToMemory(ushort address, IReadOnlyList<byte> source)
+    public virtual void CopyToMemory(ushort address, IReadOnlyList<byte> source)
     {
         foreach (var @byte in source)
         {
-            memory[address] = @byte;
+            SetByteInMemory(address, @byte);
             address++;
         }
     }
@@ -322,7 +322,7 @@ public abstract class Z80TestHarness
     /// Gets a byte from memory.
     /// </summary>
     [Pure]
-    public ushort GetByteFromMemory(ushort address) => memory[address];
+    public abstract byte GetByteFromMemory(ushort address);
 
     /// <summary>
     /// Gets a word in little endian format from memory.
@@ -343,7 +343,7 @@ public abstract class Z80TestHarness
     /// <summary>
     /// Sets a byte in memory. Does not take <see cref="TopOfRomArea" /> into account so it will update the ROM area.
     /// </summary>
-    public void SetByteInMemory(ushort address, byte value) => memory[address] = value;
+    public abstract void SetByteInMemory(ushort address, byte value);
 
     /// <summary>
     /// Sets a word in little endian format in memory. Does not take <see cref="TopOfRomArea" /> into account so it will update the ROM area.
@@ -458,23 +458,6 @@ public abstract class Z80TestHarness
     /// </summary>
     /// <param name="message">The error message indicating why the test failed.</param>
     public abstract void AssertFail(string message);
-
-    /// <summary>
-    /// Executes CPU steps until the specified number of T-states are reached.
-    /// </summary>
-    /// <param name="tStates">The target T-states to reach.</param>
-    public void Step(ulong tStates)
-    {
-        while (TStates <= tStates)
-        {
-            Step();
-        }
-    }
-
-    /// <summary>
-    /// Executes a single step of the CPU.
-    /// </summary>
-    public abstract void Step();
 
     /// <summary>
     /// Executes a single instruction.

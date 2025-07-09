@@ -11,7 +11,7 @@
 Copies a span of bytes into the memory starting at the specified address.
 
 ```c#
-public void CopyToMemory(ushort address, ReadOnlySpan<Byte> source);
+public virtual void CopyToMemory(ushort address, ReadOnlySpan<Byte> source);
 ```
 
 ## Parameters {id="parameters-mrkwatkins-emulatortestsuites-z80-z80testharness-copytomemory(system-uint16-system-readonlyspan((system-byte)))"}
@@ -26,7 +26,7 @@ public void CopyToMemory(ushort address, ReadOnlySpan<Byte> source);
 Copies a sequence of bytes into memory starting at the specified address.
 
 ```c#
-public void CopyToMemory(ushort address, IReadOnlyList<Byte> source);
+public virtual void CopyToMemory(ushort address, IReadOnlyList<Byte> source);
 ```
 
 ## Parameters {id="parameters-mrkwatkins-emulatortestsuites-z80-z80testharness-copytomemory(system-uint16-system-collections-generic-ireadonlylist((system-byte)))"}

@@ -1,7 +1,9 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Tests;
 
-internal sealed class TestZ80TestHarness : Z80TestHarness
+internal sealed class TestZ80TestHarness : Z80SteppableTestHarness
 {
+    private readonly byte[] memory = new byte[65536];
+
     public override ushort RegisterAF { get; set; }
 
     public override ushort RegisterBC { get; set; }
@@ -60,18 +62,13 @@ internal sealed class TestZ80TestHarness : Z80TestHarness
 
     public override bool Interrupt { get; set; }
 
-    public override void AssertFail(string message)
-    {
-        throw new NotImplementedException();
-    }
+    public override byte GetByteFromMemory(ushort address) => memory[address];
 
-    public override void Step()
-    {
-        throw new NotImplementedException();
-    }
+    public override void SetByteInMemory(ushort address, byte value) => memory[address] = value;
 
-    public override void ExecuteInstruction(TextWriter? debug = null)
-    {
-        throw new NotImplementedException();
-    }
+    public override void AssertFail(string message) => throw new NotImplementedException();
+
+    public override void Step() => throw new NotImplementedException();
+
+    public override void ExecuteInstruction(TextWriter? debug = null) => throw new NotImplementedException();
 }

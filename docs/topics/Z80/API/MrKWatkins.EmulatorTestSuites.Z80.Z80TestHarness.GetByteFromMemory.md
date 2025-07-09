@@ -4,7 +4,7 @@
 Gets a byte from memory.
 
 ```c#
-public ushort GetByteFromMemory(ushort address);
+public abstract Byte GetByteFromMemory(ushort address);
 ```
 
 ## Parameters
@@ -15,4 +15,4 @@ public ushort GetByteFromMemory(ushort address);
 
 ## Returns
 
-[UInt16](https://learn.microsoft.com/en-gb/dotnet/api/System.UInt16)
+[Byte](https://learn.microsoft.com/en-gb/dotnet/api/System.Byte)

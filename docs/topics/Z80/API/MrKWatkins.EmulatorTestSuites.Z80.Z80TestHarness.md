@@ -83,6 +83,4 @@ public abstract class Z80TestHarness
 | [SetByteInMemory(UInt16, Byte)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetByteInMemory.md) | Sets a byte in memory. Does not take [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account so it will update the ROM area. |
 | [SetIO&lt;TIO&gt;(TIO)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md) | Sets both the IO reader and writer to the same implementation. |
 | [SetWordInMemory(UInt16, UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetWordInMemory.md) | Sets a word in little endian format in memory. Does not take [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account so it will update the ROM area. |
-| [Step(UInt64)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Step.md#mrkwatkins-emulatortestsuites-z80-z80testharness-step(system-uint64)) | Executes CPU steps until the specified number of T-states are reached. |
-| [Step()](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Step.md#mrkwatkins-emulatortestsuites-z80-z80testharness-step) | Executes a single step of the CPU. |
 
