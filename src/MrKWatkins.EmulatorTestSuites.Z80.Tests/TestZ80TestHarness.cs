@@ -36,22 +36,6 @@ internal sealed class TestZ80TestHarness : Z80SteppableTestHarness
 
     public override ushort ShadowRegisterHL { get; set; }
 
-    public override bool FlagC { get; set; }
-
-    public override bool FlagN { get; set; }
-
-    public override bool FlagPV { get; set; }
-
-    public override bool FlagX { get; set; }
-
-    public override bool FlagH { get; set; }
-
-    public override bool FlagY { get; set; }
-
-    public override bool FlagZ { get; set; }
-
-    public override bool FlagS { get; set; }
-
     public override bool IFF1 { get; set; }
 
     public override bool IFF2 { get; set; }

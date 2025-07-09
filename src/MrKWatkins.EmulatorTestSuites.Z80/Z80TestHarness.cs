@@ -203,42 +203,74 @@ public abstract class Z80TestHarness
     /// <summary>
     /// Gets or sets the carry flag, C.
     /// </summary>
-    public abstract bool FlagC { get; set; }
+    public bool FlagC
+    {
+        get => (RegisterF & 0b00000001) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00000001 : RegisterF & 0b11111110);
+    }
 
     /// <summary>
     /// Gets or sets the add/subtract flag, N.
     /// </summary>
-    public abstract bool FlagN { get; set; }
+    public bool FlagN
+    {
+        get => (RegisterF & 0b00000010) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00000010 : RegisterF & 0b11111101);
+    }
 
     /// <summary>
     /// Gets or sets the parity/overflow flag, P/V.
     /// </summary>
-    public abstract bool FlagPV { get; set; }
+    public bool FlagPV
+    {
+        get => (RegisterF & 0b00000100) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00000100 : RegisterF & 0b11111011);
+    }
 
     /// <summary>
     /// Gets or sets the undocumented X flag, bit 3 of the F register.
     /// </summary>
-    public abstract bool FlagX { get; set; }
+    public bool FlagX
+    {
+        get => (RegisterF & 0b00001000) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00001000 : RegisterF & 0b11110111);
+    }
 
     /// <summary>
     /// Gets or sets the half-carry flag, H.
     /// </summary>
-    public abstract bool FlagH { get; set; }
+    public bool FlagH
+    {
+        get => (RegisterF & 0b00010000) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00010000 : RegisterF & 0b11101111);
+    }
 
     /// <summary>
     /// Gets or sets the undocumented Y flag, bit 5 of the F register.
     /// </summary>
-    public abstract bool FlagY { get; set; }
+    public bool FlagY
+    {
+        get => (RegisterF & 0b00100000) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b00100000 : RegisterF & 0b11011111);
+    }
 
     /// <summary>
     /// Gets or sets the zero flag, Z.
     /// </summary>
-    public abstract bool FlagZ { get; set; }
+    public bool FlagZ
+    {
+        get => (RegisterF & 0b01000000) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b01000000 : RegisterF & 0b10111111);
+    }
 
     /// <summary>
     /// Gets or sets the sign flag, S.
     /// </summary>
-    public abstract bool FlagS { get; set; }
+    public bool FlagS
+    {
+        get => (RegisterF & 0b10000000) != 0;
+        set => RegisterF = (byte)(value ? RegisterF | 0b10000000 : RegisterF & 0b01111111);
+    }
 
     /// <summary>
     /// Gets or sets the IFF1 interrupt flip-flop.

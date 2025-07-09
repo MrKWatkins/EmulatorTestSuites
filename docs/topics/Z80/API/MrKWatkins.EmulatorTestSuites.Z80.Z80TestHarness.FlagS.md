@@ -4,7 +4,7 @@
 Gets or sets the sign flag, S.
 
 ```c#
-public abstract bool FlagS { get; set; }
+public bool FlagS { get; set; }
 ```
 
 ## Property Value

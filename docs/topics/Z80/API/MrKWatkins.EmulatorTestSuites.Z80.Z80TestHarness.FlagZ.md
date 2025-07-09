@@ -4,7 +4,7 @@
 Gets or sets the zero flag, Z.
 
 ```c#
-public abstract bool FlagZ { get; set; }
+public bool FlagZ { get; set; }
 ```
 
 ## Property Value

@@ -4,7 +4,7 @@
 Gets or sets the carry flag, C.
 
 ```c#
-public abstract bool FlagC { get; set; }
+public bool FlagC { get; set; }
 ```
 
 ## Property Value

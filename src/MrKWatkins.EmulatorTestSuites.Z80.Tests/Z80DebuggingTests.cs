@@ -19,15 +19,7 @@ public sealed class Z80DebuggingTests
             RegisterI = 0x99,
             RegisterR = 0xAA,
             RegisterWZ = 0xBBCC,
-            RegisterQ = 0xDD,
-            FlagS = true,
-            FlagZ = false,
-            FlagH = true,
-            FlagPV = false,
-            FlagN = true,
-            FlagC = false,
-            FlagX = true,
-            FlagY = false
+            RegisterQ = 0xDD
         };
 
         z80.SetByteInMemory(0x1234, 0xC9);
@@ -36,6 +28,6 @@ public sealed class Z80DebuggingTests
         Z80Debugging.WriteDebugInformation(z80, writer);
 
         var output = writer.ToString();
-        output.Should().Equal("0x1234: RET              PC 1234 SP 5678 AF 9ABC BC DEF0 DE 1122 HL 3344 IX 5566 IY 7788 I 99 R AA WZ BBCC Q DD SNpXHyNc" + Environment.NewLine);
+        output.Should().Equal("0x1234: RET              PC 1234 SP 5678 AF 9ABC BC DEF0 DE 1122 HL 3344 IX 5566 IY 7788 I 99 R AA WZ BBCC Q DD SnPXHYnc" + Environment.NewLine);
     }
 }

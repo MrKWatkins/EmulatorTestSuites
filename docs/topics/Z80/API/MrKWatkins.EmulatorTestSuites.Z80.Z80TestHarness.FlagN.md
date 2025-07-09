@@ -4,7 +4,7 @@
 Gets or sets the add/subtract flag, N.
 
 ```c#
-public abstract bool FlagN { get; set; }
+public bool FlagN { get; set; }
 ```
 
 ## Property Value

@@ -225,6 +225,134 @@ public sealed class Z80TestHarnessTests
     }
 
     [Test]
+    public void FlagC()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagC.Should().BeFalse();
+
+        harness.FlagC = true;
+        harness.FlagC.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00000001);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagC = false;
+        harness.FlagC.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11111110);
+    }
+
+    [Test]
+    public void FlagN()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagN.Should().BeFalse();
+
+        harness.FlagN = true;
+        harness.FlagN.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00000010);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagN = false;
+        harness.FlagN.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11111101);
+    }
+
+    [Test]
+    public void FlagPV()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagPV.Should().BeFalse();
+
+        harness.FlagPV = true;
+        harness.FlagPV.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00000100);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagPV = false;
+        harness.FlagPV.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11111011);
+    }
+
+    [Test]
+    public void FlagX()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagX.Should().BeFalse();
+
+        harness.FlagX = true;
+        harness.FlagX.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00001000);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagX = false;
+        harness.FlagX.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11110111);
+    }
+
+    [Test]
+    public void FlagH()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagH.Should().BeFalse();
+
+        harness.FlagH = true;
+        harness.FlagH.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00010000);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagH = false;
+        harness.FlagH.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11101111);
+    }
+
+    [Test]
+    public void FlagY()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagY.Should().BeFalse();
+
+        harness.FlagY = true;
+        harness.FlagY.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b00100000);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagY = false;
+        harness.FlagY.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b11011111);
+    }
+
+    [Test]
+    public void FlagZ()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagZ.Should().BeFalse();
+
+        harness.FlagZ = true;
+        harness.FlagZ.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b01000000);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagZ = false;
+        harness.FlagZ.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b10111111);
+    }
+
+    [Test]
+    public void FlagS()
+    {
+        var harness = new TestZ80TestHarness();
+        harness.FlagS.Should().BeFalse();
+
+        harness.FlagS = true;
+        harness.FlagS.Should().BeTrue();
+        harness.RegisterF.Should().Equal(0b10000000);
+
+        harness.RegisterF = 0b11111111;
+        harness.FlagS = false;
+        harness.FlagS.Should().BeFalse();
+        harness.RegisterF.Should().Equal(0b01111111);
+    }
+
+    [Test]
     public void IFF1()
     {
         var harness = new TestZ80TestHarness();

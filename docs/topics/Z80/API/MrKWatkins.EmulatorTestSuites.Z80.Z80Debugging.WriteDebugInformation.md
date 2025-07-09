@@ -4,7 +4,7 @@
 Writes debugging information for the specified [Z80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md) to the specified [TextWriter](https://learn.microsoft.com/en-gb/dotnet/api/System.IO.TextWriter).
 
 ```c#
-public static void WriteDebugInformation(Z80TestHarness z80, TextWriter? debug);
+public static void WriteDebugInformation(Z80TestHarness z80, TextWriter debug);
 ```
 
 ## Parameters

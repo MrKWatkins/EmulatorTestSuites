@@ -4,7 +4,7 @@
 Gets or sets the undocumented Y flag, bit 5 of the F register.
 
 ```c#
-public abstract bool FlagY { get; set; }
+public bool FlagY { get; set; }
 ```
 
 ## Property Value

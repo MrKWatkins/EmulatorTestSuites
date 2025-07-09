@@ -4,7 +4,7 @@
 Gets or sets the parity/overflow flag, P/V.
 
 ```c#
-public abstract bool FlagPV { get; set; }
+public bool FlagPV { get; set; }
 ```
 
 ## Property Value
