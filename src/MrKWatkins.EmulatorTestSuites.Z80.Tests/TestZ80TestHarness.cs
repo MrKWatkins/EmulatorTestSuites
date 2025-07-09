@@ -70,5 +70,5 @@ internal sealed class TestZ80TestHarness : Z80SteppableTestHarness
 
     public override void Step() => throw new NotImplementedException();
 
-    public override void ExecuteInstruction(TextWriter? debug = null) => throw new NotImplementedException();
+    public override void ExecuteInstruction() => throw new NotImplementedException();
 }

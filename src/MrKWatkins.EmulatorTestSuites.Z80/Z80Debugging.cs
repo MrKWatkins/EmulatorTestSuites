@@ -17,13 +17,8 @@ public static class Z80Debugging
     /// </summary>
     /// <param name="z80">The <see cref="Z80TestHarness" /> to be described in the debugging output. </param>
     /// <param name="debug">The <see cref="TextWriter" /> to write debug information to. If <c>null</c>, no output will be written.</param>
-    public static void WriteDebugInformation(Z80TestHarness z80, TextWriter? debug)
+    public static void WriteDebugInformation(Z80TestHarness z80, TextWriter debug)
     {
-        if (debug == null)
-        {
-            return;
-        }
-
         debug.Write($"0x{z80.RegisterPC:X4}: ");
         WriteOpcodeWithPadding(z80, debug);
         debug.Write(' ');

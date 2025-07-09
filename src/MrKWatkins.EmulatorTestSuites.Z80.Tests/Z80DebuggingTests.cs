@@ -4,13 +4,6 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Tests;
 public sealed class Z80DebuggingTests
 {
     [Test]
-    public void WriteDebugInformation_debug_null()
-    {
-        var z80 = new TestZ80TestHarness();
-        AssertThat.Invoking(() => Z80Debugging.WriteDebugInformation(z80, null)).Should().NotThrow();
-    }
-
-    [Test]
     public void WriteDebugInformation()
     {
         var z80 = new TestZ80TestHarness

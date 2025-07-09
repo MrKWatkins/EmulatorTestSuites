@@ -462,8 +462,21 @@ public abstract class Z80TestHarness
     /// <summary>
     /// Executes a single instruction.
     /// </summary>
+    public abstract void ExecuteInstruction();
+
+    /// <summary>
+    /// Executes a single instruction with debug output.
+    /// </summary>
     /// <param name="debug">Optional TextWriter for debug output.</param>
-    public abstract void ExecuteInstruction(TextWriter? debug = null);
+    public void ExecuteInstruction(TextWriter? debug)
+    {
+        if (debug != null)
+        {
+            Z80Debugging.WriteDebugInformation(this, debug);
+        }
+
+        ExecuteInstruction();
+    }
 
     [Pure]
     private static byte GetLowByte(ushort value) => (byte)(value >> 8); // Little endian, so the lowest byte is first in memory, i.e. the first byte in the short.
