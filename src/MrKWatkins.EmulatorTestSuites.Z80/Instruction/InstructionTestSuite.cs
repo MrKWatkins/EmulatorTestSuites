@@ -43,6 +43,17 @@ public abstract class InstructionTestSuite<TTestCase> : TestSuite
         GetTestCases(DefaultOptions with { AssertionsToRunOverrides = assertionsToRunOverrides });
 
     /// <summary>
+    /// Gets all the test cases, overriding the <see cref="InstructionTestSuiteOptions.AssertionsToRun"/> on the <see cref="DefaultOptions" /> for all tests
+    /// along with overrides for specific tests.
+    /// </summary>
+    /// <paramref name="assertionsToRun">The assertions to run.</paramref>
+    /// <paramref name="assertionsToRunOverrides">Assertions to run overrides, keyed by <see cref="TestCase.Id"/>.</paramref>
+    /// <returns>A sequence of test cases.</returns>
+    [Pure]
+    public IEnumerable<TTestCase> GetTestCases(TestAssertions assertionsToRun, IReadOnlyDictionary<string, TestAssertions> assertionsToRunOverrides) =>
+        GetTestCases(DefaultOptions with { AssertionsToRun = assertionsToRun, AssertionsToRunOverrides = assertionsToRunOverrides });
+
+    /// <summary>
     /// Gets all the test cases using the specified <see cref="InstructionTestSuiteOptions" />.
     /// </summary>
     /// <paramref name="options">The <see cref="InstructionTestSuiteOptions" /> to use.</paramref>

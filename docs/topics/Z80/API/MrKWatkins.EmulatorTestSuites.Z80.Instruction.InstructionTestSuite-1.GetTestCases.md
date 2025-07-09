@@ -6,6 +6,7 @@
 | [GetTestCases()](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md#mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases) | Gets all the test cases using the [DefaultOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md). |
 | [GetTestCases(TestAssertions)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md#mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-testassertions)) | Gets all the test cases, overriding the [AssertionsToRun](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRun.md) on the [DefaultOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md). |
 | [GetTestCases(IReadOnlyDictionary&lt;String, TestAssertions&gt;)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md#mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))) | Gets all the test cases, overriding the [AssertionsToRun](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRun.md) on the [DefaultOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md) for specific tests. |
+| [GetTestCases(TestAssertions, IReadOnlyDictionary&lt;String, TestAssertions&gt;)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md#mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-testassertions-system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))) | Gets all the test cases, overriding the [AssertionsToRun](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRun.md) on the [DefaultOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md) for all tests along with overrides for specific tests. |
 | [GetTestCases(InstructionTestSuiteOptions)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.GetTestCases.md#mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuiteoptions)) | Gets all the test cases using the specified [InstructionTestSuiteOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.md). |
 
 ## GetTestCases() {id="mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases"}
@@ -55,6 +56,26 @@ public IEnumerable<TTestCase> GetTestCases(IReadOnlyDictionary<string, TestAsser
 | assertionsToRunOverrides | [IReadOnlyDictionary&lt;String, TestAssertions&gt;](https://learn.microsoft.com/en-gb/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2) |  |
 
 ## Returns {id="returns-mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))"}
+
+[IEnumerable&lt;TTestCase&gt;](https://learn.microsoft.com/en-gb/dotnet/api/System.Collections.Generic.IEnumerable-1)
+
+A sequence of test cases.
+## GetTestCases(TestAssertions, IReadOnlyDictionary&lt;String, TestAssertions&gt;) {id="mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-testassertions-system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))"}
+
+Gets all the test cases, overriding the [AssertionsToRun](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuiteOptions.AssertionsToRun.md) on the [DefaultOptions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.InstructionTestSuite-1.DefaultOptions.md) for all tests along with overrides for specific tests.
+
+```c#
+public IEnumerable<TTestCase> GetTestCases(TestAssertions assertionsToRun, IReadOnlyDictionary<string, TestAssertions> assertionsToRunOverrides);
+```
+
+## Parameters {id="parameters-mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-testassertions-system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))"}
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| assertionsToRun | [TestAssertions](MrKWatkins.EmulatorTestSuites.Z80.Instruction.TestAssertions.md) |  |
+| assertionsToRunOverrides | [IReadOnlyDictionary&lt;String, TestAssertions&gt;](https://learn.microsoft.com/en-gb/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2) |  |
+
+## Returns {id="returns-mrkwatkins-emulatortestsuites-z80-instruction-instructiontestsuite-1-gettestcases(mrkwatkins-emulatortestsuites-z80-instruction-testassertions-system-collections-generic-ireadonlydictionary((system-string-mrkwatkins-emulatortestsuites-z80-instruction-testassertions)))"}
 
 [IEnumerable&lt;TTestCase&gt;](https://learn.microsoft.com/en-gb/dotnet/api/System.Collections.Generic.IEnumerable-1)
 
