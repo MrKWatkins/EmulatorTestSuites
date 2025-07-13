@@ -1,10 +1,10 @@
 # Z80TestHarness.IOReader Property
 ## Definition
 
-Gets or sets the IO reader implementation.
+Gets the IO reader implementation.
 
 ```c#
-public IIOReader IOReader { get; set; }
+public IIOReader IOReader { get; }
 ```
 
 ## Property Value

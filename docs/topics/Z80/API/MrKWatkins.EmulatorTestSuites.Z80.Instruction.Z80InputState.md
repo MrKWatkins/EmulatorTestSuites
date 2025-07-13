@@ -23,5 +23,5 @@ public class Z80InputState : Z80State
 
 | Name | Description |
 | ---- | ----------- |
-| [Setup(Z80TestHarness)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.Setup.md) | Sets up the Z80 test harness with the current state values. |
+| [Initialize(Z80TestHarness)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.Initialize.md) | Sets up the Z80 test harness with the current state values. |
 

@@ -29,21 +29,20 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
         testOutput?.WriteLine("Executing ");
+        var z80 = CreateZ80<TTestHarness>();
         foreach (var step in Step.Load(this))
         {
-            Execute<TTestHarness>(step, testOutput);
+            Execute(z80, step, testOutput);
         }
     }
 
-    private void Execute<TTestHarness>(Step step, TextWriter? testOutput)
-        where TTestHarness : Z80TestHarness, new()
+    private void Execute(Z80TestHarness z80, Step step, TextWriter? testOutput)
     {
         testOutput?.Write('.');
 
-        // TODO: Avoid creating each time.
-        var z80 = CreateZ80<TTestHarness>(step.Input);
+        z80.Reset();
 
-        step.Input.Setup(z80);
+        step.Input.Initialize(z80);
 
         z80.ExecuteInstruction();
 

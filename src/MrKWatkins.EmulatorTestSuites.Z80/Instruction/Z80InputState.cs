@@ -14,7 +14,7 @@ public class Z80InputState : Z80State
     /// Sets up the Z80 test harness with the current state values.
     /// </summary>
     /// <param name="z80">The Z80 test harness to configure.</param>
-    public void Setup(Z80TestHarness z80)
+    public void Initialize(Z80TestHarness z80)
     {
         z80.RegisterAF = RegisterAF;
         z80.RegisterBC = RegisterBC;
@@ -35,10 +35,14 @@ public class Z80InputState : Z80State
         z80.IM = IM;
         z80.IFF1 = IFF1;
         z80.IFF2 = IFF2;
+        z80.Halted = Halted;
 
         foreach (var memory in Memory)
         {
-            z80.SetByteInMemory(memory.Address, memory.Value);
+            z80.WriteByteToMemory(memory.Address, memory.Value);
         }
+
+        var io = z80.IOReader as InstructionIO ?? throw new InvalidOperationException($"{nameof(Z80TestHarness.IOReader)} is not an {nameof(InstructionIO)} instance.");
+        io.Initialize(this);
     }
 }

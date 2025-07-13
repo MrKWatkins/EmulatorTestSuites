@@ -46,9 +46,9 @@ internal sealed class TestZ80TestHarness : Z80SteppableTestHarness
 
     public override bool Interrupt { get; set; }
 
-    public override byte GetByteFromMemory(ushort address) => memory[address];
+    public override byte ReadByteFromMemory(ushort address) => memory[address];
 
-    public override void SetByteInMemory(ushort address, byte value) => memory[address] = value;
+    public override void WriteByteToMemory(ushort address, byte value) => memory[address] = value;
 
     public override void AssertFail(string message) => throw new NotImplementedException();
 

@@ -31,8 +31,8 @@ public abstract class Z80TestHarness
 | [IFF2](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF2.md) | Gets or sets the IFF2 interrupt flip-flop. |
 | [IM](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IM.md) | Gets or sets the interrupt mode. |
 | [Interrupt](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Interrupt.md) | Gets or sets whether an interrupt is pending. |
-| [IOReader](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOReader.md) | Gets or sets the IO reader implementation. |
-| [IOWriter](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOWriter.md) | Gets or sets the IO writer implementation. |
+| [IOReader](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOReader.md) | Gets the IO reader implementation. |
+| [IOWriter](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IOWriter.md) | Gets the IO writer implementation. |
 | [MutableCycles](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MutableCycles.md) | A mutable list of [Cycle](MrKWatkins.EmulatorTestSuites.Z80.Cycle.md)s to update when [RecordCycles](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RecordCycles.md) is `true`, `null` otherwise. |
 | [RecordCycles](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RecordCycles.md) | Gets or sets whether CPU cycles should be recorded. |
 | [RegisterA](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterA.md) | Gets or sets the A register. |
@@ -59,11 +59,11 @@ public abstract class Z80TestHarness
 | [RegisterR](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterR.md) | Gets or sets the R register. |
 | [RegisterSP](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterSP.md) | Gets or sets the SP register. |
 | [RegisterWZ](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterWZ.md) | Gets or sets the internal WZ register, sometimes called MEMPTR. |
+| [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) | Gets or sets the ROM area in memory. Memory writes in this area by the emulator should be ignored. |
 | [ShadowRegisterAF](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterAF.md) | Gets or sets the AF&#39; register pair. |
 | [ShadowRegisterBC](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterBC.md) | Gets or sets the BC&#39; register pair. |
 | [ShadowRegisterDE](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterDE.md) | Gets or sets the DE&#39; register pair. |
 | [ShadowRegisterHL](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterHL.md) | Gets or sets the HL&#39; register pair. |
-| [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) | Gets or sets the highest address of the ROM area. Memory writes below this address are ignored. |
 | [TStates](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TStates.md) | Gets or sets the number of T-states (clock cycles) executed. |
 
 ## Methods
@@ -72,16 +72,17 @@ public abstract class Z80TestHarness
 | ---- | ----------- |
 | [AssertEqual&lt;T&gt;(T, T, DefaultInterpolatedStringHandler)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertEqual.md) | Asserts that the actual value is equal to the expected value. If the values are not equal, an error is reported. |
 | [AssertFail(String)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertFail.md) | Signals that a test has failed with the provided error message. |
+| [ClearMemory()](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ClearMemory.md) | Clears memory. |
 | [CopyToMemory(UInt16, ReadOnlySpan&lt;Byte&gt;)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CopyToMemory.md#mrkwatkins-emulatortestsuites-z80-z80testharness-copytomemory(system-uint16-system-readonlyspan((system-byte)))) | Copies a span of bytes into the memory starting at the specified address. |
 | [CopyToMemory(UInt16, IReadOnlyList&lt;Byte&gt;)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CopyToMemory.md#mrkwatkins-emulatortestsuites-z80-z80testharness-copytomemory(system-uint16-system-collections-generic-ireadonlylist((system-byte)))) | Copies a sequence of bytes into memory starting at the specified address. |
 | [CreateAssertionScope(String)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CreateAssertionScope.md) | Creates an assertion scope that allows multiple [AssertEqual&lt;T&gt;(T, T, DefaultInterpolatedStringHandler)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertEqual.md) assertions to be made with just one [AssertFail(String)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertFail.md). |
 | [ExecuteInstruction()](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ExecuteInstruction.md#mrkwatkins-emulatortestsuites-z80-z80testharness-executeinstruction) | Executes a single instruction. |
 | [ExecuteInstruction(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ExecuteInstruction.md#mrkwatkins-emulatortestsuites-z80-z80testharness-executeinstruction(system-io-textwriter)) | Executes a single instruction with debug output. |
-| [GetByteFromMemory(UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetByteFromMemory.md) | Gets a byte from memory. |
-| [GetWordFromMemory(UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetWordFromMemory.md) | Gets a word in little endian format from memory. |
-| [MemoryRead(UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryRead.md) | Performs a memory read for the emulator. |
-| [MemoryWrite(UInt16, Byte)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryWrite.md) | Performs a memory write for the emulator. Takes [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account and will not overwrite memory in the ROM area. |
-| [SetByteInMemory(UInt16, Byte)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetByteInMemory.md) | Sets a byte in memory. Does not take [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account so it will update the ROM area. |
+| [OnRomAreaChanged()](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.OnRomAreaChanged.md) | Called when [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) changes. Override to update your emulator with the ROM area. |
+| [ReadByteFromMemory(UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ReadByteFromMemory.md) | Reads a byte from memory. |
+| [ReadWordFromMemory(UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ReadWordFromMemory.md) | Reads a word in little endian format from memory. |
+| [Reset()](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Reset.md) | Resets the test harness state. |
 | [SetIO&lt;TIO&gt;(TIO)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md) | Sets both the IO reader and writer to the same implementation. |
-| [SetWordInMemory(UInt16, UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetWordInMemory.md) | Sets a word in little endian format in memory. Does not take [TopOfRomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md) into account so it will update the ROM area. |
+| [WriteByteToMemory(UInt16, Byte)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteByteToMemory.md) | Writes a byte to memory. Does *not* take [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) into account as this is used by tests to setup memory. |
+| [WriteWordToMemory(UInt16, UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteWordToMemory.md) | Writes a word in little endian format to memory. Does *not* take [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) into account as this is used by tests to setup memory. |
 

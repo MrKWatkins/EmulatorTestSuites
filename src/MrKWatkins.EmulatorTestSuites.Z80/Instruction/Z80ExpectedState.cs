@@ -91,7 +91,7 @@ public class Z80ExpectedState : Z80State
         {
             var address = memory.Address;
             var expected = memory.Value;
-            var actual = z80.MemoryRead(address);
+            var actual = z80.ReadByteFromMemory(address);
             z80.AssertEqual(actual, memory.Value, $"memory at 0x{address:X4} should be 0x{expected:X2} but was 0x{actual:X2}");
         }
     }

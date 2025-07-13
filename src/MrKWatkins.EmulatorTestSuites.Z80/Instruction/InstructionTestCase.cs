@@ -35,11 +35,11 @@ public abstract class InstructionTestCase : TestCase
     public MemoryCycleMethod MemoryCycleMethod { get; }
 
     [Pure]
-    private protected static TTestHarness CreateZ80<TTestHarness>(Z80InputState inputState)
+    private protected static TTestHarness CreateZ80<TTestHarness>()
         where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness { RecordCycles = true };
-        z80.SetIO(new InstructionIO(z80, inputState));
+        z80.SetIO(new InstructionIO(z80));
         return z80;
     }
 

@@ -95,6 +95,6 @@ public static class Z80Debugging
     {
         private ushort currentIndex = startIndex;
 
-        public byte ReadNext(OpcodeByteType type) => z80.MemoryRead(currentIndex++);
+        public byte ReadNext(OpcodeByteType type) => z80.ReadByteFromMemory(currentIndex++);
     }
 }

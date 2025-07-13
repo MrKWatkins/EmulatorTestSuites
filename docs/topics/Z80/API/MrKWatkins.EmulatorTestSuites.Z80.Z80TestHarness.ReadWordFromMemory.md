@@ -1,10 +1,10 @@
-# Z80TestHarness.GetWordFromMemory Method
+# Z80TestHarness.ReadWordFromMemory Method
 ## Definition
 
-Gets a word in little endian format from memory.
+Reads a word in little endian format from memory.
 
 ```c#
-public ushort GetWordFromMemory(ushort address);
+public ushort ReadWordFromMemory(ushort address);
 ```
 
 ## Parameters

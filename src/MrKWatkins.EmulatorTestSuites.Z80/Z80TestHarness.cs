@@ -10,6 +10,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 public abstract class Z80TestHarness
 #pragma warning restore CA1001
 {
+    private (ushort Start, ushort End)? romArea;
     private AssertionScope? assertionScope;
 
     /// <summary>
@@ -309,17 +310,42 @@ public abstract class Z80TestHarness
     }
 
     /// <summary>
-    /// Performs a memory read for the emulator.
+    /// Reads a byte from memory.
     /// </summary>
     [Pure]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public byte MemoryRead(ushort address) => GetByteFromMemory(address);
+    public abstract byte ReadByteFromMemory(ushort address);
 
     /// <summary>
-    /// Performs a memory write for the emulator. Takes <see cref="TopOfRomArea" /> into account and will not overwrite memory in the ROM area.
+    /// Reads a word in little endian format from memory.
     /// </summary>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void MemoryWrite(ushort address, byte value) => SetByteInMemory(address, value);
+    [Pure]
+    public ushort ReadWordFromMemory(ushort address)
+    {
+        // Read the two bytes separately and assemble rather than use something like BinaryPrimitives.ReadUInt16LittleEndian.
+        // This enables us to cope with wraparound from 0xFFFF -> 0x0000 by using the overflow on ushort.
+        var lsb = ReadByteFromMemory(address);
+
+        address++;
+        var msb = ReadByteFromMemory(address);
+
+        return (ushort)((msb << 8) | lsb);
+    }
+
+    /// <summary>
+    /// Writes a byte to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
+    /// </summary>
+    public abstract void WriteByteToMemory(ushort address, byte value);
+
+    /// <summary>
+    /// Writes a word in little endian format to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
+    /// </summary>
+    public void WriteWordToMemory(ushort address, ushort value)
+    {
+        WriteByteToMemory(address, (byte)value);
+
+        address++;
+        WriteByteToMemory(address, (byte)(value >> 8));
+    }
 
     /// <summary>
     /// Copies a span of bytes into the memory starting at the specified address.
@@ -331,7 +357,7 @@ public abstract class Z80TestHarness
     {
         foreach (var @byte in source)
         {
-            SetByteInMemory(address, @byte);
+            WriteByteToMemory(address, @byte);
             address++;
         }
     }
@@ -345,63 +371,54 @@ public abstract class Z80TestHarness
     {
         foreach (var @byte in source)
         {
-            SetByteInMemory(address, @byte);
+            WriteByteToMemory(address, @byte);
             address++;
         }
     }
 
     /// <summary>
-    /// Gets a byte from memory.
+    /// Clears memory.
     /// </summary>
-    [Pure]
-    public abstract byte GetByteFromMemory(ushort address);
-
-    /// <summary>
-    /// Gets a word in little endian format from memory.
-    /// </summary>
-    [Pure]
-    public ushort GetWordFromMemory(ushort address)
+    public virtual void ClearMemory()
     {
-        // Read the two bytes separately and assemble rather than use something like BinaryPrimitives.ReadUInt16LittleEndian.
-        // This enables us to cope with wraparound from 0xFFFF -> 0x0000 by using the overflow on ushort.
-        var lsb = GetByteFromMemory(address);
-
-        address++;
-        var msb = GetByteFromMemory(address);
-
-        return (ushort)((msb << 8) | lsb);
+        for (var f = 0; f < 65536; f++)
+        {
+            WriteByteToMemory((ushort)f, 0);
+        }
     }
 
     /// <summary>
-    /// Sets a byte in memory. Does not take <see cref="TopOfRomArea" /> into account so it will update the ROM area.
+    /// Gets or sets the ROM area in memory. Memory writes in this area by the emulator should be ignored.
     /// </summary>
-    public abstract void SetByteInMemory(ushort address, byte value);
-
-    /// <summary>
-    /// Sets a word in little endian format in memory. Does not take <see cref="TopOfRomArea" /> into account so it will update the ROM area.
-    /// </summary>
-    public void SetWordInMemory(ushort address, ushort value)
+    public (ushort Start, ushort End)? RomArea
     {
-        SetByteInMemory(address, (byte)value);
-
-        address++;
-        SetByteInMemory(address, (byte)(value >> 8));
+        get => romArea;
+        set
+        {
+            if (value != romArea)
+            {
+                romArea = value;
+                OnRomAreaChanged();
+            }
+        }
     }
 
     /// <summary>
-    /// Gets or sets the highest address of the ROM area. Memory writes below this address are ignored.
+    /// Called when <see cref="RomArea" /> changes. Override to update your emulator with the ROM area.
     /// </summary>
-    public int TopOfRomArea { get; set; } = int.MinValue;
+    protected virtual void OnRomAreaChanged()
+    {
+    }
 
     /// <summary>
-    /// Gets or sets the IO reader implementation.
+    /// Gets the IO reader implementation.
     /// </summary>
-    public IIOReader IOReader { get; set; } = new NullIO();
+    public IIOReader IOReader { get; internal set; } = new NullIO();
 
     /// <summary>
-    /// Gets or sets the IO writer implementation.
+    /// Gets the IO writer implementation.
     /// </summary>
-    public IIOWriter IOWriter { get; set; } = new NullIO();
+    public IIOWriter IOWriter { get; internal set; } = new NullIO();
 
     /// <summary>
     /// Sets both the IO reader and writer to the same implementation.
@@ -444,6 +461,16 @@ public abstract class Z80TestHarness
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when cycles are not being recorded.</exception>
     public IReadOnlyList<Cycle> Cycles => MutableCycles ?? throw new InvalidOperationException("Cycles are not being recorded.");
+
+    /// <summary>
+    /// Resets the test harness state.
+    /// </summary>
+    public virtual void Reset()
+    {
+        TStates = 0;
+        MutableCycles?.Clear();
+        ClearMemory();
+    }
 
     /// <summary>
     /// Creates an assertion scope that allows multiple <see cref="AssertEqual{T}" /> assertions to be made with just one <see cref="AssertFail" />.
@@ -530,6 +557,8 @@ public abstract class Z80TestHarness
 
         public void Dispose()
         {
+            z80.assertionScope = null;
+
             if (errors.Any())
             {
                 var prefix = name != null ? $"{name} failed:{Environment.NewLine}{Environment.NewLine}" : "";

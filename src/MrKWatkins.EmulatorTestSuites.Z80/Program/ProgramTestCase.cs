@@ -34,7 +34,7 @@ public abstract class ProgramTestCase : TestCase
         var z80 = new TTestHarness
         {
             RegisterSP = 0xFFFE,
-            TopOfRomArea = TopOfRomArea
+            RomArea = RomArea
         };
 
         z80.CopyToMemory(0x0000, memory);
@@ -76,10 +76,10 @@ public abstract class ProgramTestCase : TestCase
     private protected virtual void SetupTestCase(Z80TestHarness z80)
     {
         // Write the address of the test at the start of the test table.
-        z80.SetWordInMemory(TestTableStartAddress, testAddress);
+        z80.WriteWordToMemory(TestTableStartAddress, testAddress);
 
         // Write the 0x0000 terminator afterwards.
-        z80.SetWordInMemory((ushort)(TestTableStartAddress + 2), 0x0000);
+        z80.WriteWordToMemory((ushort)(TestTableStartAddress + 2), 0x0000);
     }
 
     private protected abstract ushort StopAddress { get; }
@@ -92,7 +92,7 @@ public abstract class ProgramTestCase : TestCase
 
     private protected virtual string? SkippedString => null;
 
-    private protected virtual int TopOfRomArea => int.MinValue;
+    private protected virtual (ushort Start, ushort End)? RomArea => null;
 
     private protected abstract void InitializeZ80(Z80TestHarness z80);
 

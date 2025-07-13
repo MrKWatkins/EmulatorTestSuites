@@ -18,7 +18,7 @@ internal sealed class CPMPrintInterceptor : PrintInterceptor
             case 9:
                 var messageAddress = Z80.RegisterDE;
                 byte byteToPrint;
-                while ((byteToPrint = Z80.MemoryRead(messageAddress)) != '$')
+                while ((byteToPrint = Z80.ReadByteFromMemory(messageAddress)) != '$')
                 {
                     Output.Write(byteToPrint);
                     messageAddress++;

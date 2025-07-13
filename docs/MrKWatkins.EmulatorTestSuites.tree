@@ -129,26 +129,27 @@
             <toc-element toc-title="RegisterR" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterR.md" />
             <toc-element toc-title="RegisterSP" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterSP.md" />
             <toc-element toc-title="RegisterWZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RegisterWZ.md" />
+            <toc-element toc-title="RomArea" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md" />
             <toc-element toc-title="ShadowRegisterAF" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterAF.md" />
             <toc-element toc-title="ShadowRegisterBC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterBC.md" />
             <toc-element toc-title="ShadowRegisterDE" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterDE.md" />
             <toc-element toc-title="ShadowRegisterHL" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ShadowRegisterHL.md" />
-            <toc-element toc-title="TopOfRomArea" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TopOfRomArea.md" />
             <toc-element toc-title="TStates" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.TStates.md" />
           </toc-element>
           <toc-element toc-title="Methods">
             <toc-element toc-title="AssertEqual" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertEqual.md" />
             <toc-element toc-title="AssertFail" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.AssertFail.md" />
+            <toc-element toc-title="ClearMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ClearMemory.md" />
             <toc-element toc-title="CopyToMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CopyToMemory.md" />
             <toc-element toc-title="CreateAssertionScope" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.CreateAssertionScope.md" />
             <toc-element toc-title="ExecuteInstruction" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ExecuteInstruction.md" />
-            <toc-element toc-title="GetByteFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetByteFromMemory.md" />
-            <toc-element toc-title="GetWordFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.GetWordFromMemory.md" />
-            <toc-element toc-title="MemoryRead" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryRead.md" />
-            <toc-element toc-title="MemoryWrite" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.MemoryWrite.md" />
-            <toc-element toc-title="SetByteInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetByteInMemory.md" />
+            <toc-element toc-title="OnRomAreaChanged" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.OnRomAreaChanged.md" />
+            <toc-element toc-title="ReadByteFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ReadByteFromMemory.md" />
+            <toc-element toc-title="ReadWordFromMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.ReadWordFromMemory.md" />
+            <toc-element toc-title="Reset" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Reset.md" />
             <toc-element toc-title="SetIO" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md" />
-            <toc-element toc-title="SetWordInMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetWordInMemory.md" />
+            <toc-element toc-title="WriteByteToMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteByteToMemory.md" />
+            <toc-element toc-title="WriteWordToMemory" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteWordToMemory.md" />
           </toc-element>
         </toc-element>
       </toc-element>
@@ -222,7 +223,7 @@
             <toc-element toc-title="IOReads" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.IOReads.md" />
           </toc-element>
           <toc-element toc-title="Methods">
-            <toc-element toc-title="Setup" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.Setup.md" />
+            <toc-element toc-title="Initialize" topic="MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80InputState.Initialize.md" />
           </toc-element>
         </toc-element>
         <toc-element toc-title="Z80State">

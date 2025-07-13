@@ -1,10 +1,10 @@
-# Z80TestHarness.GetByteFromMemory Method
+# Z80TestHarness.ReadByteFromMemory Method
 ## Definition
 
-Gets a byte from memory.
+Reads a byte from memory.
 
 ```c#
-public abstract Byte GetByteFromMemory(ushort address);
+public abstract Byte ReadByteFromMemory(ushort address);
 ```
 
 ## Parameters

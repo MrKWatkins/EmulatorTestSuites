@@ -1,10 +1,10 @@
-# Z80InputState.Setup Method
+# Z80InputState.Initialize Method
 ## Definition
 
 Sets up the Z80 test harness with the current state values.
 
 ```c#
-public void Setup(Z80TestHarness z80);
+public void Initialize(Z80TestHarness z80);
 ```
 
 ## Parameters

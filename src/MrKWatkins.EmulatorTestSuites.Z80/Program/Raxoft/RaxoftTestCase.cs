@@ -28,10 +28,10 @@ public sealed class RaxoftTestCase : ProgramTestCase
         z80.RegisterPC = StartAddress;
 
         // CLS routine; needs interrupts. Return instead.
-        z80.SetByteInMemory(0x0D6B, 0xC9);
+        z80.WriteByteToMemory(0x0D6B, 0xC9);
 
         // CHAN_OPEN routine; needs interrupts. Return instead.
-        z80.SetByteInMemory(0x1601, 0xC9);
+        z80.WriteByteToMemory(0x1601, 0xC9);
 
         // 0xBF is expected on port 0xFE.
         z80.SetIO(new NullIO(0xBF));

@@ -8,7 +8,7 @@ internal abstract class PrintInterceptor
     {
         Z80 = z80;
         Output = output;
-        z80.SetByteInMemory(PrintRoutineAddress, 0xC9);
+        z80.WriteByteToMemory(PrintRoutineAddress, 0xC9);
     }
 
     public Z80TestHarness Z80 { get; }

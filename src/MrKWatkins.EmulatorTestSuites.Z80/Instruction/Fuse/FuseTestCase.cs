@@ -41,9 +41,9 @@ public sealed class FuseTestCase : InstructionTestCase
     /// <param name="testOutput">Optional <see cref="TextWriter" /> for test output. If <c>null</c>, no output will be written.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
-        var z80 = CreateZ80<TTestHarness>(Input);
+        var z80 = CreateZ80<TTestHarness>();
 
-        Input.Setup(z80);
+        Input.Initialize(z80);
 
         while (true)
         {

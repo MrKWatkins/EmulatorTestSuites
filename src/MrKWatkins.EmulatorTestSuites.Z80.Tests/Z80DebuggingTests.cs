@@ -22,7 +22,7 @@ public sealed class Z80DebuggingTests
             RegisterQ = 0xDD
         };
 
-        z80.SetByteInMemory(0x1234, 0xC9);
+        z80.WriteByteToMemory(0x1234, 0xC9);
 
         using var writer = new StringWriter();
         Z80Debugging.WriteDebugInformation(z80, writer);

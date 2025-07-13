@@ -23,11 +23,11 @@ public sealed class ZEXALLTestCase : ProgramTestCase
         z80.RegisterPC = ZEXALLTestSuite.StartAddress;
 
         // SP - loaded by first instructions.
-        z80.SetByteInMemory(0x0006, 0xFF);
-        z80.SetByteInMemory(0x0007, 0xFF);
+        z80.WriteByteToMemory(0x0006, 0xFF);
+        z80.WriteByteToMemory(0x0007, 0xFF);
 
         // Do nothing for RST $38.
-        z80.SetByteInMemory(0x0038, 0xC9);
+        z80.WriteByteToMemory(0x0038, 0xC9);
     }
 
     private protected override PrintInterceptor OverridePrintRoutine(Z80TestHarness z80, ResultWatchingOutput output) => new CPMPrintInterceptor(z80, output);
