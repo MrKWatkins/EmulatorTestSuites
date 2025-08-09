@@ -31,7 +31,7 @@ public static class Z80Debugging
     private static void WriteOpcodeWithPadding(Z80TestHarness z80, TextWriter debug)
     {
         int written;
-        if (OpcodeReader.TryRead(new Z80TestHarnessOpcodeByteReader(z80, z80.RegisterPC), out var opcode))
+        if (OpcodeReader.TryRead(new Z80TestHarnessMemoryReader(z80, z80.RegisterPC), out var opcode))
         {
             var opcodeString = AssemblyFormatter.Default.Write(opcode);
             debug.Write(opcodeString);
@@ -91,10 +91,10 @@ public static class Z80Debugging
 
     private static void WriteFlag(TextWriter debug, bool flag, char set, char reset) => debug.Write(flag ? set : reset);
 
-    private ref struct Z80TestHarnessOpcodeByteReader(Z80TestHarness z80, ushort startIndex = 0) : IOpcodeByteReader
+    private ref struct Z80TestHarnessMemoryReader(Z80TestHarness z80, ushort startIndex = 0) : IMemoryReader
     {
         private ushort currentIndex = startIndex;
 
-        public byte ReadNext(OpcodeByteType type) => z80.ReadByteFromMemory(currentIndex++);
+        public byte ReadNext() => z80.ReadByteFromMemory(currentIndex++);
     }
 }
