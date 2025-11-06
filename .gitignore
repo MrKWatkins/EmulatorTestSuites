@@ -1,6 +1,7 @@
 temp/**
 Disassembly.txt
 DisassemblyOld.txt
+copilot.*.xml
 
 # VerifyTests
 *.received.*

@@ -27,21 +27,26 @@
         </AssemblyAttribute>
     </ItemGroup>
 
+    <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+        <!-- Allow underscores in test method names. -->
+        <NoWarn>CA1707</NoWarn>
+        <IsTestProject>true</IsTestProject>
+        <EnableNUnitRunner>true</EnableNUnitRunner>
+        <OutputType>Exe</OutputType>
+        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+        <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+    </PropertyGroup>
+
     <ItemGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
         <PackageReference Include="MrKWatkins.Assertions"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" />
         <PackageReference Include="NUnit" PrivateAssets="All" />
         <PackageReference Include="NUnit3TestAdapter" PrivateAssets="All"/>
 
         <Using Include="MrKWatkins.Assertions"/>
         <Using Include="NUnit.Framework"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">
-        <!-- Allow underscores in test method names. -->
-        <NoWarn>CA1707</NoWarn>
-        <IsTestProject>true</IsTestProject>
-    </PropertyGroup>
 
     <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('Tests')) And !$(MSBuildProjectName.EndsWith('Generator'))">
         <IsPackable>true</IsPackable>

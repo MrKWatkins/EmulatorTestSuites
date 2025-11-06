@@ -5,19 +5,24 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="JetBrains.Annotations" Version="2025.2.0" />
+    <PackageVersion Include="JetBrains.Annotations" Version="2025.2.2" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+    <!-- Needed until NUnit3TestAdapter references v2.0.0. -->
+    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.0"/>
+    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0"/>
+    <!-- Needed until NUnit3TestAdapter references v2.0.0. -->
+    <PackageVersion Include="Microsoft.Testing.Extensions.VSTestBridge" Version="2.0.0"/>
     <PackageVersion Include="MrKWatkins.Assertions" Version="0.0.21" />
-    <PackageVersion Include="MrKWatkins.OakAsm.Disassembly" Version="0.6.57" />
-    <PackageVersion Include="MrKWatkins.OakAsm.Disassembly.Z80" Version="0.6.57" />
-    <PackageVersion Include="MrKWatkins.OakAsm.Formatting" Version="0.6.57" />
-    <PackageVersion Include="MrKWatkins.OakAsm.IO.ZXSpectrum" Version="0.6.57" />
-    <PackageVersion Include="MrKWatkins.OakAsm.Testing" Version="0.6.57" />
-    <PackageVersion Include="MrKWatkins.OakAsm.Z80" Version="0.6.57" />
-    <PackageVersion Include="NUnit" Version="4.3.2" />
-    <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Disassembly" Version="0.6.60" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Disassembly.Z80" Version="0.6.60" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Formatting" Version="0.6.60" />
+    <PackageVersion Include="MrKWatkins.OakAsm.IO.ZXSpectrum" Version="0.6.60" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Testing" Version="0.6.60" />
+    <PackageVersion Include="MrKWatkins.OakAsm.Z80" Version="0.6.60" />
+    <PackageVersion Include="NUnit" Version="4.4.0" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="5.2.0" />
   </ItemGroup>
 </Project>

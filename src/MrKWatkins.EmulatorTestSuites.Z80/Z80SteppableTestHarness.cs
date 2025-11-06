@@ -9,11 +9,24 @@ public abstract class Z80SteppableTestHarness : Z80TestHarness
     /// Executes CPU steps until the specified number of T-states are reached.
     /// </summary>
     /// <param name="tStates">The target T-states to reach.</param>
-    public void Step(ulong tStates)
+    public void StepUntil(ulong tStates)
     {
         while (TStates <= tStates)
         {
             Step();
+        }
+    }
+
+    /// <summary>
+    /// Executes the specified number of CPU steps.
+    /// </summary>
+    /// <param name="count">The number of steps to execute.</param>
+    public void Step(ulong count)
+    {
+        while (count > 0)
+        {
+            Step();
+            count--;
         }
     }
 
