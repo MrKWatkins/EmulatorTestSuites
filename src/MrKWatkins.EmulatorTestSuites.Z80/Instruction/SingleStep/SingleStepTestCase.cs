@@ -46,8 +46,6 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
 
         z80.ExecuteInstruction();
 
-        AdjustForOverlappedRead(z80);
-
         Assert(step, z80);
     }
 

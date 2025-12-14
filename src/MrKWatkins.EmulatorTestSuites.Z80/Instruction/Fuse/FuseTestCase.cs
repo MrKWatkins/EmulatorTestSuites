@@ -49,21 +49,12 @@ public sealed class FuseTestCase : InstructionTestCase
         {
             z80.ExecuteInstruction();
 
-            // Break when we've run the minimum T-states. If we've just had an overlapped read, then we need to adjust TStates by 1.
-            var tStates = z80.TStates;
-            if (LastCycleWasOverlappedRead(z80))
-            {
-                tStates--;
-
-            }
-
-            if (tStates >= Input.MinimumTStatesToRun)
+            // Break when we've run the minimum T-states.
+            if (z80.TStates >= Input.MinimumTStatesToRun)
             {
                 break;
             }
         }
-
-        AdjustForOverlappedRead(z80);
 
         Assert(z80);
     }

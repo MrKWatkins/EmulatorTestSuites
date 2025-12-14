@@ -45,8 +45,6 @@ public sealed class DAATestCase : InstructionTestCase
 
         z80.ExecuteInstruction();
 
-        AdjustForOverlappedRead(z80);
-
         using (z80.CreateAssertionScope())
         {
             Expected.Assert(AssertionsToRun, z80);
