@@ -10,7 +10,6 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 public abstract class Z80TestHarness
 #pragma warning restore CA1001
 {
-    private (ushort Start, ushort End)? romArea;
     private AssertionScope? assertionScope;
 
     /// <summary>
@@ -392,12 +391,12 @@ public abstract class Z80TestHarness
     /// </summary>
     public (ushort Start, ushort End)? RomArea
     {
-        get => romArea;
+        get;
         set
         {
-            if (value != romArea)
+            if (value != field)
             {
-                romArea = value;
+                field = value;
                 OnRomAreaChanged();
             }
         }
@@ -531,11 +530,30 @@ public abstract class Z80TestHarness
     {
         if (debug != null)
         {
-            Z80Debugging.WriteDebugInformation(this, debug);
+            if (Halted && HALTAdvancesPC)
+            {
+                RegisterPC--;
+                Z80Debugging.WriteDebugInformation(this, debug);
+                RegisterPC++;
+            }
+            else
+            {
+                Z80Debugging.WriteDebugInformation(this, debug);
+            }
         }
 
         ExecuteInstruction();
     }
+
+    /// <summary>
+    /// Does the HALT instruction advance PC?
+    /// </summary>
+    /// <remarks>
+    /// Some Z80 emulators do not advance the PC after a HALT instruction, but the official documentation states that it does.
+    /// This property is used when writing debug information; if <c>true</c> then PC will be decremented before writing debug
+    /// information, so that HALT is written to the logs, then restored afterwards. <c>true</c> by default.
+    /// </remarks>
+    protected virtual bool HALTAdvancesPC => true;
 
     [Pure]
     private static byte GetLowByte(ushort value) => (byte)(value >> 8); // Little endian, so the lowest byte is first in memory, i.e. the first byte in the short.

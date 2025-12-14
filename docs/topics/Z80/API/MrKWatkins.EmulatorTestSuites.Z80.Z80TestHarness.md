@@ -26,6 +26,7 @@ public abstract class Z80TestHarness
 | [FlagX](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagX.md) | Gets or sets the undocumented X flag, bit 3 of the F register. |
 | [FlagY](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagY.md) | Gets or sets the undocumented Y flag, bit 5 of the F register. |
 | [FlagZ](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagZ.md) | Gets or sets the zero flag, Z. |
+| [HALTAdvancesPC](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.HALTAdvancesPC.md) | Does the HALT instruction advance PC? |
 | [Halted](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Halted.md) | Gets or sets whether the CPU is in the halted state. |
 | [IFF1](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF1.md) | Gets or sets the IFF1 interrupt flip-flop. |
 | [IFF2](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF2.md) | Gets or sets the IFF2 interrupt flip-flop. |

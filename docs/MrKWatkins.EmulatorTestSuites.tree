@@ -81,6 +81,7 @@
           <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.-ctor.md" />
           <toc-element toc-title="Methods">
             <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md" />
+            <toc-element toc-title="StepUntil" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.StepUntil.md" />
           </toc-element>
         </toc-element>
         <toc-element toc-title="Z80TestHarness">
@@ -96,6 +97,7 @@
             <toc-element toc-title="FlagX" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagX.md" />
             <toc-element toc-title="FlagY" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagY.md" />
             <toc-element toc-title="FlagZ" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.FlagZ.md" />
+            <toc-element toc-title="HALTAdvancesPC" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.HALTAdvancesPC.md" />
             <toc-element toc-title="Halted" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.Halted.md" />
             <toc-element toc-title="IFF1" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF1.md" />
             <toc-element toc-title="IFF2" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.IFF2.md" />

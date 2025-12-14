@@ -17,6 +17,7 @@ public abstract class Z80SteppableTestHarness : Z80TestHarness
 
 | Name | Description |
 | ---- | ----------- |
-| [Step(UInt64)](MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md#mrkwatkins-emulatortestsuites-z80-z80steppabletestharness-step(system-uint64)) | Executes CPU steps until the specified number of T-states are reached. |
+| [Step(UInt64)](MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md#mrkwatkins-emulatortestsuites-z80-z80steppabletestharness-step(system-uint64)) | Executes the specified number of CPU steps. |
 | [Step()](MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md#mrkwatkins-emulatortestsuites-z80-z80steppabletestharness-step) | Executes a single step of the CPU. |
+| [StepUntil(UInt64)](MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.StepUntil.md) | Executes CPU steps until the specified number of T-states are reached. |
 

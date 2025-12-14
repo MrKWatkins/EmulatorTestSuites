@@ -63,7 +63,7 @@ public static class JsonTestCases
         jsonTemp.Create();
 
         await using var zipStream = repository.OpenRead();
-        using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
+        await using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         var testEntries = zip.Entries.Where(e =>
             !string.IsNullOrWhiteSpace(e.Name) &&
@@ -76,7 +76,7 @@ public static class JsonTestCases
 
             Console.WriteLine($"Extracting test {entry.Name} to {path}...");
 
-            await using var entryStream = entry.Open();
+            await using var entryStream = await entry.OpenAsync(cancellationToken);
             await using var fileStream = File.Create(path);
             await entryStream.CopyToAsync(fileStream, cancellationToken);
         }
