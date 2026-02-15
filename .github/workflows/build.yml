@@ -21,8 +21,6 @@ jobs:
 
       - name: Build MrKWatkins.EmulatorTestSuites
         uses: MrKWatkins/dotnet-build@main
-        env:
-          DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
         with:
           name: MrKWatkins.EmulatorTestSuites
           directory: src

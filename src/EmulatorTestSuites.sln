@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\Icon.png = ..\Icon.png
 		..\Licence.md = ..\Licence.md
 		..\ReadMe.md = ..\ReadMe.md
-		..\.deepsource.toml = ..\.deepsource.toml
 		global.json = global.json
 	EndProjectSection
 EndProject
