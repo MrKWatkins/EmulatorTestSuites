@@ -94,15 +94,15 @@ public sealed class TimingTestSuite : TestSuite
     [Pure]
     private byte[] CreateMemory()
     {
-        var memory = new byte[65536];
+        var result = new byte[65536];
 
         using var rom = OpenResource(typeof(MarkWoodmassTestSuite), "ZXSpectrum48k.rom");
-        rom.ReadExactly(memory, 0, 16384);
+        rom.ReadExactly(result, 0, 16384);
 
         using var program = OpenResource("timing_tests_48k_v1.0.z80");
         var snapshot = Z80SnapshotFormat.Instance.Read(program);
-        snapshot.LoadInto(memory);
+        snapshot.LoadInto(result);
 
-        return memory;
+        return result;
     }
 }
