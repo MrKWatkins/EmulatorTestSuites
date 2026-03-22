@@ -8,6 +8,7 @@
     <toc-element id="MarkWoodmass" topic="MarkWoodmass.md" />
     <toc-element id="Raxoft" topic="Raxoft.md" />
     <toc-element id="SingleStep" topic="SingleStep.md" />
+    <toc-element id="Timing" topic="Timing.md" />
     <toc-element id="ZEXALL" topic="ZEXALL.md" />
     <toc-element toc-title="API" id="API">
       <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80">
@@ -424,6 +425,29 @@
         </toc-element>
         <toc-element toc-title="RaxoftTestType" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestType.md" />
         <toc-element toc-title="RaxoftTestVersion" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft.RaxoftTestVersion.md" />
+      </toc-element>
+      <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing">
+        <toc-element toc-title="TimingTestCase">
+          <toc-element toc-title="TimingTestCase" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.md" />
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="Contended" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.Contended.md" />
+            <toc-element toc-title="Description" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.Description.md" />
+            <toc-element toc-title="Name" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.Name.md" />
+            <toc-element toc-title="TestNumber" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.TestNumber.md" />
+          </toc-element>
+          <toc-element toc-title="Methods">
+            <toc-element toc-title="Execute" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestCase.Execute.md" />
+          </toc-element>
+        </toc-element>
+        <toc-element toc-title="TimingTestSuite">
+          <toc-element toc-title="TimingTestSuite" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestSuite.md" />
+          <toc-element toc-title="Fields">
+            <toc-element toc-title="Instance" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestSuite.Instance.md" />
+          </toc-element>
+          <toc-element toc-title="Properties">
+            <toc-element toc-title="TestCases" topic="MrKWatkins.EmulatorTestSuites.Z80.Program.Timing.TimingTestSuite.TestCases.md" />
+          </toc-element>
+        </toc-element>
       </toc-element>
       <toc-element toc-title="MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL">
         <toc-element toc-title="ZEXALLTestCase">

@@ -53,8 +53,6 @@ public abstract class ProgramTestCase : TestCase
     {
         var (resultWatcher, printInterceptor) = BeforeExecute(z80, testOutput);
 
-        // TODO: T-state limit.
-        var stopAddress = StopAddress;
         while (true)
         {
             var pc = z80.RegisterPC;
@@ -62,12 +60,13 @@ public abstract class ProgramTestCase : TestCase
             {
                 printInterceptor.HandlePrintRoutine();
             }
-            else if (pc == stopAddress)
+            else if (pc == StopAddress)
             {
                 break;
             }
 
             z80.ExecuteInstruction(debugOutput);
+            AssertNotTimedOut(z80);
         }
 
         AfterExecute(z80, resultWatcher);
@@ -82,8 +81,6 @@ public abstract class ProgramTestCase : TestCase
     {
         var (resultWatcher, printInterceptor) = BeforeExecute(z80, testOutput);
 
-        // TODO: T-state limit.
-        var stopAddress = StopAddress;
         while (true)
         {
             var pc = z80.RegisterPC;
@@ -91,17 +88,21 @@ public abstract class ProgramTestCase : TestCase
             {
                 // We'll have intercepted on the first part of the opcode read. Complete it.
                 z80.Step();
+                AssertNotTimedOut(z80);
                 z80.Step();
+                AssertNotTimedOut(z80);
                 z80.Step();
+                AssertNotTimedOut(z80);
 
                 printInterceptor.HandlePrintRoutine();
             }
-            else if (pc == stopAddress)
+            else if (pc == StopAddress)
             {
                 break;
             }
 
             z80.Step();
+            AssertNotTimedOut(z80);
         }
 
         AfterExecute(z80, resultWatcher);
@@ -136,6 +137,17 @@ public abstract class ProgramTestCase : TestCase
         }
     }
 
+    private protected void AssertNotTimedOut(Z80TestHarness z80)
+    {
+        if (z80.TStates <= MaximumTStates)
+        {
+            return;
+        }
+
+        z80.AssertFail($"Program test exceeded {MaximumTStates:N0} T-states without reaching stop address 0x{StopAddress:X4}. PC=0x{z80.RegisterPC:X4}.");
+        throw new InvalidOperationException("The test harness did not fail the test when the program timed out.");
+    }
+
     private protected virtual void SetupTestCase(Z80TestHarness z80)
     {
         // Write the address of the test at the start of the test table.
@@ -154,6 +166,8 @@ public abstract class ProgramTestCase : TestCase
     private protected abstract string ErrorString { get; }
 
     private protected virtual string? SkippedString => null;
+
+    private protected virtual ulong MaximumTStates => 100_000_000;
 
     private protected virtual (ushort Start, ushort End)? RomArea => null;
 

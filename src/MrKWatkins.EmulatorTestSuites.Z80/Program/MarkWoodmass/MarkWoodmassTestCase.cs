@@ -24,6 +24,8 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
 
     private protected override string ErrorString => "failed";
 
+    private protected override ulong MaximumTStates => 1_000_000_000;
+
     private protected override void InitializeZ80(Z80TestHarness z80)
     {
         // Tests expect certain initial register values.

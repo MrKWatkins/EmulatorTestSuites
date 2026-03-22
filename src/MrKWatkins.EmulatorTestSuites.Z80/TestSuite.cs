@@ -28,5 +28,9 @@ public abstract class TestSuite
     public Uri Source { get; }
 
     [MustDisposeResource]
-    private protected Stream OpenResource(string resource) => GetType().Assembly.GetManifestResourceStream(GetType(), resource) ?? throw new InvalidOperationException($"Resource {resource} not found.");
+    private protected Stream OpenResource(string resource) => OpenResource(GetType(), resource);
+
+    [MustDisposeResource]
+    private protected static Stream OpenResource(Type type, string resource) =>
+        type.Assembly.GetManifestResourceStream(type, resource) ?? throw new InvalidOperationException($"Resource {resource} not found for {type.FullName}.");
 }

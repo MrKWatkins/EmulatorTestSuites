@@ -18,6 +18,8 @@ public sealed class ZEXALLTestCase : ProgramTestCase
 
     private protected override string ErrorString => "ERROR";
 
+    private protected override ulong MaximumTStates => 5_000_000_000;
+
     private protected override void InitializeZ80(Z80TestHarness z80)
     {
         z80.RegisterPC = ZEXALLTestSuite.StartAddress;

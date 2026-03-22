@@ -23,6 +23,8 @@ public sealed class RaxoftTestCase : ProgramTestCase
 
     private protected override string SkippedString => "Skipped";
 
+    private protected override ulong MaximumTStates => 1_000_000_000;
+
     private protected override void InitializeZ80(Z80TestHarness z80)
     {
         z80.RegisterPC = StartAddress;

@@ -401,4 +401,5 @@ public sealed class Z80TestHarnessTests
         harness.Interrupt = true;
         harness.Interrupt.Should().BeTrue();
     }
+
 }
