@@ -18,7 +18,8 @@ public sealed class ZEXALLTestCase : ProgramTestCase
 
     private protected override string ErrorString => "ERROR";
 
-    private protected override ulong MaximumTStates => 5_000_000_000;
+    // The longest OakCpu steppable aluop cases complete at 20,006,915,491 T-states.
+    private protected override ulong MaximumTStates => 20_100_000_000;
 
     private protected override void InitializeZ80(Z80TestHarness z80)
     {
