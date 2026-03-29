@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
 using MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
-using MrKWatkins.OakAsm.IO.ZXSpectrum.Z80Snapshot;
+using MrKWatkins.OakIO.ZXSpectrum.Snapshot.Z80;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
 
@@ -74,7 +74,7 @@ public sealed class TimingTestSuite : TestSuite
 
     [Pure]
     internal TimingType GetTimingType<TTestHarness>()
-        where TTestHarness : Z80TestHarness, new() =>
+        where TTestHarness : IZ80TestHarness, new() =>
         timingTypesByHarnessType.GetOrAdd(
             typeof(TTestHarness),
             static _ => new Lazy<TimingType>(TimingTestCase.DetectTiming<TTestHarness>, LazyThreadSafetyMode.ExecutionAndPublication)).Value;
@@ -100,7 +100,7 @@ public sealed class TimingTestSuite : TestSuite
         rom.ReadExactly(result, 0, 16384);
 
         using var program = OpenResource("timing_tests_48k_v1.0.z80");
-        var snapshot = Z80SnapshotFormat.Instance.Read(program);
+        var snapshot = Z80Format.Instance.Read(program);
         snapshot.LoadInto(result);
 
         return result;

@@ -26,7 +26,7 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
 
     private protected override ulong MaximumTStates => 1_000_000_000;
 
-    private protected override void InitializeZ80(Z80TestHarness z80)
+    private protected override void InitializeZ80(IZ80TestHarness z80)
     {
         // Tests expect certain initial register values.
         z80.RegisterI = 0x3F;
@@ -46,7 +46,7 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
         z80.WriteByteToMemory(0x80DA, 0xC9);
     }
 
-    private protected override void SetupTestCase(Z80TestHarness z80)
+    private protected override void SetupTestCase(IZ80TestHarness z80)
     {
         z80.WriteWordToMemory((ushort)(startAddress - 2), 0x0000);
 
@@ -60,5 +60,5 @@ public sealed class MarkWoodmassTestCase : ProgramTestCase
     // The tests expect a read-only Spectrum ROM.
     private protected override (ushort Start, ushort End)? RomArea => (0, 16383);
 
-    private protected override PrintInterceptor OverridePrintRoutine(Z80TestHarness z80, ResultWatchingOutput output) => new ZXSpectrumPrintInterceptor(z80, output);
+    private protected override PrintInterceptor OverridePrintRoutine(IZ80TestHarness z80, ResultWatchingOutput output) => new ZXSpectrumPrintInterceptor(z80, output);
 }

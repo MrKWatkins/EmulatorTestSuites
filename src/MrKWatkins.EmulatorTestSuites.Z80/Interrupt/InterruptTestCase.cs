@@ -5,9 +5,9 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Interrupt;
 /// </summary>
 public sealed class InterruptTestCase : TestCase
 {
-    private readonly Action<Z80SteppableTestHarness> execute;
+    private readonly Action<IZ80SteppableTestHarness> execute;
 
-    private InterruptTestCase(string id, string name, Action<Z80SteppableTestHarness> execute)
+    private InterruptTestCase(string id, string name, Action<IZ80SteppableTestHarness> execute)
         : base(id)
     {
         Name = name;
@@ -20,16 +20,16 @@ public sealed class InterruptTestCase : TestCase
     public override string Name { get; }
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="Z80SteppableTestHarness" /> type.
+    /// Executes this test case using the specified <see cref="IZ80SteppableTestHarness" /> type.
     /// </summary>
     /// <typeparam name="TTestHarness">The type of steppable harness to execute against.</typeparam>
     /// <param name="testOutput">Optional test output.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
         var z80 = new TTestHarness();
-        if (z80 is not Z80SteppableTestHarness steppable)
+        if (z80 is not IZ80SteppableTestHarness steppable)
         {
-            z80.AssertFail($"{nameof(InterruptTestSuite)} requires a {nameof(Z80SteppableTestHarness)}.");
+            z80.AssertFail($"{nameof(InterruptTestSuite)} requires a {nameof(IZ80SteppableTestHarness)}.");
             throw new InvalidOperationException("The test harness did not fail the test when a non-steppable harness was used.");
         }
 
@@ -61,7 +61,7 @@ public sealed class InterruptTestCase : TestCase
     internal static InterruptTestCase CreateInterruptFullyExecutesOverlappedInstruction(byte mode) =>
         new($"interrupt-overlap-mode-{mode}", $"Interrupt fully executes overlapped instructions {{Mode {mode}}}", z80 => ExecuteInterruptFullyExecutesOverlappedInstruction(z80, mode));
 
-    private static void ExecuteMode0(Z80SteppableTestHarness z80)
+    private static void ExecuteMode0(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
         z80.SetIO(new NullIO());
@@ -157,7 +157,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to remain cleared after RETI.");
     }
 
-    private static void ExecuteMode1(Z80SteppableTestHarness z80)
+    private static void ExecuteMode1(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
 
@@ -251,7 +251,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to remain cleared after RETI.");
     }
 
-    private static void ExecuteMode2(Z80SteppableTestHarness z80)
+    private static void ExecuteMode2(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
         z80.SetIO(new NullIO(0xE0));
@@ -359,7 +359,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to remain cleared after RETI.");
     }
 
-    private static void ExecuteInterruptsDoNotTriggerIfDisabled(Z80SteppableTestHarness z80)
+    private static void ExecuteInterruptsDoNotTriggerIfDisabled(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
 
@@ -391,7 +391,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.Interrupt, false, $"Expected the pending interrupt to be marked as handled even though it did not trigger.");
     }
 
-    private static void ExecuteInterruptsDoNotTriggerDuringEI(Z80SteppableTestHarness z80)
+    private static void ExecuteInterruptsDoNotTriggerDuringEI(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
 
@@ -458,7 +458,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.RegisterPC, (ushort)0x0038, $"Expected IM 1 to dispatch via RST 0x38.");
     }
 
-    private static void ExecuteHaltStaysOnTheNextOpcode(Z80SteppableTestHarness z80)
+    private static void ExecuteHaltStaysOnTheNextOpcode(IZ80SteppableTestHarness z80)
     {
         Load(z80, 0x0000,
         [
@@ -493,7 +493,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.RegisterPC, (ushort)0x0001, $"Expected PC to still be positioned on the next opcode.");
     }
 
-    private static void ExecuteInterruptResetsHalted(Z80SteppableTestHarness z80)
+    private static void ExecuteInterruptResetsHalted(IZ80SteppableTestHarness z80)
     {
         z80.RegisterSP = 0x0100;
 
@@ -596,7 +596,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.RegisterPC, (ushort)0x0005, $"Expected normal execution to resume after HALT is released.");
     }
 
-    private static void ExecuteInterruptFullyExecutesOverlappedInstruction(Z80SteppableTestHarness z80, byte mode)
+    private static void ExecuteInterruptFullyExecutesOverlappedInstruction(IZ80SteppableTestHarness z80, byte mode)
     {
         z80.RegisterSP = 0x0100;
 
@@ -642,9 +642,9 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.IORead);
     }
 
-    private static void Load(Z80TestHarness z80, ushort address, ReadOnlySpan<byte> bytes) => z80.CopyToMemory(address, bytes);
+    private static void Load(IZ80TestHarness z80, ushort address, ReadOnlySpan<byte> bytes) => z80.CopyToMemory(address, bytes);
 
-    private static void StepAndAssertEvent(Z80SteppableTestHarness z80, CycleType expectedType)
+    private static void StepAndAssertEvent(IZ80SteppableTestHarness z80, CycleType expectedType)
     {
         z80.Step();
         var actualType = z80.Cycles[^1].Type;

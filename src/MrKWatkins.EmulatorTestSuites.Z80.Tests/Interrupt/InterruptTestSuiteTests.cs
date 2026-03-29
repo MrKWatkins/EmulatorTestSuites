@@ -21,7 +21,7 @@ public sealed class InterruptTestSuiteTests
     {
         Assert.That(
             () => InterruptTestSuite.Instance.TestCases[0].Execute<NonSteppableInterruptTestHarness>(),
-            Throws.TypeOf<NUnit.Framework.AssertionException>().With.Message.Contains(nameof(Z80SteppableTestHarness)));
+            Throws.TypeOf<NUnit.Framework.AssertionException>().With.Message.Contains(nameof(IZ80SteppableTestHarness)));
     }
 
     [Test]

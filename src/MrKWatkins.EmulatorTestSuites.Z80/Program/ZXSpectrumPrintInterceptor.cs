@@ -5,7 +5,7 @@ internal sealed class ZXSpectrumPrintInterceptor : PrintInterceptor
     private int lineLength;
     private State state;
 
-    internal ZXSpectrumPrintInterceptor(Z80TestHarness z80, ResultWatchingOutput output)
+    internal ZXSpectrumPrintInterceptor(IZ80TestHarness z80, ResultWatchingOutput output)
         : base(z80, output)
     {
     }

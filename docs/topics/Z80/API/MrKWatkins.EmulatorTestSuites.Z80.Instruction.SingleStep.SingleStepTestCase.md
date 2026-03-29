@@ -17,5 +17,4 @@ public sealed class SingleStepTestCase : InstructionTestCase
 
 | Name | Description |
 | ---- | ----------- |
-| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestCase.Execute.md) | Executes this test case using the specified [Z80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md) type. |
-
+| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep.SingleStepTestCase.Execute.md) | Executes this test case using the specified [IZ80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.IZ80TestHarness.md) type. |

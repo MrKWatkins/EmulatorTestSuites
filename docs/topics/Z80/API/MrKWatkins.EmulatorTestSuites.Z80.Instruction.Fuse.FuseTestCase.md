@@ -19,5 +19,4 @@ public sealed class FuseTestCase : InstructionTestCase
 
 | Name | Description |
 | ---- | ----------- |
-| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Execute.md) | Executes this test case using the specified [Z80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md) type. |
-
+| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse.FuseTestCase.Execute.md) | Executes this test case using the specified [IZ80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.IZ80TestHarness.md) type. |

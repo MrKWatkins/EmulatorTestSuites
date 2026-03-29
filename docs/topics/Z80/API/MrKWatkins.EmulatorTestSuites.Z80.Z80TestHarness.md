@@ -1,10 +1,10 @@
 # Z80TestHarness Class
 ## Definition
 
-Base class for a Z80 emulator test harness. Implement this class to use it with the test suites.
+Compatibility base class for a Z80 emulator test harness. Implement this class to use it with the test suites, or implement [IZ80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.IZ80TestHarness.md) directly.
 
 ```c#
-public abstract class Z80TestHarness
+public abstract class Z80TestHarness : IZ80TestHarness
 ```
 
 ## Constructors
@@ -86,4 +86,3 @@ public abstract class Z80TestHarness
 | [SetIO&lt;TIO&gt;(TIO)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.SetIO.md) | Sets both the IO reader and writer to the same implementation. |
 | [WriteByteToMemory(UInt16, Byte)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteByteToMemory.md) | Writes a byte to memory. Does *not* take [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) into account as this is used by tests to setup memory. |
 | [WriteWordToMemory(UInt16, UInt16)](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.WriteWordToMemory.md) | Writes a word in little endian format to memory. Does *not* take [RomArea](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.RomArea.md) into account as this is used by tests to setup memory. |
-

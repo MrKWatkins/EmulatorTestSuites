@@ -1,6 +1,6 @@
 namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 
-internal sealed class InstructionIO(Z80TestHarness z80) : IIOReader, IIOWriter
+internal sealed class InstructionIO(IZ80TestHarness z80) : IIOReader, IIOWriter
 {
     private readonly Queue<IOEvent> ioReads = new();
     private readonly List<IOEvent> ioWrites = new();

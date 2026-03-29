@@ -25,5 +25,4 @@ public class Z80ExpectedState : Z80State
 
 | Name | Description |
 | ---- | ----------- |
-| [Assert(TestAssertions, Z80TestHarness)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.Assert.md) | Asserts that the actual Z80 state matches the expected state according to the specified assertions. |
-
+| [Assert(TestAssertions, IZ80TestHarness)](MrKWatkins.EmulatorTestSuites.Z80.Instruction.Z80ExpectedState.Assert.md) | Asserts that the actual Z80 state matches the expected state according to the specified assertions. |

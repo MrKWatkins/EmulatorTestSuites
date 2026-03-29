@@ -46,6 +46,8 @@
             <toc-element toc-title="Write" topic="MrKWatkins.EmulatorTestSuites.Z80.IIOWriter.Write.md" />
           </toc-element>
         </toc-element>
+        <toc-element toc-title="IZ80SteppableTestHarness" topic="MrKWatkins.EmulatorTestSuites.Z80.IZ80SteppableTestHarness.md" />
+        <toc-element toc-title="IZ80TestHarness" topic="MrKWatkins.EmulatorTestSuites.Z80.IZ80TestHarness.md" />
         <toc-element toc-title="NullIO">
           <toc-element toc-title="NullIO" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.md" />
           <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.NullIO.-ctor.md" />
@@ -83,7 +85,6 @@
           <toc-element toc-title="Constructors" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.-ctor.md" />
           <toc-element toc-title="Methods">
             <toc-element toc-title="Step" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.Step.md" />
-            <toc-element toc-title="StepUntil" topic="MrKWatkins.EmulatorTestSuites.Z80.Z80SteppableTestHarness.StepUntil.md" />
           </toc-element>
         </toc-element>
         <toc-element toc-title="Z80TestHarness">

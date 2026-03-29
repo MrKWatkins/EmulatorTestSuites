@@ -21,7 +21,7 @@ public sealed class ZEXALLTestCase : ProgramTestCase
     // The longest OakCpu steppable aluop cases complete at 20,006,915,491 T-states.
     private protected override ulong MaximumTStates => 20_100_000_000;
 
-    private protected override void InitializeZ80(Z80TestHarness z80)
+    private protected override void InitializeZ80(IZ80TestHarness z80)
     {
         z80.RegisterPC = ZEXALLTestSuite.StartAddress;
 
@@ -33,5 +33,5 @@ public sealed class ZEXALLTestCase : ProgramTestCase
         z80.WriteByteToMemory(0x0038, 0xC9);
     }
 
-    private protected override PrintInterceptor OverridePrintRoutine(Z80TestHarness z80, ResultWatchingOutput output) => new CPMPrintInterceptor(z80, output);
+    private protected override PrintInterceptor OverridePrintRoutine(IZ80TestHarness z80, ResultWatchingOutput output) => new CPMPrintInterceptor(z80, output);
 }

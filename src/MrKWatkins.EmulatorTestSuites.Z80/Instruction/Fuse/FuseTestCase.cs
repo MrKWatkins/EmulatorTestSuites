@@ -35,9 +35,9 @@ public sealed class FuseTestCase : InstructionTestCase
     public FuseZ80ExpectedState Expected { get; }
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
+    /// Executes this test case using the specified <see cref="IZ80TestHarness" /> type.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use for execution.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use for execution.</typeparam>
     /// <param name="testOutput">Optional <see cref="TextWriter" /> for test output. If <c>null</c>, no output will be written.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
@@ -59,7 +59,7 @@ public sealed class FuseTestCase : InstructionTestCase
         Assert(z80);
     }
 
-    private void Assert(Z80TestHarness z80)
+    private void Assert(IZ80TestHarness z80)
     {
         using (z80.CreateAssertionScope())
         {

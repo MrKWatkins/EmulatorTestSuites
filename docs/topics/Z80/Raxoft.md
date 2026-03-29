@@ -18,3 +18,5 @@ Two versions of the test suite are currently included, 1.0 and 1.2a.
 ## Original Tests
 
 The original tests can be found at [](https://github.com/raxoft/z80test). Licensed under MIT licence. Copyright © 2012-2023 Patrik Rak.
+
+Thanks to Patrik Rak for [approving the use](https://github.com/raxoft/z80test/issues/10) of his tests.

@@ -18,6 +18,5 @@ public abstract class TestCase
 
 | Name | Description |
 | ---- | ----------- |
-| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.TestCase.Execute.md) | Executes this test case using the specified [Z80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.Z80TestHarness.md) type. |
+| [Execute&lt;TTestHarness&gt;(TextWriter)](MrKWatkins.EmulatorTestSuites.Z80.TestCase.Execute.md) | Executes this test case using the specified [IZ80TestHarness](MrKWatkins.EmulatorTestSuites.Z80.IZ80TestHarness.md) type. |
 | [ToString()](MrKWatkins.EmulatorTestSuites.Z80.TestCase.ToString.md) | Returns a string representation of this [TestCase](MrKWatkins.EmulatorTestSuites.Z80.TestCase.md). |
-
