@@ -1,0 +1,40 @@
+site_name: MrKWatkins.EmulatorTestSuites
+theme:
+  name: material
+  repo_url: https://github.com/MrKWatkins/EmulatorTestSuites
+  favicon: images/favicon.ico
+  features:
+    - navigation.sections
+  palette:
+    - media: "(prefers-color-scheme)"
+      primary: green
+      accent: green
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      primary: green
+      accent: green
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      primary: green
+      accent: green
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+plugins:
+  - search
+  - macros
+  - mkdocs-simple-hooks:
+      hooks:
+        on_nav: "hooks:on_nav"
+extra_css:
+  - stylesheets/overrides.css
+markdown_extensions:
+  - attr_list
