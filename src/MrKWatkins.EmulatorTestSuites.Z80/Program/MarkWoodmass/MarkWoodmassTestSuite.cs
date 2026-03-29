@@ -1,5 +1,5 @@
 using System.Text;
-using MrKWatkins.OakAsm.IO.ZXSpectrum.Tap;
+using MrKWatkins.OakIO.ZXSpectrum.Tape.Tap;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
 
@@ -64,7 +64,7 @@ public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCas
 
         var tap = TapFormat.Instance.Read(stream);
 
-        if (!tap.Blocks[^1].TryLoadInto(memory))
+        if (!tap.TryLoadInto(memory))
         {
             throw new InvalidOperationException("Could not load z80tests.tap.");
         }
