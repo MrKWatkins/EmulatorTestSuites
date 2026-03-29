@@ -20,7 +20,6 @@ public class Z80ExpectedState : Z80State
     /// <summary>
     /// Gets the expected number of T-states taken to execute the instruction.
     /// </summary>
-    // ReSharper disable once InconsistentNaming
     public ulong TStates { get; internal set; }
 
     /// <summary>

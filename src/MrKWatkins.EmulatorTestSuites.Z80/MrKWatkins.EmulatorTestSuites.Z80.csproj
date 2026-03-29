@@ -5,6 +5,7 @@
     <ItemGroup>
         <EmbeddedResource Include="**\*.bin" />
         <EmbeddedResource Include="**\*.rom" />
+        <EmbeddedResource Include="**\*.scr" />
         <EmbeddedResource Include="**\*.tap" />
         <EmbeddedResource Include="**\*.z80" />
         <EmbeddedResource Include="Instruction\opcodes.txt" />

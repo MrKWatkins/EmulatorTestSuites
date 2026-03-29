@@ -47,6 +47,7 @@ public static class JsonTestCases
         var temporaryFile = TemporaryFile.Create("SingleStepTests.zip");
 
         Console.WriteLine($"Downloading {uri} to temporary file {temporaryFile.Path}");
+        // ReSharper disable once ShortLivedHttpClient
         using var client = new HttpClient();
         await using var repository = await client.GetStreamAsync(uri, cancellationToken);
 

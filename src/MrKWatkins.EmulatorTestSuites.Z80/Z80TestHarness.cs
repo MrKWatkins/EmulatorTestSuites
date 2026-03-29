@@ -293,13 +293,13 @@ public abstract class Z80TestHarness
     public abstract bool Halted { get; set; }
 
     /// <summary>
-    /// Gets or sets whether an interrupt is pending.
+    /// Gets or sets whether the external interrupt line is asserted.
     /// </summary>
     public abstract bool Interrupt { get; set; }
 
     /// <summary>
-     /// Gets or sets the number of T-states (clock cycles) executed.
-     /// </summary>
+    /// Gets or sets the number of T-states (clock cycles) executed.
+    /// </summary>
     public ulong TStates
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

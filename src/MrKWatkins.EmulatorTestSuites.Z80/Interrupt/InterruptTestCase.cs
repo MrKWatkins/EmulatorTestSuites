@@ -104,6 +104,7 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared when interrupt handling starts.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared when interrupt handling starts.");
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.IORead);
         StepAndAssertEvent(z80, CycleType.None);
 
@@ -197,6 +198,7 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared when interrupt handling starts.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared when interrupt handling starts.");
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.IORead);
         StepAndAssertEvent(z80, CycleType.None);
 
@@ -295,6 +297,7 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared when interrupt handling starts.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared when interrupt handling starts.");
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.IORead);
         StepAndAssertEvent(z80, CycleType.None);
 
@@ -386,9 +389,9 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
 
         StepAndAssertEvent(z80, CycleType.MemoryRead);
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.RegisterPC, (ushort)0x0003, $"Expected execution to continue normally when interrupts are disabled.");
-        z80.AssertEqual(z80.Interrupt, false, $"Expected the pending interrupt to be marked as handled even though it did not trigger.");
     }
 
     private static void ExecuteInterruptsDoNotTriggerDuringEI(Z80SteppableTestHarness z80)
@@ -436,6 +439,7 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared when interrupt handling starts.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared when interrupt handling starts.");
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.IORead);
         StepAndAssertEvent(z80, CycleType.None);
 
@@ -551,6 +555,7 @@ public sealed class InterruptTestCase : TestCase
         StepAndAssertEvent(z80, CycleType.None);
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared when interrupt handling starts.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared when interrupt handling starts.");
+        z80.Interrupt = false;
         StepAndAssertEvent(z80, CycleType.IORead);
         StepAndAssertEvent(z80, CycleType.None);
 
@@ -638,6 +643,7 @@ public sealed class InterruptTestCase : TestCase
         z80.AssertEqual(z80.RegisterA, (byte)1, $"Expected INC A to complete before interrupt handling advances.");
         z80.AssertEqual(z80.IFF1, false, $"Expected IFF1 to be cleared on the first interrupt-handling step.");
         z80.AssertEqual(z80.IFF2, false, $"Expected IFF2 to be cleared on the first interrupt-handling step.");
+        z80.Interrupt = false;
 
         StepAndAssertEvent(z80, CycleType.IORead);
     }

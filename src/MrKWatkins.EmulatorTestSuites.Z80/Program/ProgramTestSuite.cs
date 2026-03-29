@@ -1,4 +1,3 @@
-using System.Buffers.Binary;
 using MrKWatkins.BinaryPrimitives;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program;

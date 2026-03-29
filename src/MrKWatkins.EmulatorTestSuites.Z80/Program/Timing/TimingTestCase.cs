@@ -2,19 +2,21 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
 
 /// <summary>
 /// A test case from the <see cref="TimingTestSuite" />.
+/// The prepared-screen cases (35-37) require a steppable harness so the suite can exercise the floating-bus dependent path.
 /// </summary>
 public sealed class TimingTestCase : TestCase
 {
     private const ulong MaximumTStates = 10_000_000;
     private const ushort SpectrumRomStart = 0x0000;
     private const ushort SpectrumRomEnd = 0x3FFF;
+    private const ushort ScreenMemoryAddress = 0x4000;
     private const ushort RandomizeUsrRoutineAddress = 0x34B6;
     private const ushort TestMachineCodeAddress = 0xC000;
     private const ushort StopAddress = 0xBC28;
     private const ushort TestNumberAddress = 40000;
     private const ushort ContendedFlagAddress = 40002;
-    private const ushort ActualResultAddress = 61184;   // 0xEF00
-    private const ushort ExpectedResultAddress = 57856; // 0xE200
+    private const ushort ActualResultAddress = 0xEF00;
+    private const ushort ExpectedResultAddress = 0xE200;
     private const ushort LateTimingOffset = 512;
 
     internal TimingTestCase(byte testNumber, string description, bool contended)
@@ -55,7 +57,7 @@ public sealed class TimingTestCase : TestCase
         var timingType = TimingTestSuite.Instance.GetTimingType<TTestHarness>();
         var z80 = new TTestHarness();
 
-        var actual = z80 is Z80SteppableTestHarness steppable ? ExecuteAndReadActual(steppable, TestNumber, Contended) : ExecuteAndReadActual(z80, TestNumber, Contended);
+        var actual = Execute(z80, this);
         var expected = ReadExpectedResult(z80, timingType, TestNumber, Contended);
 
         testOutput?.WriteLine($"{timingType} timings detected.");
@@ -74,7 +76,7 @@ public sealed class TimingTestCase : TestCase
         where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness();
-        var actual = ExecuteAndReadActual(z80, 0, false);
+        var actual = Execute(z80, 0, false);
 
         return actual switch
         {
@@ -84,45 +86,62 @@ public sealed class TimingTestCase : TestCase
         };
     }
 
-    private static TimingResult ExecuteAndReadActual<TTestHarness>(TTestHarness z80, byte testNumber, bool contended)
+    private static TimingResult Execute<TTestHarness>(TTestHarness z80, TimingTestCase testCase)
         where TTestHarness : Z80TestHarness
     {
-        BeforeExecute(z80, testNumber, contended);
-
-        if (z80 is Z80SteppableTestHarness steppable)
+        if (RequiresScreen(testCase))
         {
-            while (z80.RegisterPC != StopAddress)
+            if (z80 is not Z80SteppableTestHarness)
             {
-                steppable.Step();
-                AssertNotTimedOut(z80);
+                throw new InvalidOperationException($"Timing test {testCase.TestNumber} requires a steppable harness.");
             }
+
+            InitializeMachineCodeExecution(z80, testCase.TestNumber, testCase.Contended, false);
+            z80.CopyToMemory(ScreenMemoryAddress, Screens.Get(testCase.TestNumber, testCase.Contended));
         }
         else
         {
-            while (z80.RegisterPC != StopAddress)
-            {
-                z80.ExecuteInstruction();
-                AssertNotTimedOut(z80);
-            }
+            InitializeMachineCodeExecution(z80, testCase.TestNumber, testCase.Contended, true);
         }
 
+        if (z80 is IFrameAwareTestHarness frameAware)
+        {
+            frameAware.StartFrame();
+        }
+
+        ExecuteToStop(z80);
         return ReadActualResult(z80);
     }
 
-    private static void BeforeExecute(Z80TestHarness z80, byte testNumber, bool contended)
+    private static TimingResult Execute<TTestHarness>(TTestHarness z80, byte testNumber, bool contended)
+        where TTestHarness : Z80TestHarness
+    {
+        InitializeMachineCodeExecution(z80, testNumber, contended, true);
+        z80.TStates = 0;
+
+        ExecuteToStop(z80);
+        return ReadActualResult(z80);
+    }
+
+    private static void InitializeMachineCodeExecution(Z80TestHarness z80, byte testNumber, bool contended, bool useNullIo)
     {
         z80.RomArea = (SpectrumRomStart, SpectrumRomEnd);
-        z80.SetIO(new NullIO(0xBF));
-        z80.CopyToMemory(0x0000, TimingTestSuite.Instance.BaseMemory);
+        if (useNullIo)
+        {
+            z80.SetIO(new NullIO(0xBF));
+        }
 
+        z80.CopyToMemory(0x0000, TimingTestSuite.Instance.BaseMemory);
         z80.RegisterSP = 0xFFFE;
         z80.WriteByteToMemory(TestNumberAddress, testNumber);
         z80.WriteByteToMemory(ContendedFlagAddress, (byte)(contended ? 1 : 0));
         z80.Interrupt = false;
 
         SetupTestMachineCode(z80);
-        z80.TStates = 0;
     }
+
+    [Pure]
+    private static bool RequiresScreen(TimingTestCase testCase) => testCase.TestNumber is >= 35 and <= 37;
 
     private static void SetupTestMachineCode(Z80TestHarness z80)
     {
@@ -133,6 +152,25 @@ public sealed class TimingTestCase : TestCase
 
         // Step by full instructions to ensure we're at an instruction boundary when the test machine code starts.
         while (z80.RegisterPC != TestMachineCodeAddress)
+        {
+            z80.ExecuteInstruction();
+            AssertNotTimedOut(z80);
+        }
+    }
+
+    private static void ExecuteToStop(Z80TestHarness z80)
+    {
+        if (z80 is Z80SteppableTestHarness steppable)
+        {
+            while (z80.RegisterPC != StopAddress)
+            {
+                steppable.Step();
+                AssertNotTimedOut(z80);
+            }
+            return;
+        }
+
+        while (z80.RegisterPC != StopAddress)
         {
             z80.ExecuteInstruction();
             AssertNotTimedOut(z80);

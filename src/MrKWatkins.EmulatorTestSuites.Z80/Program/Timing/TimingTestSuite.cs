@@ -10,7 +10,9 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
 /// <seealso href="https://www.zxspectrum4.net/op_timing.php">Original test suite</seealso>
 public sealed class TimingTestSuite : TestSuite
 {
-    private static readonly string[] TestDescriptions =
+    private const string PortIoTimingDescription = "IN A,(n); OUT (n),A; IN r,(C); OUT (C),r";
+
+    private static readonly string[] RegularTestDescriptions =
     [
         "JR; INC BC; LD BC,(nn);LD (nn),BC",
         "INC dd; DEC dd",
@@ -46,7 +48,6 @@ public sealed class TimingTestSuite : TestSuite
         "INI; INIR; IND; INDR",
         "OUTI; OTIR; OUTD; OTDR",
         "RST 18"
-        // The original BASIC includes tests 35-37, but the OakCpu port currently omits them.
     ];
 
     private readonly ConcurrentDictionary<Type, Lazy<TimingType>> timingTypesByHarnessType = new();
@@ -82,13 +83,23 @@ public sealed class TimingTestSuite : TestSuite
     [Pure]
     private static IEnumerable<TimingTestCase> EnumerateTestCases()
     {
-        foreach (var contended in new[] { false, true })
+        foreach (var (description, index) in RegularTestDescriptions.Select((description, index) => (description, index)))
         {
-            foreach (var (description, index) in TestDescriptions.Select((description, index) => (description, index)))
-            {
-                yield return new TimingTestCase((byte)(index + 1), description, contended);
-            }
+            yield return new TimingTestCase((byte)(index + 1), description, false);
         }
+
+        // These four variants are present in the original BASIC program. Timing-aware steppable harnesses
+        // settle to the same prompt-aligned state and then run the original tokenized BASIC statements directly.
+        yield return new TimingTestCase(35, PortIoTimingDescription, false);
+
+        foreach (var (description, index) in RegularTestDescriptions.Select((description, index) => (description, index)))
+        {
+            yield return new TimingTestCase((byte)(index + 1), description, true);
+        }
+
+        yield return new TimingTestCase(35, $"{PortIoTimingDescription} [CLS]", true);
+        yield return new TimingTestCase(36, $"{PortIoTimingDescription} [13]", true);
+        yield return new TimingTestCase(37, $"{PortIoTimingDescription} [21]", true);
     }
 
     [Pure]
