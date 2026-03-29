@@ -22,9 +22,9 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
     public override string? OpcodeName => OpcodeLookup.GetOrNull(SuperfluousIdCharactersRegex().Replace(Id, ""));
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="IZ80TestHarness" /> type.
+    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use for execution.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use for execution.</typeparam>
     /// <param name="testOutput">Optional <see cref="TextWriter" /> for test output. If <c>null</c>, no output will be written.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
@@ -36,7 +36,7 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
         }
     }
 
-    private void Execute(IZ80TestHarness z80, Step step, TextWriter? testOutput)
+    private void Execute(Z80TestHarness z80, Step step, TextWriter? testOutput)
     {
         testOutput?.Write('.');
 
@@ -49,7 +49,7 @@ public sealed partial class SingleStepTestCase : InstructionTestCase
         Assert(step, z80);
     }
 
-    private void Assert(Step step, IZ80TestHarness z80)
+    private void Assert(Step step, Z80TestHarness z80)
     {
         using (z80.CreateAssertionScope($"Step {step.Index}"))
         {

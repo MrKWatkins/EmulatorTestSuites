@@ -46,16 +46,16 @@ public sealed class TimingTestCase : TestCase
     public override string Name => $"Test {TestNumber} {{{(Contended ? "Contended" : "Uncontended")}}} {Description}";
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="IZ80TestHarness" /> type.
+    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
     /// <param name="testOutput">Optional writer for test output.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
         var timingType = TimingTestSuite.Instance.GetTimingType<TTestHarness>();
         var z80 = new TTestHarness();
 
-        var actual = z80 is IZ80SteppableTestHarness steppable ? ExecuteAndReadActual(steppable, TestNumber, Contended) : ExecuteAndReadActual(z80, TestNumber, Contended);
+        var actual = z80 is Z80SteppableTestHarness steppable ? ExecuteAndReadActual(steppable, TestNumber, Contended) : ExecuteAndReadActual(z80, TestNumber, Contended);
         var expected = ReadExpectedResult(z80, timingType, TestNumber, Contended);
 
         testOutput?.WriteLine($"{timingType} timings detected.");
@@ -71,7 +71,7 @@ public sealed class TimingTestCase : TestCase
     }
 
     internal static TimingType DetectTiming<TTestHarness>()
-        where TTestHarness : IZ80TestHarness, new()
+        where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness();
         var actual = ExecuteAndReadActual(z80, 0, false);
@@ -85,11 +85,11 @@ public sealed class TimingTestCase : TestCase
     }
 
     private static TimingResult ExecuteAndReadActual<TTestHarness>(TTestHarness z80, byte testNumber, bool contended)
-        where TTestHarness : IZ80TestHarness
+        where TTestHarness : Z80TestHarness
     {
         BeforeExecute(z80, testNumber, contended);
 
-        if (z80 is IZ80SteppableTestHarness steppable)
+        if (z80 is Z80SteppableTestHarness steppable)
         {
             while (z80.RegisterPC != StopAddress)
             {
@@ -109,7 +109,7 @@ public sealed class TimingTestCase : TestCase
         return ReadActualResult(z80);
     }
 
-    private static void BeforeExecute(IZ80TestHarness z80, byte testNumber, bool contended)
+    private static void BeforeExecute(Z80TestHarness z80, byte testNumber, bool contended)
     {
         z80.RomArea = (SpectrumRomStart, SpectrumRomEnd);
         z80.SetIO(new NullIO(0xBF));
@@ -124,7 +124,7 @@ public sealed class TimingTestCase : TestCase
         z80.TStates = 0;
     }
 
-    private static void SetupTestMachineCode(IZ80TestHarness z80)
+    private static void SetupTestMachineCode(Z80TestHarness z80)
     {
         // The machine code is called with RANDOMIZE USR 49152. The Spectrum ROM's USR routine expects BC to contain
         // the target address. See https://skoolkid.github.io/rom/asm/34B3.html.
@@ -140,11 +140,11 @@ public sealed class TimingTestCase : TestCase
     }
 
     [Pure]
-    private static TimingResult ReadActualResult(IZ80TestHarness z80) =>
+    private static TimingResult ReadActualResult(Z80TestHarness z80) =>
         new(z80.ReadByteFromMemory(ActualResultAddress), z80.ReadWordFromMemory(ActualResultAddress + 1), z80.ReadWordFromMemory(ActualResultAddress + 3));
 
     [Pure]
-    private static TimingResult ReadExpectedResult(IZ80TestHarness z80, TimingType timingType, byte testNumber, bool contended)
+    private static TimingResult ReadExpectedResult(Z80TestHarness z80, TimingType timingType, byte testNumber, bool contended)
     {
         var address = (ushort)(ExpectedResultAddress + testNumber * 10 + (contended ? 5 : 0));
         if (timingType == TimingType.Late)
@@ -158,7 +158,7 @@ public sealed class TimingTestCase : TestCase
     [Pure]
     private static string CreateId(byte testNumber, bool contended) => $"{testNumber:00}-{(contended ? "contended" : "uncontended")}";
 
-    private static void AssertNotTimedOut(IZ80TestHarness z80)
+    private static void AssertNotTimedOut(Z80TestHarness z80)
     {
         if (z80.TStates <= MaximumTStates)
         {
@@ -170,7 +170,7 @@ public sealed class TimingTestCase : TestCase
     }
 
     [Pure]
-    private static TimingType FailToDetectTimings(IZ80TestHarness z80, TimingResult actual)
+    private static TimingType FailToDetectTimings(Z80TestHarness z80, TimingResult actual)
     {
         z80.AssertFail($"Could not detect timings. Actual result was R={actual.RegisterR} loop={actual.LoopCounter} sp={actual.StackPointer}.");
         throw new InvalidOperationException("The test harness did not fail the test when timing detection failed.");

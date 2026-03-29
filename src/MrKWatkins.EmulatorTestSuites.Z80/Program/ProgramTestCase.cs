@@ -18,22 +18,22 @@ public abstract class ProgramTestCase : TestCase
     /// <summary>
     /// Executes the test case with the specified test output.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
     /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
     public sealed override void Execute<TTestHarness>(TextWriter? testOutput = null) => Execute<TTestHarness>(testOutput, null);
 
     /// <summary>
     /// Executes the test case with the specified test and debug output. Execution will proceed step by step if <typeparamref name="TTestHarness"/>
-    /// is a <see cref="IZ80SteppableTestHarness"/>, or instruction by instruction otherwise.
+    /// is a <see cref="Z80SteppableTestHarness"/>, or instruction by instruction otherwise.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
     /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
     /// <param name="debugOutput">Optional writer for debug output. This will be the state of the emulator before each instruction. Only used for instruction by instruction execution.</param>
     public void Execute<TTestHarness>(TextWriter? testOutput, TextWriter? debugOutput)
-        where TTestHarness : IZ80TestHarness, new()
+        where TTestHarness : Z80TestHarness, new()
     {
         var z80 = new TTestHarness();
-        if (z80 is IZ80SteppableTestHarness steppableTestHarness)
+        if (z80 is Z80SteppableTestHarness steppableTestHarness)
         {
             Execute(steppableTestHarness, testOutput);
         }
@@ -49,7 +49,7 @@ public abstract class ProgramTestCase : TestCase
     /// <param name="z80">The test harness to use.</param>
     /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
     /// <param name="debugOutput">Optional writer for debug output. This will be the state of the emulator before each instruction.</param>
-    public void Execute(IZ80TestHarness z80, TextWriter? testOutput = null, TextWriter? debugOutput = null)
+    public void Execute(Z80TestHarness z80, TextWriter? testOutput = null, TextWriter? debugOutput = null)
     {
         var (resultWatcher, printInterceptor) = BeforeExecute(z80, testOutput);
 
@@ -77,7 +77,7 @@ public abstract class ProgramTestCase : TestCase
     /// </summary>
     /// <param name="z80">The steppable test harness to use.</param>
     /// <param name="testOutput">Optional writer for test output. This will be the output from the test program.</param>
-    public void Execute(IZ80SteppableTestHarness z80, TextWriter? testOutput = null)
+    public void Execute(Z80SteppableTestHarness z80, TextWriter? testOutput = null)
     {
         var (resultWatcher, printInterceptor) = BeforeExecute(z80, testOutput);
 
@@ -109,7 +109,7 @@ public abstract class ProgramTestCase : TestCase
     }
 
     [MustUseReturnValue]
-    private (ResultWatchingOutput ResultWatcher, PrintInterceptor PrintInterceptor) BeforeExecute(IZ80TestHarness z80, TextWriter? testOutput)
+    private (ResultWatchingOutput ResultWatcher, PrintInterceptor PrintInterceptor) BeforeExecute(Z80TestHarness z80, TextWriter? testOutput)
     {
         z80.RegisterSP = 0xFFFE;
         z80.RomArea = RomArea;
@@ -123,7 +123,7 @@ public abstract class ProgramTestCase : TestCase
         return (resultWatcher, printInterceptor);
     }
 
-    private static void AfterExecute(IZ80TestHarness z80, ResultWatchingOutput resultWatcher)
+    private static void AfterExecute(Z80TestHarness z80, ResultWatchingOutput resultWatcher)
     {
         switch (resultWatcher.Result)
         {
@@ -137,7 +137,7 @@ public abstract class ProgramTestCase : TestCase
         }
     }
 
-    private protected void AssertNotTimedOut(IZ80TestHarness z80)
+    private protected void AssertNotTimedOut(Z80TestHarness z80)
     {
         if (z80.TStates <= MaximumTStates)
         {
@@ -148,7 +148,7 @@ public abstract class ProgramTestCase : TestCase
         throw new InvalidOperationException("The test harness did not fail the test when the program timed out.");
     }
 
-    private protected virtual void SetupTestCase(IZ80TestHarness z80)
+    private protected virtual void SetupTestCase(Z80TestHarness z80)
     {
         // Write the address of the test at the start of the test table.
         z80.WriteWordToMemory(TestTableStartAddress, testAddress);
@@ -171,8 +171,8 @@ public abstract class ProgramTestCase : TestCase
 
     private protected virtual (ushort Start, ushort End)? RomArea => null;
 
-    private protected abstract void InitializeZ80(IZ80TestHarness z80);
+    private protected abstract void InitializeZ80(Z80TestHarness z80);
 
     [Pure]
-    private protected abstract PrintInterceptor OverridePrintRoutine(IZ80TestHarness z80, ResultWatchingOutput output);
+    private protected abstract PrintInterceptor OverridePrintRoutine(Z80TestHarness z80, ResultWatchingOutput output);
 }

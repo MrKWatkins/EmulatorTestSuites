@@ -21,12 +21,12 @@ public abstract class TestCase
     public virtual string Name => Id;
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="IZ80TestHarness" /> type.
+    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="IZ80TestHarness" /> to use for execution.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use for execution.</typeparam>
     /// <param name="testOutput">Optional <see cref="TextWriter" /> for test output. If <c>null</c>, no output will be written.</param>
     public abstract void Execute<TTestHarness>(TextWriter? testOutput = null)
-        where TTestHarness : IZ80TestHarness, new();
+        where TTestHarness : Z80TestHarness, new();
 
     /// <summary>
     /// Returns a string representation of this <see cref="TestCase" />.

@@ -28,7 +28,7 @@ public class Z80ExpectedState : Z80State
     /// </summary>
     /// <param name="assertionsToRun">The set of assertions to perform.</param>
     /// <param name="z80">The Z80 test harness containing the actual state to verify.</param>
-    public void Assert(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    public void Assert(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         AssertEqual(assertionsToRun, z80, TestAssertions.TStates, z80.TStates, TStates, $"T-States should be {TStates} but was {z80.TStates}");
         AssertRegisters(assertionsToRun, z80);
@@ -39,7 +39,7 @@ public class Z80ExpectedState : Z80State
         AssertCycles(assertionsToRun, z80);
     }
 
-    private void AssertRegisters(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertRegisters(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         AssertEqual(assertionsToRun, z80, TestAssertions.A, z80.RegisterA, RegisterA, $"Register A should be 0x{RegisterA:X2} but was 0x{z80.RegisterA:X2}");
         AssertEqual(assertionsToRun, z80, TestAssertions.F, z80.RegisterF, RegisterF, $"Register F should be 0x{RegisterF:X2} but was 0x{z80.RegisterF:X2}");
@@ -60,7 +60,7 @@ public class Z80ExpectedState : Z80State
         AssertEqual(assertionsToRun, z80, TestAssertions.ShadowHL, z80.ShadowRegisterHL, ShadowRegisterHL, $"Register HL' should be 0x{ShadowRegisterHL:X4} but was 0x{z80.ShadowRegisterHL:X4}");
     }
 
-    private void AssertFlags(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertFlags(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         AssertEqual(assertionsToRun, z80, TestAssertions.C, z80.FlagC, FlagC, $"Flag C should should be {FormatFlag(FlagC)} but was {FormatFlag(z80.FlagC)}");
         AssertEqual(assertionsToRun, z80, TestAssertions.N, z80.FlagN, FlagN, $"Flag N should be {FormatFlag(FlagN)} but was {FormatFlag(z80.FlagN)}");
@@ -72,7 +72,7 @@ public class Z80ExpectedState : Z80State
         AssertEqual(assertionsToRun, z80, TestAssertions.S, z80.FlagS, FlagS, $"Flag S should be {FormatFlag(FlagS)} but was {FormatFlag(z80.FlagS)}");
     }
 
-    private void AssertInterrupts(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertInterrupts(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         AssertEqual(assertionsToRun, z80, TestAssertions.IM, z80.IM, IM, $"IM should should be {IM} but was {z80.IM}");
         AssertEqual(assertionsToRun, z80, TestAssertions.IFF1, z80.IFF1, IFF1, $"IFF1 should should be {FormatFlag(IFF1)} but was {FormatFlag(z80.IFF1)}");
@@ -80,7 +80,7 @@ public class Z80ExpectedState : Z80State
         AssertEqual(assertionsToRun, z80, TestAssertions.Halted, z80.Halted, Halted, $"Halted should should be {Halted} but was {z80.Halted}");
     }
 
-    private void AssertMemory(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertMemory(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         if (!assertionsToRun.HasFlag(TestAssertions.Memory))
         {
@@ -96,7 +96,7 @@ public class Z80ExpectedState : Z80State
         }
     }
 
-    private void AssertCycles(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertCycles(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         if (!assertionsToRun.HasFlag(TestAssertions.Cycles))
         {
@@ -113,7 +113,7 @@ public class Z80ExpectedState : Z80State
         }
     }
 
-    private static void AssertCycle(IZ80TestHarness z80, Cycle actual, Cycle expected, int index)
+    private static void AssertCycle(Z80TestHarness z80, Cycle actual, Cycle expected, int index)
     {
         z80.AssertEqual(actual.Type, expected.Type, $"Expected cycle {index} to have type {expected.Type} but was {actual.Type}");
         z80.AssertEqual(actual.Address, expected.Address, $"Expected cycle {index} to have address {expected.Address} but was {actual.Address}");
@@ -126,7 +126,7 @@ public class Z80ExpectedState : Z80State
 
     private protected virtual bool ShouldAssertCycle(Cycle cycle) => true;
 
-    private void AssertIOWrites(TestAssertions assertionsToRun, IZ80TestHarness z80)
+    private void AssertIOWrites(TestAssertions assertionsToRun, Z80TestHarness z80)
     {
         if (!assertionsToRun.HasFlag(TestAssertions.IOWrites))
         {
@@ -148,7 +148,7 @@ public class Z80ExpectedState : Z80State
         }
     }
 
-    private static void AssertIOWrite(IZ80TestHarness z80, IOEvent actual, IOEvent expected, int index)
+    private static void AssertIOWrite(Z80TestHarness z80, IOEvent actual, IOEvent expected, int index)
     {
         z80.AssertEqual(actual.Port, expected.Port, $"Expected IO write {index} to have port {expected.Port} but was {actual.Port}");
         z80.AssertEqual(actual.Value, expected.Value, $"Expected IO write {index} to have value {expected.Value} but was {actual.Value}");
@@ -156,7 +156,7 @@ public class Z80ExpectedState : Z80State
 
     private static char FormatFlag(bool flag) => flag ? '1' : '0';
 
-    private static void AssertEqual<T>(TestAssertions assertionsToRun, IZ80TestHarness z80, TestAssertions assertionsCategory, T actual, T expected, DefaultInterpolatedStringHandler message)
+    private static void AssertEqual<T>(TestAssertions assertionsToRun, Z80TestHarness z80, TestAssertions assertionsCategory, T actual, T expected, DefaultInterpolatedStringHandler message)
     {
         if (assertionsToRun.HasFlag(assertionsCategory))
         {

@@ -2,7 +2,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program;
 
 internal sealed class CPMPrintInterceptor : PrintInterceptor
 {
-    internal CPMPrintInterceptor(IZ80TestHarness z80, ResultWatchingOutput output)
+    internal CPMPrintInterceptor(Z80TestHarness z80, ResultWatchingOutput output)
         : base(z80, output)
     {
     }

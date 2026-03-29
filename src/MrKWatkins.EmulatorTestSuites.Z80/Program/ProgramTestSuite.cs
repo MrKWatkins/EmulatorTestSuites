@@ -1,4 +1,4 @@
-using MrKWatkins.BinaryPrimitives;
+using System.Buffers.Binary;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80.Program;
 
@@ -35,7 +35,7 @@ public abstract class ProgramTestSuite<TTestCase> : TestSuite
         var testTableAddress = TestTableStartAddress;
         while (true)
         {
-            var testAddress = memory.AsSpan(testTableAddress).GetUInt16();
+            var testAddress = BinaryPrimitives.ReadUInt16LittleEndian(memory.AsSpan(testTableAddress));
             if (testAddress == 0)
             {
                 break;

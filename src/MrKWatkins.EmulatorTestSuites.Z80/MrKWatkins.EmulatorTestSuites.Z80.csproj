@@ -17,7 +17,7 @@
         <PackageReference Include="MrKWatkins.OakAsm.Disassembly" />
         <PackageReference Include="MrKWatkins.OakAsm.Disassembly.Z80" />
         <PackageReference Include="MrKWatkins.OakAsm.Formatting" />
+        <PackageReference Include="MrKWatkins.OakAsm.IO.ZXSpectrum" />
         <PackageReference Include="MrKWatkins.OakAsm.Z80" />
-        <PackageReference Include="MrKWatkins.OakIO.ZXSpectrum" />
     </ItemGroup>
 </Project>

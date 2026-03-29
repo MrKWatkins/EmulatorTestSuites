@@ -2,221 +2,304 @@ using System.Runtime.CompilerServices;
 
 namespace MrKWatkins.EmulatorTestSuites.Z80;
 
-/// <inheritdoc cref="IZ80TestHarness"/>
-/// <remarks>
-/// Compatibility base class for <see cref="IZ80TestHarness"/> implementations that provides reusable helper behavior for the test suites.
-/// </remarks>
+/// <summary>
+/// Base class for a Z80 emulator test harness. Implement this class to use it with the test suites.
+/// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 #pragma warning disable CA1001
-public abstract class Z80TestHarness : IZ80TestHarness
+public abstract class Z80TestHarness
 #pragma warning restore CA1001
 {
     private AssertionScope? assertionScope;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the AF register pair.
+    /// </summary>
     public abstract ushort RegisterAF { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the A register.
+    /// </summary>
     public byte RegisterA
     {
         get => GetLowByte(RegisterAF);
         set => RegisterAF = SetLowByte(RegisterAF, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the F register.
+    /// </summary>
     public byte RegisterF
     {
         get => GetHighByte(RegisterAF);
         set => RegisterAF = SetHighByte(RegisterAF, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the BC register pair.
+    /// </summary>
     public abstract ushort RegisterBC { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the B register.
+    /// </summary>
     public byte RegisterB
     {
         get => GetLowByte(RegisterBC);
         set => RegisterBC = SetLowByte(RegisterBC, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the C register.
+    /// </summary>
     public byte RegisterC
     {
         get => GetHighByte(RegisterBC);
         set => RegisterBC = SetHighByte(RegisterBC, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the DE register pair.
+    /// </summary>
     public abstract ushort RegisterDE { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the D register.
+    /// </summary>
     public byte RegisterD
     {
         get => GetLowByte(RegisterDE);
         set => RegisterDE = SetLowByte(RegisterDE, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the E register.
+    /// </summary>
     public byte RegisterE
     {
         get => GetHighByte(RegisterDE);
         set => RegisterDE = SetHighByte(RegisterDE, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the HL register pair.
+    /// </summary>
     public abstract ushort RegisterHL { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the H register.
+    /// </summary>
     public byte RegisterH
     {
         get => GetLowByte(RegisterHL);
         set => RegisterHL = SetLowByte(RegisterHL, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the L register.
+    /// </summary>
     public byte RegisterL
     {
         get => GetHighByte(RegisterHL);
         set => RegisterHL = SetHighByte(RegisterHL, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IX register pair.
+    /// </summary>
     public abstract ushort RegisterIX { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IXH register.
+    /// </summary>
     public byte RegisterIXH
     {
         get => GetLowByte(RegisterIX);
         set => RegisterIX = SetLowByte(RegisterIX, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IXL register.
+    /// </summary>
     public byte RegisterIXL
     {
         get => GetHighByte(RegisterIX);
         set => RegisterIX = SetHighByte(RegisterIX, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IY register pair.
+    /// </summary>
     public abstract ushort RegisterIY { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IYH register.
+    /// </summary>
     public byte RegisterIYH
     {
         get => GetLowByte(RegisterIY);
         set => RegisterIY = SetLowByte(RegisterIY, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IYL register.
+    /// </summary>
     public byte RegisterIYL
     {
         get => GetHighByte(RegisterIY);
         set => RegisterIY = SetHighByte(RegisterIY, value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the SP register.
+    /// </summary>
     public abstract ushort RegisterSP { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the PC register.
+    /// </summary>
     public abstract ushort RegisterPC { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the internal WZ register, sometimes called MEMPTR.
+    /// </summary>
     public abstract ushort RegisterWZ { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the I register.
+    /// </summary>
     public abstract byte RegisterI { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the R register.
+    /// </summary>
     public abstract byte RegisterR { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the internal Q register.
+    /// </summary>
     public abstract byte RegisterQ { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the AF' register pair.
+    /// </summary>
     public abstract ushort ShadowRegisterAF { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the BC' register pair.
+    /// </summary>
     public abstract ushort ShadowRegisterBC { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the DE' register pair.
+    /// </summary>
     public abstract ushort ShadowRegisterDE { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the HL' register pair.
+    /// </summary>
     public abstract ushort ShadowRegisterHL { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the carry flag, C.
+    /// </summary>
     public bool FlagC
     {
         get => (RegisterF & 0b00000001) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00000001 : RegisterF & 0b11111110);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the add/subtract flag, N.
+    /// </summary>
     public bool FlagN
     {
         get => (RegisterF & 0b00000010) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00000010 : RegisterF & 0b11111101);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the parity/overflow flag, P/V.
+    /// </summary>
     public bool FlagPV
     {
         get => (RegisterF & 0b00000100) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00000100 : RegisterF & 0b11111011);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the undocumented X flag, bit 3 of the F register.
+    /// </summary>
     public bool FlagX
     {
         get => (RegisterF & 0b00001000) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00001000 : RegisterF & 0b11110111);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the half-carry flag, H.
+    /// </summary>
     public bool FlagH
     {
         get => (RegisterF & 0b00010000) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00010000 : RegisterF & 0b11101111);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the undocumented Y flag, bit 5 of the F register.
+    /// </summary>
     public bool FlagY
     {
         get => (RegisterF & 0b00100000) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b00100000 : RegisterF & 0b11011111);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the zero flag, Z.
+    /// </summary>
     public bool FlagZ
     {
         get => (RegisterF & 0b01000000) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b01000000 : RegisterF & 0b10111111);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the sign flag, S.
+    /// </summary>
     public bool FlagS
     {
         get => (RegisterF & 0b10000000) != 0;
         set => RegisterF = (byte)(value ? RegisterF | 0b10000000 : RegisterF & 0b01111111);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IFF1 interrupt flip-flop.
+    /// </summary>
     public abstract bool IFF1 { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the IFF2 interrupt flip-flop.
+    /// </summary>
     public abstract bool IFF2 { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the interrupt mode.
+    /// </summary>
     public abstract byte IM { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets whether the CPU is in the halted state.
+    /// </summary>
     public abstract bool Halted { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets whether an interrupt is pending.
+    /// </summary>
     public abstract bool Interrupt { get; set; }
 
-    /// <inheritdoc />
+    /// <summary>
+     /// Gets or sets the number of T-states (clock cycles) executed.
+     /// </summary>
     public ulong TStates
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -225,11 +308,15 @@ public abstract class Z80TestHarness : IZ80TestHarness
         set;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Reads a byte from memory.
+    /// </summary>
     [Pure]
     public abstract byte ReadByteFromMemory(ushort address);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Reads a word in little endian format from memory.
+    /// </summary>
     [Pure]
     public ushort ReadWordFromMemory(ushort address)
     {
@@ -243,10 +330,14 @@ public abstract class Z80TestHarness : IZ80TestHarness
         return (ushort)((msb << 8) | lsb);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Writes a byte to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
+    /// </summary>
     public abstract void WriteByteToMemory(ushort address, byte value);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Writes a word in little endian format to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
+    /// </summary>
     public void WriteWordToMemory(ushort address, ushort value)
     {
         WriteByteToMemory(address, (byte)value);
@@ -255,7 +346,11 @@ public abstract class Z80TestHarness : IZ80TestHarness
         WriteByteToMemory(address, (byte)(value >> 8));
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Copies a span of bytes into the memory starting at the specified address.
+    /// </summary>
+    /// <param name="address">The starting address in memory where the bytes will be copied.</param>
+    /// <param name="source">The span of bytes to copy into memory.</param>
     [OverloadResolutionPriority(1)]
     public virtual void CopyToMemory(ushort address, ReadOnlySpan<byte> source)
     {
@@ -266,7 +361,11 @@ public abstract class Z80TestHarness : IZ80TestHarness
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Copies a sequence of bytes into memory starting at the specified address.
+    /// </summary>
+    /// <param name="address">The starting memory address where the bytes will be copied.</param>
+    /// <param name="source">The sequence of bytes to copy into memory.</param>
     public virtual void CopyToMemory(ushort address, IReadOnlyList<byte> source)
     {
         foreach (var @byte in source)
@@ -276,7 +375,9 @@ public abstract class Z80TestHarness : IZ80TestHarness
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Clears memory.
+    /// </summary>
     public virtual void ClearMemory()
     {
         for (var f = 0; f < 65536; f++)
@@ -285,7 +386,9 @@ public abstract class Z80TestHarness : IZ80TestHarness
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the ROM area in memory. Memory writes in this area by the emulator should be ignored.
+    /// </summary>
     public (ushort Start, ushort End)? RomArea
     {
         get;
@@ -306,13 +409,21 @@ public abstract class Z80TestHarness : IZ80TestHarness
     {
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the IO reader implementation.
+    /// </summary>
     public IIOReader IOReader { get; internal set; } = new NullIO();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the IO writer implementation.
+    /// </summary>
     public IIOWriter IOWriter { get; internal set; } = new NullIO();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Sets both the IO reader and writer to the same implementation.
+    /// </summary>
+    /// <typeparam name="TIO">The type of the IO implementation.</typeparam>
+    /// <param name="io">The IO implementation.</param>
     public void SetIO<TIO>(TIO io)
         where TIO : IIOReader, IIOWriter
     {
@@ -320,7 +431,9 @@ public abstract class Z80TestHarness : IZ80TestHarness
         IOWriter = io;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets whether CPU cycles should be recorded.
+    /// </summary>
     public bool RecordCycles
     {
         get => MutableCycles != null;
@@ -342,10 +455,15 @@ public abstract class Z80TestHarness : IZ80TestHarness
     /// </summary>
     protected internal List<Cycle>? MutableCycles { get; private set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the recorded CPU cycles. Only available when <see cref="RecordCycles"/> is true.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">Thrown when cycles are not being recorded.</exception>
     public IReadOnlyList<Cycle> Cycles => MutableCycles ?? throw new InvalidOperationException("Cycles are not being recorded.");
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Resets the test harness state.
+    /// </summary>
     public virtual void Reset()
     {
         TStates = 0;
@@ -353,7 +471,12 @@ public abstract class Z80TestHarness : IZ80TestHarness
         ClearMemory();
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Creates an assertion scope that allows multiple <see cref="AssertEqual{T}" /> assertions to be made with just one <see cref="AssertFail" />.
+    /// </summary>
+    /// <param name="name">Optional name for the scope.</param>
+    /// <returns>An <see cref="IDisposable" /> that finishes the scope.</returns>
+    /// <exception cref="InvalidOperationException">If a scope has already been started.</exception>
     [MustDisposeResource]
     public IDisposable CreateAssertionScope(string? name = null)
     {
@@ -366,7 +489,13 @@ public abstract class Z80TestHarness : IZ80TestHarness
         return assertionScope;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Asserts that the actual value is equal to the expected value. If the values are not equal, an error is reported.
+    /// </summary>
+    /// <typeparam name="T">The type of the values being compared.</typeparam>
+    /// <param name="actual">The actual value to be checked.</param>
+    /// <param name="expected">The expected value to compare against.</param>
+    /// <param name="message">An interpolated string handler providing a custom error message if the values are not equal.</param>
     public void AssertEqual<T>(T actual, T expected, DefaultInterpolatedStringHandler message)
     {
         if (!EqualityComparer<T>.Default.Equals(actual, expected))
@@ -382,13 +511,21 @@ public abstract class Z80TestHarness : IZ80TestHarness
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Signals that a test has failed with the provided error message.
+    /// </summary>
+    /// <param name="message">The error message indicating why the test failed.</param>
     public abstract void AssertFail(string message);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Executes a single instruction.
+    /// </summary>
     public abstract void ExecuteInstruction();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Executes a single instruction with debug output.
+    /// </summary>
+    /// <param name="debug">Optional TextWriter for debug output.</param>
     public void ExecuteInstruction(TextWriter? debug)
     {
         if (debug != null)

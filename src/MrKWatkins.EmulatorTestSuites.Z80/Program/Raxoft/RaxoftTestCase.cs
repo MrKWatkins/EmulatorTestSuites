@@ -25,7 +25,7 @@ public sealed class RaxoftTestCase : ProgramTestCase
 
     private protected override ulong MaximumTStates => 1_000_000_000;
 
-    private protected override void InitializeZ80(IZ80TestHarness z80)
+    private protected override void InitializeZ80(Z80TestHarness z80)
     {
         z80.RegisterPC = StartAddress;
 
@@ -39,5 +39,5 @@ public sealed class RaxoftTestCase : ProgramTestCase
         z80.SetIO(new NullIO(0xBF));
     }
 
-    private protected override PrintInterceptor OverridePrintRoutine(IZ80TestHarness z80, ResultWatchingOutput output) => new ZXSpectrumPrintInterceptor(z80, output);
+    private protected override PrintInterceptor OverridePrintRoutine(Z80TestHarness z80, ResultWatchingOutput output) => new ZXSpectrumPrintInterceptor(z80, output);
 }

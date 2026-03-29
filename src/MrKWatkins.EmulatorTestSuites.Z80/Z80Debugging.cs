@@ -13,11 +13,11 @@ public static class Z80Debugging
     private static readonly TrieCachedOpcodeReader OpcodeReader = new(new OpcodeInstructionLookup(Z80Assembly.OpcodeDefinitions));
 
     /// <summary>
-    /// Writes debugging information for the specified <see cref="IZ80TestHarness" /> to the specified <see cref="TextWriter" />.
+    /// Writes debugging information for the specified <see cref="Z80TestHarness" /> to the specified <see cref="TextWriter" />.
     /// </summary>
-    /// <param name="z80">The <see cref="IZ80TestHarness" /> to be described in the debugging output. </param>
+    /// <param name="z80">The <see cref="Z80TestHarness" /> to be described in the debugging output. </param>
     /// <param name="debug">The <see cref="TextWriter" /> to write debug information to. If <c>null</c>, no output will be written.</param>
-    public static void WriteDebugInformation(IZ80TestHarness z80, TextWriter debug)
+    public static void WriteDebugInformation(Z80TestHarness z80, TextWriter debug)
     {
         debug.Write($"0x{z80.RegisterPC:X4}: ");
         WriteOpcodeWithPadding(z80, debug);
@@ -28,7 +28,7 @@ public static class Z80Debugging
         debug.WriteLine();
     }
 
-    private static void WriteOpcodeWithPadding(IZ80TestHarness z80, TextWriter debug)
+    private static void WriteOpcodeWithPadding(Z80TestHarness z80, TextWriter debug)
     {
         int written;
         if (OpcodeReader.TryRead(new Z80TestHarnessMemoryReader(z80, z80.RegisterPC), out var opcode))
@@ -49,7 +49,7 @@ public static class Z80Debugging
         }
     }
 
-    private static void WriteRegisters(IZ80TestHarness z80, TextWriter debug)
+    private static void WriteRegisters(Z80TestHarness z80, TextWriter debug)
     {
         debug.Write("PC ");
         debug.Write($"{z80.RegisterPC:X4}");
@@ -77,7 +77,7 @@ public static class Z80Debugging
         debug.Write($"{z80.RegisterQ:X2}");
     }
 
-    private static void WriteFlags(IZ80TestHarness z80, TextWriter debug)
+    private static void WriteFlags(Z80TestHarness z80, TextWriter debug)
     {
         WriteFlag(debug, z80.FlagS, 'S', 's');
         WriteFlag(debug, z80.FlagN, 'N', 'n');
@@ -91,7 +91,7 @@ public static class Z80Debugging
 
     private static void WriteFlag(TextWriter debug, bool flag, char set, char reset) => debug.Write(flag ? set : reset);
 
-    private ref struct Z80TestHarnessMemoryReader(IZ80TestHarness z80, ushort startIndex = 0) : IMemoryReader
+    private ref struct Z80TestHarnessMemoryReader(Z80TestHarness z80, ushort startIndex = 0) : IMemoryReader
     {
         private ushort currentIndex = startIndex;
 
