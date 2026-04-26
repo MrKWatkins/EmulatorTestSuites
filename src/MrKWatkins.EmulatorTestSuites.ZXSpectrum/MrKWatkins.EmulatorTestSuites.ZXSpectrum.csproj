@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/zxspectrum.html</PackageProjectUrl>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="**\*.rom" />
+        <EmbeddedResource Include="**\*.scr" />
+        <EmbeddedResource Include="**\*.tap" />
+        <EmbeddedResource Include="**\*.z80" />
+        <EmbeddedResource Include="..\MrKWatkins.EmulatorTestSuites.Z80\Program\MarkWoodmass\ZXSpectrum48k.rom" Link="Timing\ZXSpectrum48k.rom" LogicalName="MrKWatkins.EmulatorTestSuites.ZXSpectrum.Timing.ZXSpectrum48k.rom" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MrKWatkins.OakIO.ZXSpectrum" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites.Z80\MrKWatkins.EmulatorTestSuites.Z80.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,10 +1,11 @@
-namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
+using MrKWatkins.EmulatorTestSuites.Z80;
+
+namespace MrKWatkins.EmulatorTestSuites.ZXSpectrum.Timing;
 
 /// <summary>
 /// A test case from the <see cref="TimingTestSuite" />.
-/// The prepared-screen cases (35-37) require a steppable harness so the suite can exercise the floating-bus dependent path.
 /// </summary>
-public sealed class TimingTestCase : TestCase
+public sealed class TimingTestCase : ZXSpectrumTestCase
 {
     private const ulong MaximumTStates = 10_000_000;
     private const ushort SpectrumRomStart = 0x0000;
@@ -48,16 +49,17 @@ public sealed class TimingTestCase : TestCase
     public override string Name => $"Test {TestNumber} {{{(Contended ? "Contended" : "Uncontended")}}} {Description}";
 
     /// <summary>
-    /// Executes this test case using the specified <see cref="Z80TestHarness" /> type.
+    /// Executes this test case using the specified <see cref="ZXSpectrumTestHarness" /> type.
     /// </summary>
-    /// <typeparam name="TTestHarness">The type of <see cref="Z80TestHarness" /> to use.</typeparam>
+    /// <typeparam name="TTestHarness">The type of <see cref="ZXSpectrumTestHarness" /> to use.</typeparam>
     /// <param name="testOutput">Optional writer for test output.</param>
     public override void Execute<TTestHarness>(TextWriter? testOutput = null)
     {
         var timingType = TimingTestSuite.Instance.GetTimingType<TTestHarness>();
-        var z80 = new TTestHarness();
+        var spectrum = new TTestHarness();
+        var z80 = spectrum.Z80;
 
-        var actual = Execute(z80, this);
+        var actual = Execute(spectrum, this);
         var expected = ReadExpectedResult(z80, timingType, TestNumber, Contended);
 
         testOutput?.WriteLine($"{timingType} timings detected.");
@@ -73,29 +75,24 @@ public sealed class TimingTestCase : TestCase
     }
 
     internal static TimingType DetectTiming<TTestHarness>()
-        where TTestHarness : Z80TestHarness, new()
+        where TTestHarness : ZXSpectrumTestHarness, new()
     {
-        var z80 = new TTestHarness();
-        var actual = Execute(z80, 0, false);
+        var spectrum = new TTestHarness();
+        var actual = Execute(spectrum, 0, false);
 
         return actual switch
         {
             { RegisterR: 2, LoopCounter: 0, StackPointer: 49478 } => TimingType.Early,
             { RegisterR: 122, LoopCounter: 0, StackPointer: 49478 } => TimingType.Late,
-            _ => FailToDetectTimings(z80, actual)
+            _ => FailToDetectTimings(spectrum.Z80, actual)
         };
     }
 
-    private static TimingResult Execute<TTestHarness>(TTestHarness z80, TimingTestCase testCase)
-        where TTestHarness : Z80TestHarness
+    private static TimingResult Execute(ZXSpectrumTestHarness spectrum, TimingTestCase testCase)
     {
+        var z80 = spectrum.Z80;
         if (RequiresScreen(testCase))
         {
-            if (z80 is not Z80SteppableTestHarness)
-            {
-                throw new InvalidOperationException($"Timing test {testCase.TestNumber} requires a steppable harness.");
-            }
-
             InitializeMachineCodeExecution(z80, testCase.TestNumber, testCase.Contended, false);
             z80.CopyToMemory(ScreenMemoryAddress, Screens.Get(testCase.TestNumber, testCase.Contended));
         }
@@ -104,22 +101,19 @@ public sealed class TimingTestCase : TestCase
             InitializeMachineCodeExecution(z80, testCase.TestNumber, testCase.Contended, true);
         }
 
-        if (z80 is IFrameAwareTestHarness frameAware)
-        {
-            frameAware.StartFrame();
-        }
+        spectrum.StartFrame();
 
-        ExecuteToStop(z80);
+        ExecuteToStop(spectrum);
         return ReadActualResult(z80);
     }
 
-    private static TimingResult Execute<TTestHarness>(TTestHarness z80, byte testNumber, bool contended)
-        where TTestHarness : Z80TestHarness
+    private static TimingResult Execute(ZXSpectrumTestHarness spectrum, byte testNumber, bool contended)
     {
+        var z80 = spectrum.Z80;
         InitializeMachineCodeExecution(z80, testNumber, contended, true);
         z80.TStates = 0;
 
-        ExecuteToStop(z80);
+        ExecuteToStop(spectrum);
         return ReadActualResult(z80);
     }
 
@@ -158,9 +152,11 @@ public sealed class TimingTestCase : TestCase
         }
     }
 
-    private static void ExecuteToStop(Z80TestHarness z80)
+    private static void ExecuteToStop(ZXSpectrumTestHarness spectrum)
     {
-        if (z80 is Z80SteppableTestHarness steppable)
+        var z80 = spectrum.Z80;
+        var steppable = spectrum.SteppableZ80;
+        if (steppable != null)
         {
             while (z80.RegisterPC != StopAddress)
             {

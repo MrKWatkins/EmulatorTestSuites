@@ -45,10 +45,11 @@ jobs:
         run: dotnet tool install MrKWatkins.Sesharp.Tool
 
       - name: Make API Docs Directory
-        run: mkdir doc/docs/API
+        run: mkdir -p doc/docs/API
 
       - name: Generate API Docs
-        run: dotnet sesharp src/MrKWatkins.EmulatorTestSuites.Z80/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80.dll --output doc/docs/API --repository https://github.com/MrKWatkins/EmulatorTestSuites
+        run: |
+          dotnet sesharp src/MrKWatkins.EmulatorTestSuites.Z80/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80.dll src/MrKWatkins.EmulatorTestSuites.ZXSpectrum/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.ZXSpectrum.dll --output doc/docs/API --repository https://github.com/MrKWatkins/EmulatorTestSuites
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master

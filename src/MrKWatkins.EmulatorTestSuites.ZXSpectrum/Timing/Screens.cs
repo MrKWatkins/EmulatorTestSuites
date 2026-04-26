@@ -1,4 +1,4 @@
-namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
+namespace MrKWatkins.EmulatorTestSuites.ZXSpectrum.Timing;
 
 /// <summary>
 /// Tests 35-37 required floating bus emulation to pass. The floating bus values depend on what is displayed on the screen.

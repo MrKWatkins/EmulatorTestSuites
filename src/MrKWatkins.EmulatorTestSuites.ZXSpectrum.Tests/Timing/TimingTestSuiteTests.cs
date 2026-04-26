@@ -1,6 +1,7 @@
-using MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
+using MrKWatkins.EmulatorTestSuites.Z80;
+using MrKWatkins.EmulatorTestSuites.ZXSpectrum.Timing;
 
-namespace MrKWatkins.EmulatorTestSuites.Z80.Tests.Program.Timing;
+namespace MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests.Timing;
 
 public sealed class TimingTestSuiteTests
 {
@@ -28,51 +29,44 @@ public sealed class TimingTestSuiteTests
     [Test]
     public void Execute_Instruction_Mode_Uses_Early_Timings()
     {
-        EarlyInstructionTimingTestHarness.ResetCounters();
+        EarlyInstructionTimingZ80.ResetCounters();
         TimingTestSuite.Instance.TestCases[0].Execute<EarlyInstructionTimingTestHarness>();
 
-        EarlyInstructionTimingTestHarness.ExecuteInstructionCalls.Should().Equal(4);
+        EarlyInstructionTimingZ80.ExecuteInstructionCalls.Should().Equal(4);
     }
 
     [Test]
     public void Execute_Step_Mode_Uses_Late_Timings()
     {
-        LateSteppableTimingTestHarness.ResetCounters();
+        LateSteppableTimingZ80.ResetCounters();
         TimingTestSuite.Instance.TestCases[0].Execute<LateSteppableTimingTestHarness>();
 
-        LateSteppableTimingTestHarness.ExecuteInstructionCalls.Should().Equal(2);
-        LateSteppableTimingTestHarness.StepCalls.Should().Equal(2);
+        LateSteppableTimingZ80.ExecuteInstructionCalls.Should().Equal(2);
+        LateSteppableTimingZ80.StepCalls.Should().Equal(2);
     }
 
     [Test]
-    public void Execute_Step_Mode_With_FrameAwareHarness_Uses_PreparedScreenPrelude()
+    public void Execute_Step_Mode_With_SpectrumHarness_Uses_PreparedScreenPrelude()
     {
         FrameAwareSteppableTimingTestHarness.ResetCounters();
         TimingTestSuite.Instance.TestCases[34].Execute<FrameAwareSteppableTimingTestHarness>();
 
         FrameAwareSteppableTimingTestHarness.StartFrameCalls.Should().Equal(1);
-        FrameAwareSteppableTimingTestHarness.PreparedTestNumber.Should().Equal(35);
-        FrameAwareSteppableTimingTestHarness.PreparedContendedFlag.Should().Equal(0);
-        FrameAwareSteppableTimingTestHarness.PreparedScreenByte.Should().Equal(0xFE);
+        PreparedScreenSteppableTimingZ80.PreparedTestNumber.Should().Equal(35);
+        PreparedScreenSteppableTimingZ80.PreparedContendedFlag.Should().Equal(0);
+        PreparedScreenSteppableTimingZ80.PreparedScreenByte.Should().Equal(0xFE);
     }
 
     [Test]
-    public void Execute_Step_Mode_Without_FrameAwareHarness_Still_Uses_PreparedScreenPrelude()
+    public void Execute_Instruction_Mode_Uses_PreparedScreenPrelude()
     {
-        NonFrameAwareSteppableTimingTestHarness.ResetCounters();
-        TimingTestSuite.Instance.TestCases[34].Execute<NonFrameAwareSteppableTimingTestHarness>();
+        PreparedScreenInstructionTimingTestHarness.ResetCounters();
+        TimingTestSuite.Instance.TestCases[34].Execute<PreparedScreenInstructionTimingTestHarness>();
 
-        NonFrameAwareSteppableTimingTestHarness.PreparedTestNumber.Should().Equal(35);
-        NonFrameAwareSteppableTimingTestHarness.PreparedContendedFlag.Should().Equal(0);
-        NonFrameAwareSteppableTimingTestHarness.PreparedScreenByte.Should().Equal(0xFE);
-    }
-
-    [Test]
-    public void Execute_PreparedScreen_Test_Requires_SteppableHarness()
-    {
-        Assert.That(
-            () => TimingTestSuite.Instance.TestCases[34].Execute<EarlyInstructionTimingTestHarness>(),
-            Throws.TypeOf<InvalidOperationException>().With.Message.Contains("steppable harness"));
+        PreparedScreenInstructionTimingTestHarness.StartFrameCalls.Should().Equal(1);
+        PreparedScreenInstructionTimingZ80.PreparedTestNumber.Should().Equal(35);
+        PreparedScreenInstructionTimingZ80.PreparedContendedFlag.Should().Equal(0);
+        PreparedScreenInstructionTimingZ80.PreparedScreenByte.Should().Equal(0xFE);
     }
 
     [Test]
@@ -83,7 +77,53 @@ public sealed class TimingTestSuiteTests
             Throws.TypeOf<NUnit.Framework.AssertionException>().With.Message.Contains("Program test exceeded"));
     }
 
-    private sealed class EarlyInstructionTimingTestHarness : FakeTimingTestHarness
+    private sealed class EarlyInstructionTimingTestHarness() : FakeSpectrumTestHarness(new EarlyInstructionTimingZ80());
+
+    private sealed class LateSteppableTimingTestHarness() : FakeSpectrumTestHarness(new LateSteppableTimingZ80());
+
+    private sealed class PreparedScreenInstructionTimingTestHarness() : FakeSpectrumTestHarness(new PreparedScreenInstructionTimingZ80())
+    {
+        public static int StartFrameCalls { get; private set; }
+
+        public static void ResetCounters()
+        {
+            StartFrameCalls = 0;
+            PreparedScreenInstructionTimingZ80.ResetCounters();
+        }
+
+        public override void StartFrame() => StartFrameCalls++;
+    }
+
+    private sealed class FrameAwareSteppableTimingTestHarness() : FakeSpectrumTestHarness(new PreparedScreenSteppableTimingZ80())
+    {
+        public static int StartFrameCalls { get; private set; }
+
+        public static void ResetCounters()
+        {
+            StartFrameCalls = 0;
+            PreparedScreenSteppableTimingZ80.ResetCounters();
+        }
+
+        public override void StartFrame() => StartFrameCalls++;
+    }
+
+    private sealed class HangingTimingTestHarness() : FakeSpectrumTestHarness(new HangingTimingZ80());
+
+    private abstract class FakeSpectrumTestHarness : ZXSpectrumTestHarness
+    {
+        private protected FakeSpectrumTestHarness(Z80TestHarness z80)
+        {
+            Z80 = z80;
+        }
+
+        public override Z80TestHarness Z80 { get; }
+
+        public override void StartFrame()
+        {
+        }
+    }
+
+    private sealed class EarlyInstructionTimingZ80 : FakeTimingZ80
     {
         public static int ExecuteInstructionCalls { get; private set; }
 
@@ -98,7 +138,102 @@ public sealed class TimingTestSuiteTests
         }
     }
 
-    private abstract class FakeSteppableTimingTestHarness : Z80SteppableTestHarness
+    private sealed class LateSteppableTimingZ80 : FakeSteppableTimingZ80
+    {
+        public static int ExecuteInstructionCalls { get; private set; }
+        public static int StepCalls { get; private set; }
+
+        public static void ResetCounters()
+        {
+            ExecuteInstructionCalls = 0;
+            StepCalls = 0;
+        }
+
+        protected override bool UseLateTimings => true;
+
+        public override void ExecuteInstruction()
+        {
+            ExecuteInstructionCalls++;
+            SimulateInstruction();
+        }
+
+        public override void Step()
+        {
+            StepCalls++;
+            SimulateInstruction();
+        }
+    }
+
+    private sealed class PreparedScreenInstructionTimingZ80 : FakeTimingZ80
+    {
+        public static byte PreparedScreenByte { get; private set; }
+        public static byte PreparedTestNumber { get; private set; }
+        public static byte PreparedContendedFlag { get; private set; }
+
+        public static void ResetCounters()
+        {
+            PreparedScreenByte = 0;
+            PreparedTestNumber = 0;
+            PreparedContendedFlag = 0;
+        }
+
+        protected override bool UseLateTimings => true;
+
+        public override void ExecuteInstruction() => SimulateInstructionWithPreparedScreenCapture();
+
+        private void SimulateInstructionWithPreparedScreenCapture()
+        {
+            if (RegisterPC == 0xC000)
+            {
+                PreparedScreenByte = ReadByteFromMemory(PreparedScreenSampleAddress);
+                PreparedTestNumber = ReadByteFromMemory(40000);
+                PreparedContendedFlag = ReadByteFromMemory(40002);
+            }
+
+            SimulateInstruction();
+        }
+    }
+
+    private sealed class PreparedScreenSteppableTimingZ80 : FakeSteppableTimingZ80
+    {
+        public static byte PreparedScreenByte { get; private set; }
+        public static byte PreparedTestNumber { get; private set; }
+        public static byte PreparedContendedFlag { get; private set; }
+
+        public static void ResetCounters()
+        {
+            PreparedScreenByte = 0;
+            PreparedTestNumber = 0;
+            PreparedContendedFlag = 0;
+        }
+
+        protected override bool UseLateTimings => true;
+
+        public override void ExecuteInstruction() => SimulateInstructionWithPreparedScreenCapture();
+
+        public override void Step() => SimulateInstructionWithPreparedScreenCapture();
+
+        private void SimulateInstructionWithPreparedScreenCapture()
+        {
+            if (RegisterPC == 0xC000)
+            {
+                PreparedScreenByte = ReadByteFromMemory(PreparedScreenSampleAddress);
+                PreparedTestNumber = ReadByteFromMemory(40000);
+                PreparedContendedFlag = ReadByteFromMemory(40002);
+            }
+
+            SimulateInstruction();
+        }
+    }
+
+    private sealed class HangingTimingZ80 : FakeTimingZ80
+    {
+        protected override bool UseLateTimings => false;
+
+        public override void ExecuteInstruction() => TStates += TimeoutTStates;
+    }
+
+    private abstract class FakeTimingZ80 : Z80TestHarness
     {
         private readonly byte[] memory = new byte[65536];
 
@@ -189,107 +324,7 @@ public sealed class TimingTestSuiteTests
         }
     }
 
-    private sealed class LateSteppableTimingTestHarness : FakeSteppableTimingTestHarness
-    {
-        public static int ExecuteInstructionCalls { get; private set; }
-        public static int StepCalls { get; private set; }
-
-        public static void ResetCounters()
-        {
-            ExecuteInstructionCalls = 0;
-            StepCalls = 0;
-        }
-
-        protected override bool UseLateTimings => true;
-
-        public override void ExecuteInstruction()
-        {
-            ExecuteInstructionCalls++;
-            SimulateInstruction();
-        }
-
-        public override void Step()
-        {
-            StepCalls++;
-            SimulateInstruction();
-        }
-    }
-
-    private abstract class PreparedScreenSteppableTimingTestHarness : FakeSteppableTimingTestHarness
-    {
-        protected override bool UseLateTimings => true;
-
-        public override void ExecuteInstruction() => SimulateInstructionWithPreparedScreenCapture();
-
-        public override void Step() => SimulateInstructionWithPreparedScreenCapture();
-
-        private void SimulateInstructionWithPreparedScreenCapture()
-        {
-            if (RegisterPC == 0xC000)
-            {
-                CapturePreparedScreenState();
-            }
-
-            SimulateInstruction();
-        }
-
-        protected abstract void CapturePreparedScreenState();
-    }
-
-    private sealed class NonFrameAwareSteppableTimingTestHarness : PreparedScreenSteppableTimingTestHarness
-    {
-        public static byte PreparedScreenByte { get; private set; }
-        public static byte PreparedTestNumber { get; private set; }
-        public static byte PreparedContendedFlag { get; private set; }
-
-        public static void ResetCounters()
-        {
-            PreparedScreenByte = 0;
-            PreparedTestNumber = 0;
-            PreparedContendedFlag = 0;
-        }
-
-        protected override void CapturePreparedScreenState()
-        {
-            PreparedScreenByte = ReadByteFromMemory(PreparedScreenSampleAddress);
-            PreparedTestNumber = ReadByteFromMemory(40000);
-            PreparedContendedFlag = ReadByteFromMemory(40002);
-        }
-    }
-
-    private sealed class FrameAwareSteppableTimingTestHarness : PreparedScreenSteppableTimingTestHarness, IFrameAwareTestHarness
-    {
-        public static int StartFrameCalls { get; private set; }
-        public static byte PreparedScreenByte { get; private set; }
-        public static byte PreparedTestNumber { get; private set; }
-        public static byte PreparedContendedFlag { get; private set; }
-
-        public static void ResetCounters()
-        {
-            StartFrameCalls = 0;
-            PreparedScreenByte = 0;
-            PreparedTestNumber = 0;
-            PreparedContendedFlag = 0;
-        }
-
-        public void StartFrame() => StartFrameCalls++;
-
-        protected override void CapturePreparedScreenState()
-        {
-            PreparedScreenByte = ReadByteFromMemory(PreparedScreenSampleAddress);
-            PreparedTestNumber = ReadByteFromMemory(40000);
-            PreparedContendedFlag = ReadByteFromMemory(40002);
-        }
-    }
-
-    private sealed class HangingTimingTestHarness : FakeTimingTestHarness
-    {
-        protected override bool UseLateTimings => false;
-
-        public override void ExecuteInstruction() => TStates += TimeoutTStates;
-    }
-
-    private abstract class FakeTimingTestHarness : Z80TestHarness
+    private abstract class FakeSteppableTimingZ80 : Z80SteppableTestHarness
     {
         private readonly byte[] memory = new byte[65536];
 
