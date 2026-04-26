@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.Z80.Tests", "MrKWatkins.EmulatorTestSuites.Z80.Tests\MrKWatkins.EmulatorTestSuites.Z80.Tests.csproj", "{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.ZXSpectrum", "MrKWatkins.EmulatorTestSuites.ZXSpectrum\MrKWatkins.EmulatorTestSuites.ZXSpectrum.csproj", "{B6A8961C-9D5F-45F1-8987-A3C51DF7E5B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests", "MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests\MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests.csproj", "{3087089C-5F58-46E4-B6A9-9F93209F415E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,17 @@ Global
 		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9F0CE9-9996-45CB-8C6D-FFCC279D09AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A8961C-9D5F-45F1-8987-A3C51DF7E5B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A8961C-9D5F-45F1-8987-A3C51DF7E5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A8961C-9D5F-45F1-8987-A3C51DF7E5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A8961C-9D5F-45F1-8987-A3C51DF7E5B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3087089C-5F58-46E4-B6A9-9F93209F415E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3087089C-5F58-46E4-B6A9-9F93209F415E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3087089C-5F58-46E4-B6A9-9F93209F415E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3087089C-5F58-46E4-B6A9-9F93209F415E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FA51A712-6207-480C-8868-AA0D66A6A601} = {CF6CC39D-85D3-443F-B491-4552DB6C50FD}

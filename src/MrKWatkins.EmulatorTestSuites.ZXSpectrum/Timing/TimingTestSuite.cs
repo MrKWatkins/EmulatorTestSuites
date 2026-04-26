@@ -1,14 +1,13 @@
 using System.Collections.Concurrent;
-using MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
 using MrKWatkins.OakIO.ZXSpectrum.Snapshot.Z80;
 
-namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Timing;
+namespace MrKWatkins.EmulatorTestSuites.ZXSpectrum.Timing;
 
 /// <summary>
 /// Richard Butler's 48K Spectrum timing test suite.
 /// </summary>
 /// <seealso href="https://www.zxspectrum4.net/op_timing.php">Original test suite</seealso>
-public sealed class TimingTestSuite : TestSuite
+public sealed class TimingTestSuite : ZXSpectrumTestSuite
 {
     private const string PortIoTimingDescription = "IN A,(n); OUT (n),A; IN r,(C); OUT (C),r";
 
@@ -75,7 +74,7 @@ public sealed class TimingTestSuite : TestSuite
 
     [Pure]
     internal TimingType GetTimingType<TTestHarness>()
-        where TTestHarness : Z80TestHarness, new() =>
+        where TTestHarness : ZXSpectrumTestHarness, new() =>
         timingTypesByHarnessType.GetOrAdd(
             typeof(TTestHarness),
             static _ => new Lazy<TimingType>(TimingTestCase.DetectTiming<TTestHarness>, LazyThreadSafetyMode.ExecutionAndPublication)).Value;
@@ -107,7 +106,7 @@ public sealed class TimingTestSuite : TestSuite
     {
         var result = new byte[65536];
 
-        using var rom = OpenResource(typeof(MarkWoodmassTestSuite), "ZXSpectrum48k.rom");
+        using var rom = OpenResource("ZXSpectrum48k.rom");
         rom.ReadExactly(result, 0, 16384);
 
         using var program = OpenResource("timing_tests_48k_v1.0.z80");
