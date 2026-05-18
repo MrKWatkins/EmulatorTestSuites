@@ -49,7 +49,7 @@ jobs:
 
       - name: Generate API Docs
         run: |
-          dotnet sesharp src/MrKWatkins.EmulatorTestSuites.Z80/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80.dll src/MrKWatkins.EmulatorTestSuites.ZXSpectrum/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.ZXSpectrum.dll --output doc/docs/API --repository https://github.com/MrKWatkins/EmulatorTestSuites
+          dotnet sesharp src/MrKWatkins.EmulatorTestSuites/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.dll src/MrKWatkins.EmulatorTestSuites.Z80/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80.dll src/MrKWatkins.EmulatorTestSuites.ZXSpectrum/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.ZXSpectrum.dll src/MrKWatkins.EmulatorTestSuites.M6502/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.M6502.dll --output doc/docs/API --repository https://github.com/MrKWatkins/EmulatorTestSuites
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master

@@ -3,9 +3,9 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 /// <summary>
 /// A test case from an <see cref="InstructionTestSuite{TTestCase}" />.
 /// </summary>
-public abstract class InstructionTestCase : TestCase
+public abstract class InstructionTestCase : global::MrKWatkins.EmulatorTestSuites.Instruction.InstructionTestCase<Z80TestHarness, Cycle>
 {
-    private protected InstructionTestCase(string id, InstructionTestSuiteOptions options)
+    protected InstructionTestCase(string id, InstructionTestSuiteOptions options)
         : base(id)
     {
         AssertionsToRun = options.GetAssertionsToRunFor(id);
@@ -35,11 +35,15 @@ public abstract class InstructionTestCase : TestCase
     public MemoryCycleMethod MemoryCycleMethod { get; }
 
     [Pure]
-    private protected static TTestHarness CreateZ80<TTestHarness>()
+    private protected TTestHarness CreateZ80<TTestHarness>()
         where TTestHarness : Z80TestHarness, new()
     {
-        var z80 = new TTestHarness { RecordCycles = true };
+        return CreateTestHarness<TTestHarness>();
+    }
+
+    protected override void InitializeTestHarness(Z80TestHarness z80)
+    {
+        base.InitializeTestHarness(z80);
         z80.SetIO(new InstructionIO(z80));
-        return z80;
     }
 }

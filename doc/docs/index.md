@@ -28,6 +28,8 @@ Check the documentation for the suites for details of the test harnesses and exa
 
 The following test suites are currently available:
 
+* [M6502](M6502/M6502.md)
+    * [Single Step](M6502/SingleStep.md)
 * [Z80](Z80/Z80.md)
     * [DAA](Z80/DAA.md)
     * [Fuse](Z80/Fuse.md)

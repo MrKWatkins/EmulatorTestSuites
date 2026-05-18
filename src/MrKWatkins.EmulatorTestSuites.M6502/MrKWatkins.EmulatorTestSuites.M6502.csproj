@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/m6502.html</PackageProjectUrl>
+        <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Instruction\SingleStep\TestCases\*" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites\MrKWatkins.EmulatorTestSuites.csproj" />
+    </ItemGroup>
+</Project>

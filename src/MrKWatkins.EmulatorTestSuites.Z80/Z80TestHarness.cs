@@ -1,17 +1,11 @@
-using System.Runtime.CompilerServices;
-
 namespace MrKWatkins.EmulatorTestSuites.Z80;
 
 /// <summary>
 /// Base class for a Z80 emulator test harness. Implement this class to use it with the test suites.
 /// </summary>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-#pragma warning disable CA1001
-public abstract class Z80TestHarness
-#pragma warning restore CA1001
+public abstract class Z80TestHarness : TestHarness<Cycle>
 {
-    private AssertionScope? assertionScope;
-
     /// <summary>
     /// Gets or sets the AF register pair.
     /// </summary>
@@ -298,95 +292,6 @@ public abstract class Z80TestHarness
     public abstract bool Interrupt { get; set; }
 
     /// <summary>
-    /// Gets or sets the number of T-states (clock cycles) executed.
-    /// </summary>
-    public ulong TStates
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get;
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set;
-    }
-
-    /// <summary>
-    /// Reads a byte from memory.
-    /// </summary>
-    [Pure]
-    public abstract byte ReadByteFromMemory(ushort address);
-
-    /// <summary>
-    /// Reads a word in little endian format from memory.
-    /// </summary>
-    [Pure]
-    public ushort ReadWordFromMemory(ushort address)
-    {
-        // Read the two bytes separately and assemble rather than use something like BinaryPrimitives.ReadUInt16LittleEndian.
-        // This enables us to cope with wraparound from 0xFFFF -> 0x0000 by using the overflow on ushort.
-        var lsb = ReadByteFromMemory(address);
-
-        address++;
-        var msb = ReadByteFromMemory(address);
-
-        return (ushort)((msb << 8) | lsb);
-    }
-
-    /// <summary>
-    /// Writes a byte to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
-    /// </summary>
-    public abstract void WriteByteToMemory(ushort address, byte value);
-
-    /// <summary>
-    /// Writes a word in little endian format to memory. Does *not* take <see cref="RomArea" /> into account as this is used by tests to setup memory.
-    /// </summary>
-    public void WriteWordToMemory(ushort address, ushort value)
-    {
-        WriteByteToMemory(address, (byte)value);
-
-        address++;
-        WriteByteToMemory(address, (byte)(value >> 8));
-    }
-
-    /// <summary>
-    /// Copies a span of bytes into the memory starting at the specified address.
-    /// </summary>
-    /// <param name="address">The starting address in memory where the bytes will be copied.</param>
-    /// <param name="source">The span of bytes to copy into memory.</param>
-    [OverloadResolutionPriority(1)]
-    public virtual void CopyToMemory(ushort address, ReadOnlySpan<byte> source)
-    {
-        foreach (var @byte in source)
-        {
-            WriteByteToMemory(address, @byte);
-            address++;
-        }
-    }
-
-    /// <summary>
-    /// Copies a sequence of bytes into memory starting at the specified address.
-    /// </summary>
-    /// <param name="address">The starting memory address where the bytes will be copied.</param>
-    /// <param name="source">The sequence of bytes to copy into memory.</param>
-    public virtual void CopyToMemory(ushort address, IReadOnlyList<byte> source)
-    {
-        foreach (var @byte in source)
-        {
-            WriteByteToMemory(address, @byte);
-            address++;
-        }
-    }
-
-    /// <summary>
-    /// Clears memory.
-    /// </summary>
-    public virtual void ClearMemory()
-    {
-        for (var f = 0; f < 65536; f++)
-        {
-            WriteByteToMemory((ushort)f, 0);
-        }
-    }
-
-    /// <summary>
     /// Gets or sets the ROM area in memory. Memory writes in this area by the emulator should be ignored.
     /// </summary>
     public (ushort Start, ushort End)? RomArea
@@ -430,92 +335,6 @@ public abstract class Z80TestHarness
         IOReader = io;
         IOWriter = io;
     }
-
-    /// <summary>
-    /// Gets or sets whether CPU cycles should be recorded.
-    /// </summary>
-    public bool RecordCycles
-    {
-        get => MutableCycles != null;
-        set
-        {
-            if (value)
-            {
-                MutableCycles ??= [];
-            }
-            else
-            {
-                MutableCycles = null;
-            }
-        }
-    }
-
-    /// <summary>
-    /// A mutable list of <see cref="Cycle"/>s to update when <see cref="RecordCycles" /> is <c>true</c>, <c>null</c> otherwise.
-    /// </summary>
-    protected internal List<Cycle>? MutableCycles { get; private set; }
-
-    /// <summary>
-    /// Gets the recorded CPU cycles. Only available when <see cref="RecordCycles"/> is true.
-    /// </summary>
-    /// <exception cref="InvalidOperationException">Thrown when cycles are not being recorded.</exception>
-    public IReadOnlyList<Cycle> Cycles => MutableCycles ?? throw new InvalidOperationException("Cycles are not being recorded.");
-
-    /// <summary>
-    /// Resets the test harness state.
-    /// </summary>
-    public virtual void Reset()
-    {
-        TStates = 0;
-        MutableCycles?.Clear();
-        ClearMemory();
-    }
-
-    /// <summary>
-    /// Creates an assertion scope that allows multiple <see cref="AssertEqual{T}" /> assertions to be made with just one <see cref="AssertFail" />.
-    /// </summary>
-    /// <param name="name">Optional name for the scope.</param>
-    /// <returns>An <see cref="IDisposable" /> that finishes the scope.</returns>
-    /// <exception cref="InvalidOperationException">If a scope has already been started.</exception>
-    [MustDisposeResource]
-    public IDisposable CreateAssertionScope(string? name = null)
-    {
-        if (assertionScope != null)
-        {
-            throw new InvalidOperationException("Cannot create a nested assertion scope.");
-        }
-
-        assertionScope = new AssertionScope(this, name);
-        return assertionScope;
-    }
-
-    /// <summary>
-    /// Asserts that the actual value is equal to the expected value. If the values are not equal, an error is reported.
-    /// </summary>
-    /// <typeparam name="T">The type of the values being compared.</typeparam>
-    /// <param name="actual">The actual value to be checked.</param>
-    /// <param name="expected">The expected value to compare against.</param>
-    /// <param name="message">An interpolated string handler providing a custom error message if the values are not equal.</param>
-    public void AssertEqual<T>(T actual, T expected, DefaultInterpolatedStringHandler message)
-    {
-        if (!EqualityComparer<T>.Default.Equals(actual, expected))
-        {
-            if (assertionScope != null)
-            {
-                assertionScope.AddError(message.ToString());
-            }
-            else
-            {
-                AssertFail(message.ToString());
-            }
-        }
-    }
-
-    /// <summary>
-    /// Signals that a test has failed with the provided error message.
-    /// </summary>
-    /// <param name="message">The error message indicating why the test failed.</param>
-    public abstract void AssertFail(string message);
 
     /// <summary>
     /// Executes a single instruction.
@@ -566,23 +385,4 @@ public abstract class Z80TestHarness
 
     [Pure]
     private static ushort SetHighByte(ushort value, byte highByte) => (ushort)((value & 0xFF00) | highByte);
-
-    private sealed class AssertionScope(Z80TestHarness z80, string? name) : IDisposable
-    {
-        private readonly List<string> errors = new();
-
-        public void AddError(string error) => errors.Add(error);
-
-        public void Dispose()
-        {
-            z80.assertionScope = null;
-
-            if (errors.Any())
-            {
-                var prefix = name != null ? $"{name} failed:{Environment.NewLine}{Environment.NewLine}" : "";
-
-                z80.AssertFail(prefix + string.Join(Environment.NewLine, errors) + Environment.NewLine);
-            }
-        }
-    }
 }
