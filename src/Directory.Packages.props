@@ -8,9 +8,9 @@
     <PackageVersion Include="JetBrains.Annotations" Version="2025.2.4" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.203" />
-    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.6.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.300" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.7.0" />
     <PackageVersion Include="MrKWatkins.Assertions" Version="1.4.0" />
     <PackageVersion Include="MrKWatkins.OakAsm.Disassembly" Version="0.8.2" />
     <PackageVersion Include="MrKWatkins.OakAsm.Disassembly.Z80" Version="0.8.2" />
@@ -18,7 +18,7 @@
     <PackageVersion Include="MrKWatkins.OakAsm.Testing" Version="0.8.2" />
     <PackageVersion Include="MrKWatkins.OakAsm.Z80" Version="0.8.2" />
     <PackageVersion Include="MrKWatkins.OakIO.ZXSpectrum" Version="1.0.4" />
-    <PackageVersion Include="NUnit" Version="4.5.1" />
+    <PackageVersion Include="NUnit" Version="4.6.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
   </ItemGroup>
 </Project>
