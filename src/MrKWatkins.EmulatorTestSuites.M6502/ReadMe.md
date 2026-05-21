@@ -7,6 +7,8 @@
 
 This repository contains 6502 emulator test suites from around the web and packages them up in a C# library to make them easier to run.
 
+The packaged suites currently include instruction-level tests and full-program tests such as Klaus Dormann's 6502 functional test.
+
 The code has not yet reached version 1.0 and should be treated as an alpha release.
 
 ## Getting Started

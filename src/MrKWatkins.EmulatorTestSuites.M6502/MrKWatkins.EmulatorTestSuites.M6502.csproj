@@ -4,6 +4,7 @@
         <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     </PropertyGroup>
     <ItemGroup>
+        <EmbeddedResource Include="Program\**\*.bin" />
         <EmbeddedResource Include="Instruction\SingleStep\TestCases\*" />
     </ItemGroup>
     <ItemGroup>
