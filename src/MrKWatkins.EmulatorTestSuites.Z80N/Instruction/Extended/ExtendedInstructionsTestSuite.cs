@@ -1,29 +1,29 @@
 using MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 using MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
-namespace MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Core;
+namespace MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Extended;
 
 /// <summary>
 /// Tests for the instructions the Z80N adds to the Z80, hand written from the ZX Spectrum Next FPGA core. There is no Z80N
 /// silicon, so the core is the definitive reference for the behaviour and the timing of its instructions.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/z80n.html#core">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/extendedinstructions.html">Documentation</seealso>
 /// <seealso href="https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA">The core the tests were written from</seealso>
-public sealed class CoreTestSuite : InstructionTestSuite<CoreTestCase>
+public sealed class ExtendedInstructionsTestSuite : InstructionTestSuite<ExtendedInstructionsTestCase>
 {
     /// <summary>
-    /// The default <see cref="TestAssertions"/> for the <see cref="CoreTestSuite" />. Q is not asserted, as the tests do not say
-    /// what it should be.
+    /// The default <see cref="TestAssertions"/> for the <see cref="ExtendedInstructionsTestSuite" />. Q is not asserted, as the
+    /// tests do not say what it should be.
     /// </summary>
     public const TestAssertions DefaultAssertions = TestAssertions.All & ~TestAssertions.Q;
 
     /// <summary>
-    /// Gets the singleton instance of the <see cref="CoreTestSuite" />.
+    /// Gets the singleton instance of the <see cref="ExtendedInstructionsTestSuite" />.
     /// </summary>
-    public static readonly CoreTestSuite Instance = new();
+    public static readonly ExtendedInstructionsTestSuite Instance = new();
 
-    private CoreTestSuite()
-        : base("ZX Spectrum Next Core", new Uri("https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA"))
+    private ExtendedInstructionsTestSuite()
+        : base("Extended Instructions", new Uri("https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA"))
     {
     }
 
@@ -37,14 +37,14 @@ public sealed class CoreTestSuite : InstructionTestSuite<CoreTestCase>
     /// </summary>
     /// <paramref name="options">The <see cref="InstructionTestSuiteOptions" /> to use.</paramref>
     /// <returns>A sequence of test cases.</returns>
-    public override IEnumerable<CoreTestCase> GetTestCases(InstructionTestSuiteOptions options)
+    public override IEnumerable<ExtendedInstructionsTestCase> GetTestCases(InstructionTestSuiteOptions options)
     {
         var inputs = FuseFormat.ParseInput(OpenResource("tests.in"));
         var expected = FuseFormat.ParseExpected(OpenResource("tests.expected"));
 
         foreach (var (name, input) in inputs)
         {
-            yield return new CoreTestCase(name, options, input, expected[name]);
+            yield return new ExtendedInstructionsTestCase(name, options, input, expected[name]);
         }
     }
 }

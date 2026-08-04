@@ -39,7 +39,7 @@ The following test suites are currently available:
     * [Single Step](Z80/SingleStep.md)
     * [ZEXALL](Z80/ZEXALL.md)
 * [Z80N](Z80N/Z80N.md)
-    * [Core](Z80N/Core.md)
+    * [Extended Instructions](Z80N/ExtendedInstructions.md)
 * [ZX Spectrum](ZXSpectrum/ZXSpectrum.md)
     * [Timing](ZXSpectrum/Timing.md)
 

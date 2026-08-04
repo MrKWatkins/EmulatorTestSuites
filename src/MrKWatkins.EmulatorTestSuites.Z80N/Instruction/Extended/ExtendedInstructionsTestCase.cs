@@ -2,17 +2,17 @@ using MrKWatkins.EmulatorTestSuites.Z80;
 using MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 using MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 
-namespace MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Core;
+namespace MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Extended;
 
 /// <summary>
-/// A test case from the <see cref="CoreTestSuite" />.
+/// A test case from the <see cref="ExtendedInstructionsTestSuite" />.
 /// </summary>
-public sealed class CoreTestCase : InstructionTestCase
+public sealed class ExtendedInstructionsTestCase : InstructionTestCase
 {
     private readonly FuseZ80InputState input;
     private readonly FuseZ80ExpectedState expected;
 
-    internal CoreTestCase(string id, InstructionTestSuiteOptions options, FuseZ80InputState input, FuseZ80ExpectedState expected)
+    internal ExtendedInstructionsTestCase(string id, InstructionTestSuiteOptions options, FuseZ80InputState input, FuseZ80ExpectedState expected)
         : base(id, options)
     {
         this.input = input;

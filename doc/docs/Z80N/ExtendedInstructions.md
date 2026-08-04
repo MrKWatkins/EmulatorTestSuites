@@ -1,6 +1,7 @@
-# Core
+# Extended Instructions
 
-[Instruction-based](../Z80/Z80.md#instruction-test-suites) tests for the instructions the Z80N adds to the Z80, written from the
+[Instruction-based](../Z80/Z80.md#instruction-test-suites) tests for the
+[extended instructions](https://wiki.specnext.dev/Extended_Z80_instruction_set) the Z80N adds to the Z80, written from the
 [ZX Spectrum Next FPGA core](https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA).
 
 ## Details

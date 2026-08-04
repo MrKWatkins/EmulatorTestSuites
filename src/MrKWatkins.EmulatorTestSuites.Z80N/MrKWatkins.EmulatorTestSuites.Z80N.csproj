@@ -4,8 +4,8 @@
         <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     </PropertyGroup>
     <ItemGroup>
-        <EmbeddedResource Include="Instruction\Core\tests.expected" />
-        <EmbeddedResource Include="Instruction\Core\tests.in" />
+        <EmbeddedResource Include="Instruction\Extended\tests.expected" />
+        <EmbeddedResource Include="Instruction\Extended\tests.in" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites.Z80\MrKWatkins.EmulatorTestSuites.Z80.csproj" />

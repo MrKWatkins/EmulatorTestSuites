@@ -1,14 +1,14 @@
 using MrKWatkins.EmulatorTestSuites.Z80;
-using MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Core;
+using MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Extended;
 
-namespace MrKWatkins.EmulatorTestSuites.Z80N.Tests.Instruction.Core;
+namespace MrKWatkins.EmulatorTestSuites.Z80N.Tests.Instruction.Extended;
 
-public sealed class CoreTestSuiteTests
+public sealed class ExtendedInstructionsTestSuiteTests
 {
     [Test]
     public void GetTestCases()
     {
-        var testCases = CoreTestSuite.Instance.GetTestCases().ToList();
+        var testCases = ExtendedInstructionsTestSuite.Instance.GetTestCases().ToList();
         testCases.Should().HaveCount(42);
 
         foreach (var testCase in testCases)
@@ -22,7 +22,7 @@ public sealed class CoreTestSuiteTests
     /// </summary>
     [Test]
     public void GetTestCases_AllOpcodesAreNamed() =>
-        CoreTestSuite.Instance.GetTestCases().Where(testCase => testCase.OpcodeName == null).Should().BeEmpty();
+        ExtendedInstructionsTestSuite.Instance.GetTestCases().Where(testCase => testCase.OpcodeName == null).Should().BeEmpty();
 
     /// <summary>
     /// The last cycle of a test case cannot start after the instruction has finished.
@@ -30,7 +30,7 @@ public sealed class CoreTestSuiteTests
     [Test]
     public void GetTestCases_CyclesAreWithinTheInstruction()
     {
-        foreach (var testCase in CoreTestSuite.Instance.GetTestCases())
+        foreach (var testCase in ExtendedInstructionsTestSuite.Instance.GetTestCases())
         {
             testCase.Expected.Cycles.Where(cycle => cycle.Index >= testCase.Expected.TStates).Should().BeEmpty();
         }
@@ -44,7 +44,7 @@ public sealed class CoreTestSuiteTests
     [TestCase("edb7", "edb7 - LDPIRX")]
     public void Name(string id, string expectedName)
     {
-        var testCase = CoreTestSuite.Instance.GetTestCases().FirstOrDefault(t => t.Id == id);
+        var testCase = ExtendedInstructionsTestSuite.Instance.GetTestCases().FirstOrDefault(t => t.Id == id);
         testCase.Should().NotBeNull();
         testCase!.Name.Should().Equal(expectedName);
     }
@@ -55,7 +55,7 @@ public sealed class CoreTestSuiteTests
     [Test]
     public void NextRegisterWrites()
     {
-        var testCase = CoreTestSuite.Instance.GetTestCases().Single(t => t.Id == "ed91");
+        var testCase = ExtendedInstructionsTestSuite.Instance.GetTestCases().Single(t => t.Id == "ed91");
 
         testCase.Expected.NextRegisterWrites.Should().HaveCount(1);
         testCase.Expected.NextRegisterWrites[0].Port.Should().Equal(0x07);
