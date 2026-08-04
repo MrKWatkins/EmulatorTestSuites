@@ -1,3 +1,5 @@
+using MrKWatkins.EmulatorTestSuites.Z80.Instruction;
+
 namespace MrKWatkins.EmulatorTestSuites.Z80;
 
 /// <summary>
@@ -6,6 +8,8 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public abstract class Z80TestHarness : TestHarness<Cycle>
 {
+    private readonly List<IOEvent> nextRegisterWrites = [];
+
     /// <summary>
     /// Gets or sets the AF register pair.
     /// </summary>
@@ -312,6 +316,28 @@ public abstract class Z80TestHarness : TestHarness<Cycle>
     /// </summary>
     protected virtual void OnRomAreaChanged()
     {
+    }
+
+    /// <summary>
+    /// Gets the Next registers written to, in the order they were written. Z80N only; a Z80 never writes to one.
+    /// </summary>
+    public IReadOnlyList<IOEvent> NextRegisterWrites => nextRegisterWrites;
+
+    /// <summary>
+    /// Records a write to a Next register. Z80N emulators should call this when they perform one. The register number is used as
+    /// the port of the <see cref="IOEvent" />.
+    /// </summary>
+    /// <param name="register">The number of the Next register written to.</param>
+    /// <param name="value">The value written to it.</param>
+    public void WriteNextRegister(byte register, byte value) => nextRegisterWrites.Add(new IOEvent(register, value));
+
+    /// <summary>
+    /// Resets the test harness state.
+    /// </summary>
+    public override void Reset()
+    {
+        base.Reset();
+        nextRegisterWrites.Clear();
     }
 
     /// <summary>

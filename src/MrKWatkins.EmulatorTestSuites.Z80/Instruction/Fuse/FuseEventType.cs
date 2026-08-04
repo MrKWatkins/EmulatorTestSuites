@@ -34,4 +34,9 @@ public enum FuseEventType : byte
     /// A port read event.
     /// </summary>
     PortRead,
+
+    /// <summary>
+    /// A write to a Next register. Z80N only; not part of the original Fuse format.
+    /// </summary>
+    NextRegisterWrite
 }

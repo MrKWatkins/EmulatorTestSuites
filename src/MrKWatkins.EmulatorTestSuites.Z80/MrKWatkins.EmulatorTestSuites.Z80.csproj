@@ -16,6 +16,12 @@
         <EmbeddedResource Include="Instruction\SingleStep\TestCases\*" />
     </ItemGroup>
     <ItemGroup>
+        <!-- The Z80N suites hand write their test cases in the Fuse format, and need the internal state types to parse it into. -->
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>MrKWatkins.EmulatorTestSuites.Z80N</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="MrKWatkins.OakAsm.Disassembly" />
         <PackageReference Include="MrKWatkins.OakAsm.Disassembly.Z80" />
         <PackageReference Include="MrKWatkins.OakAsm.Formatting" />

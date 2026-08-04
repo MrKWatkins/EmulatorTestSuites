@@ -9,6 +9,7 @@ public sealed class FuseZ80ExpectedState : Z80ExpectedState
     {
         Events = events;
         IOWrites = events.Where(e => e.Type == FuseEventType.PortWrite).Select(e => new IOEvent(e.Address, e.Data ?? 0)).ToList();
+        NextRegisterWrites = events.Where(e => e.Type == FuseEventType.NextRegisterWrite).Select(e => new IOEvent(e.Address, e.Data ?? 0)).ToList();
     }
 
     /// <summary>

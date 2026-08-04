@@ -28,5 +28,10 @@ public enum CycleType
     /// <summary>
     /// Represents an I/O port write operation.
     /// </summary>
-    IOWrite
+    IOWrite,
+
+    /// <summary>
+    /// Represents a write to a Next register. Z80N only; the Next registers are on a bus of their own rather than the I/O bus.
+    /// </summary>
+    NextRegisterWrite
 }

@@ -224,9 +224,14 @@ public enum TestAssertions : ulong
     TStates = 1UL << 33,
 
     /// <summary>
+    /// Test writes to Next registers. Z80N only; a Z80 never writes to one.
+    /// </summary>
+    NextRegisterWrites = 1UL << 34,
+
+    /// <summary>
     /// Test everything except <see cref="Cycles" />.
     /// </summary>
-    AllExceptCycles = Registers | Flags | IO | Interrupts | Memory | TStates,
+    AllExceptCycles = Registers | Flags | IO | Interrupts | Memory | TStates | NextRegisterWrites,
 
     /// <summary>
     /// Test everything.

@@ -40,6 +40,7 @@ internal static class CycleBuilder
         FuseEventType.MemoryWrite => CycleType.MemoryWrite,
         FuseEventType.PortWrite => CycleType.IOWrite,
         FuseEventType.PortRead => CycleType.IORead,
+        FuseEventType.NextRegisterWrite => CycleType.NextRegisterWrite,
         _ => throw new NotSupportedException($"The {nameof(FuseEventType)} {type} is not supported.")
     };
 }

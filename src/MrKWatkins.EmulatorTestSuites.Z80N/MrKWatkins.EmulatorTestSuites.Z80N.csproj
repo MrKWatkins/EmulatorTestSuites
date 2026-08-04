@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/z80n.html</PackageProjectUrl>
+        <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Instruction\Core\tests.expected" />
+        <EmbeddedResource Include="Instruction\Core\tests.in" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites.Z80\MrKWatkins.EmulatorTestSuites.Z80.csproj" />
+        <ProjectReference Include="..\MrKWatkins.EmulatorTestSuites\MrKWatkins.EmulatorTestSuites.csproj" />
+    </ItemGroup>
+</Project>

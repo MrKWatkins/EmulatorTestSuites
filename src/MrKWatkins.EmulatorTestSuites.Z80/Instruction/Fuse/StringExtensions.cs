@@ -22,6 +22,7 @@ internal static class StringExtensions
         "PR" => FuseEventType.PortRead,
         "PW" => FuseEventType.PortWrite,
         "PC" => FuseEventType.PortContend,
+        "NR" => FuseEventType.NextRegisterWrite,
         _ => throw new InvalidOperationException($"Unknown event type \"{value}\".")
     };
 }

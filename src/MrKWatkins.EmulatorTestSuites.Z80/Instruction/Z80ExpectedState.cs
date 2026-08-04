@@ -13,6 +13,12 @@ public class Z80ExpectedState : Z80State
     public IReadOnlyList<IOEvent> IOWrites { get; internal set; } = [];
 
     /// <summary>
+    /// Gets the expected list of Next register writes that occurred during instruction execution. Z80N only; a Z80 never writes to
+    /// one. The register number is the port of the <see cref="IOEvent" />.
+    /// </summary>
+    public IReadOnlyList<IOEvent> NextRegisterWrites { get; internal set; } = [];
+
+    /// <summary>
     /// Gets the expected list of cycles that occurred during instruction execution.
     /// </summary>
     public IReadOnlyList<Cycle> Cycles { get; internal set; } = [];
@@ -35,6 +41,7 @@ public class Z80ExpectedState : Z80State
         AssertInterrupts(assertionsToRun, z80);
         AssertMemory(assertionsToRun, z80);
         AssertIOWrites(assertionsToRun, z80);
+        AssertNextRegisterWrites(assertionsToRun, z80);
         AssertCycles(assertionsToRun, z80);
     }
 
@@ -151,6 +158,29 @@ public class Z80ExpectedState : Z80State
     {
         z80.AssertEqual(actual.Port, expected.Port, $"Expected IO write {index} to have port {expected.Port} but was {actual.Port}");
         z80.AssertEqual(actual.Value, expected.Value, $"Expected IO write {index} to have value {expected.Value} but was {actual.Value}");
+    }
+
+    private void AssertNextRegisterWrites(TestAssertions assertionsToRun, Z80TestHarness z80)
+    {
+        if (!assertionsToRun.HasFlag(TestAssertions.NextRegisterWrites))
+        {
+            return;
+        }
+
+        var actualEvents = z80.NextRegisterWrites;
+
+        z80.AssertEqual(actualEvents.Count, NextRegisterWrites.Count, $"Expected {NextRegisterWrites.Count} Next register writes but was {actualEvents.Count}");
+
+        for (var f = 0; f < Math.Min(actualEvents.Count, NextRegisterWrites.Count); f++)
+        {
+            AssertNextRegisterWrite(z80, actualEvents[f], NextRegisterWrites[f], f);
+        }
+    }
+
+    private static void AssertNextRegisterWrite(Z80TestHarness z80, IOEvent actual, IOEvent expected, int index)
+    {
+        z80.AssertEqual(actual.Port, expected.Port, $"Expected Next register write {index} to be to register {expected.Port} but was {actual.Port}");
+        z80.AssertEqual(actual.Value, expected.Value, $"Expected Next register write {index} to have value {expected.Value} but was {actual.Value}");
     }
 
     private static char FormatFlag(bool flag) => flag ? '1' : '0';

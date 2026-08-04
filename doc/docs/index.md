@@ -38,6 +38,8 @@ The following test suites are currently available:
     * [Raxoft](Z80/Raxoft.md)
     * [Single Step](Z80/SingleStep.md)
     * [ZEXALL](Z80/ZEXALL.md)
+* [Z80N](Z80N/Z80N.md)
+    * [Core](Z80N/Core.md)
 * [ZX Spectrum](ZXSpectrum/ZXSpectrum.md)
     * [Timing](ZXSpectrum/Timing.md)
 
