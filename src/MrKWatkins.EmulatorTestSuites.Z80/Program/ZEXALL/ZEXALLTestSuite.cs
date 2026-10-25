@@ -5,7 +5,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.ZEXALL;
 /// <summary>
 /// The ZEXALL test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/zexall.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/ZEXALL.html">Documentation</seealso>
 /// <seealso href="https://github.com/agn453/ZEXALL">Original test suite</seealso>
 public sealed class ZEXALLTestSuite : ProgramTestSuite<ZEXALLTestCase>
 {

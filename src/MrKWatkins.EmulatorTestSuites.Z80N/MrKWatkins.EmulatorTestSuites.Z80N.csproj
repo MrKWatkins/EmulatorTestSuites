@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/z80n.html</PackageProjectUrl>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/Z80N/Z80N.html</PackageProjectUrl>
         <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     </PropertyGroup>
     <ItemGroup>

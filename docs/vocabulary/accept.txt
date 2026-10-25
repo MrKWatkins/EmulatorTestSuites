@@ -1,0 +1,17 @@
+EmulatorTestSuites
+NUnit
+steppable
+[Ss]tandalone
+Harte
+Woodmass
+Cringle
+Gerlich
+Raxoft
+Patrik
+Rak
+Ccf
+Memptr
+datasheet
+IIOReader
+IIOWriter
+IOEvent

@@ -6,7 +6,7 @@
 
 ## Details
 
-There is no Z80N silicon. The CPU is the T80N core in the ZX Spectrum Next FPGA, so that core is the definitive reference for both the behaviour and the timing
+The Z80N has no silicon implementation. The CPU is the T80N core in the ZX Spectrum Next FPGA, so that core is the definitive reference for both the behaviour and the timing
 of the instructions it adds, and the tests were written from version 3.02.03 of it:
 
 * `cores/zxnext/src/cpu/t80n_mcode.vhd` gives the machine cycles of each instruction, how many T-states each takes, and the bus activity in each.
@@ -32,4 +32,4 @@ name for the test.
 
 ## Original Tests
 
-There are none; the tests were written for this project from the core, which is licensed under the GPL-3.0 licence.
+These tests were written for this project from the core, which is licensed under the GPL-3.0 licence.

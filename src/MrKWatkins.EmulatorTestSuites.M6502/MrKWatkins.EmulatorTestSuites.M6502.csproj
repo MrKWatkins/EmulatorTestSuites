@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/m6502.html</PackageProjectUrl>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/M6502/M6502.html</PackageProjectUrl>
         <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     </PropertyGroup>
     <ItemGroup>

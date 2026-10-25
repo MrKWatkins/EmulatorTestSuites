@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Interrupt;
 /// <summary>
 /// Standalone interrupt and HALT behaviour tests that require a steppable emulator.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/interrupt.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/Interrupt.html">Documentation</seealso>
 /// <seealso href="https://github.com/floooh/chips-test/blob/master/tests/z80-int.c">Original tests</seealso>
 public sealed class InterruptTestSuite : TestSuite
 {

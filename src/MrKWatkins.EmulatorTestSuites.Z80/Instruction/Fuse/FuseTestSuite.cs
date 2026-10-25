@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 /// <summary>
 /// The Fuse test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/fuse.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/Fuse.html">Documentation</seealso>
 /// <seealso href="https://fuse-emulator.sourceforge.net">Original test suite</seealso>
 public sealed class FuseTestSuite : InstructionTestSuite<FuseTestCase>
 {

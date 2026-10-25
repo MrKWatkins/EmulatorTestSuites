@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.M6502.Program.KlausDormann;
 /// <summary>
 /// The Klaus Dormann 6502 functional test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/m6502.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/M6502/KlausDormann.html">Documentation</seealso>
 /// <seealso href="https://github.com/Klaus2m5/6502_65C02_functional_tests">Original test suite</seealso>
 public sealed class KlausDormannTestSuite : ProgramTestSuite<KlausDormannTestCase>
 {

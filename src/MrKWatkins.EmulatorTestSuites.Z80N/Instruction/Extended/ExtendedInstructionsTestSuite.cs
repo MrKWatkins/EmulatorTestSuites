@@ -4,10 +4,10 @@ using MrKWatkins.EmulatorTestSuites.Z80.Instruction.Fuse;
 namespace MrKWatkins.EmulatorTestSuites.Z80N.Instruction.Extended;
 
 /// <summary>
-/// Tests for the instructions the Z80N adds to the Z80, hand written from the ZX Spectrum Next FPGA core. There is no Z80N
-/// silicon, so the core is the definitive reference for the behaviour and the timing of its instructions.
+/// Tests for the instructions the Z80N adds to the Z80, hand written from the ZX Spectrum Next FPGA core. The Z80N has no
+/// silicon implementation, so the core is the definitive reference for the behaviour and the timing of its instructions.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/extendedinstructions.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80N/ExtendedInstructions.html">Documentation</seealso>
 /// <seealso href="https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA">The core the tests were written from</seealso>
 public sealed class ExtendedInstructionsTestSuite : InstructionTestSuite<ExtendedInstructionsTestCase>
 {

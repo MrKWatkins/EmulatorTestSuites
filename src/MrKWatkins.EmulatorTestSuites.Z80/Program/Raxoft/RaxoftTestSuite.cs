@@ -6,7 +6,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.Raxoft;
 /// <summary>
 /// The Raxoft test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/raxoft.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/Raxoft.html">Documentation</seealso>
 /// <seealso href="https://github.com/raxoft/z80test">Original test suite</seealso>
 public sealed class RaxoftTestSuite : ProgramTestSuite<RaxoftTestCase>
 {

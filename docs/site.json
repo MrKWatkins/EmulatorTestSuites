@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "title": "Emulator Test Suites",
+  "description": "Test suites for emulator developers.",
+  "repository": "https://github.com/MrKWatkins/EmulatorTestSuites",
+  "base": "/EmulatorTestSuites/",
+  "vocabularyDirectory": "docs/vocabulary",
+  "publicDirectory": "docs/public",
+  "head": [
+    [
+      "link",
+      {
+        "rel": "icon",
+        "href": "/EmulatorTestSuites/favicon.ico"
+      }
+    ]
+  ],
+  "guide": [
+    {
+      "text": "Overview",
+      "link": "/"
+    },
+    {
+      "text": "6502",
+      "link": "/M6502/M6502",
+      "items": [
+        {
+          "text": "Klaus Dormann",
+          "link": "/M6502/KlausDormann"
+        },
+        {
+          "text": "Single Step",
+          "link": "/M6502/SingleStep"
+        }
+      ]
+    },
+    {
+      "text": "Z80",
+      "link": "/Z80/Z80",
+      "items": [
+        {
+          "text": "DAA",
+          "link": "/Z80/DAA"
+        },
+        {
+          "text": "Fuse",
+          "link": "/Z80/Fuse"
+        },
+        {
+          "text": "Interrupts",
+          "link": "/Z80/Interrupt"
+        },
+        {
+          "text": "Mark Woodmass",
+          "link": "/Z80/MarkWoodmass"
+        },
+        {
+          "text": "Raxoft",
+          "link": "/Z80/Raxoft"
+        },
+        {
+          "text": "Single Step",
+          "link": "/Z80/SingleStep"
+        },
+        {
+          "text": "ZEXALL",
+          "link": "/Z80/ZEXALL"
+        }
+      ]
+    },
+    {
+      "text": "Z80N",
+      "link": "/Z80N/Z80N",
+      "items": [
+        {
+          "text": "Extended instructions",
+          "link": "/Z80N/ExtendedInstructions"
+        }
+      ]
+    },
+    {
+      "text": "ZX Spectrum",
+      "link": "/ZXSpectrum/ZXSpectrum",
+      "items": [
+        {
+          "text": "Timing",
+          "link": "/ZXSpectrum/Timing"
+        }
+      ]
+    }
+  ],
+  "api": {
+    "generator": "sesharp",
+    "assemblies": [
+      "src/MrKWatkins.EmulatorTestSuites/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.dll",
+      "src/MrKWatkins.EmulatorTestSuites.M6502/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.M6502.dll",
+      "src/MrKWatkins.EmulatorTestSuites.Z80/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80.dll",
+      "src/MrKWatkins.EmulatorTestSuites.Z80N/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.Z80N.dll",
+      "src/MrKWatkins.EmulatorTestSuites.ZXSpectrum/bin/Release/net10.0/MrKWatkins.EmulatorTestSuites.ZXSpectrum.dll"
+    ]
+  }
+}

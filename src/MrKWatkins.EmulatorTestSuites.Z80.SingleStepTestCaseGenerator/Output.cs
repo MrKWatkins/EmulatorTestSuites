@@ -8,7 +8,7 @@ public static class Paths
         get
         {
             var directory = new DirectoryInfo(Environment.CurrentDirectory);
-            while (!directory.EnumerateFiles("EmulatorTestSuites.sln").Any())
+            while (!directory.EnumerateFiles("EmulatorTestSuites.slnx").Any())
             {
                 directory = directory.Parent ?? throw new InvalidOperationException("Could not find the solution directory.");
             }

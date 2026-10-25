@@ -1,0 +1,32 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="../.gitignore" />
+    <File Path="../Icon.png" />
+    <File Path="../Licence.md" />
+    <File Path="../ReadMe.md" />
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/" />
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path="../.github/workflows/build.yml" />
+    <File Path="../.github/workflows/release.yml" />
+  </Folder>
+  <Project Path="MrKWatkins.EmulatorTestSuites.M6502.Tests/MrKWatkins.EmulatorTestSuites.M6502.Tests.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.M6502/MrKWatkins.EmulatorTestSuites.M6502.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.Z80.SingleStepTestCaseGenerator/MrKWatkins.EmulatorTestSuites.Z80.SingleStepTestCaseGenerator.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.Z80.Tests/MrKWatkins.EmulatorTestSuites.Z80.Tests.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.Z80/MrKWatkins.EmulatorTestSuites.Z80.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.Z80N.Tests/MrKWatkins.EmulatorTestSuites.Z80N.Tests.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.Z80N/MrKWatkins.EmulatorTestSuites.Z80N.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests/MrKWatkins.EmulatorTestSuites.ZXSpectrum.Tests.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites.ZXSpectrum/MrKWatkins.EmulatorTestSuites.ZXSpectrum.csproj" />
+  <Project Path="MrKWatkins.EmulatorTestSuites/MrKWatkins.EmulatorTestSuites.csproj" />
+</Solution>

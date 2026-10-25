@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.SingleStep;
 /// <summary>
 /// The Single Step test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/singlestep.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/SingleStep.html">Documentation</seealso>
 /// <seealso href="https://github.com/SingleStepTests/z80">Original test suite</seealso>
 public sealed class SingleStepTestSuite : InstructionTestSuite<SingleStepTestCase>
 {

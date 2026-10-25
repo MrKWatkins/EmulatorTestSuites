@@ -20,7 +20,7 @@ To use the test suites, you will need to:
   subclass that wraps your emulator.
 * Create unit tests for the test suites you want to run. These can be in the framework of your choosing and will be simple calls to the TestSuite class.
 
-Check the [documentation](https://mrkwatkins.github.io/EmulatorTestSuites/m6502.html) for details of the test harness and example unit test code.
+Check the [documentation](https://mrkwatkins.github.io/EmulatorTestSuites/M6502/M6502.html) for details of the test harness and example unit test code.
 
 ## Licence
 

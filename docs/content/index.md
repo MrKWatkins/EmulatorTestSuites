@@ -2,8 +2,8 @@
 
 [![Build Status](https://github.com/MrKWatkins/EmulatorTestSuites/actions/workflows/build.yml/badge.svg)](https://github.com/MrKWatkins/EmulatorTestSuites/actions/workflows/build.yml)
 
-![View of the ZEXALL test suite executed in Jetbrains' Rider](images/zexall-in-rider.png#only-light){ align=right }
-![View of the ZEXALL test suite executed in Jetbrains' Rider](images/zexall-in-rider_dark.png#only-dark){ align=right }
+<img class="suite-screenshot suite-screenshot-light" src="./images/zexall-in-rider.png" alt="ZEXALL test suite running in JetBrains Rider" />
+<img class="suite-screenshot suite-screenshot-dark" src="./images/zexall-in-rider_dark.png" alt="ZEXALL test suite running in JetBrains Rider" />
 
 This repository contains various emulator test suites from around the web and packages them up in a .NET library to make them easier to run.
 Various standard emulator tests suites are included. Everything is designed to be agnostic to emulators and unit test frameworks. Implement
@@ -54,3 +54,12 @@ Feel free to raise issues for bugs or suggestions; I expect there to be bugs or 
 ## Licence
 
 Licensed under GPL v3.0. Licence information for the original project behind each test suite can be found on the relevant page and in source control.
+
+
+<style>
+.suite-screenshot { float: right; width: 50%; margin: 0 0 1rem 1rem; }
+:root.dark .suite-screenshot-light, :root:not(.dark) .suite-screenshot-dark { display: none; }
+@media (max-width: 640px) {
+  .suite-screenshot { float: none; width: 100%; margin: 1rem 0; }
+}
+</style>

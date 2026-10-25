@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80;
 /// <summary>
 /// Base class for test suites that provide <see cref="TestCase" />s for Z80 emulator implementations.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/z80.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/Z80.html">Documentation</seealso>
 public abstract class TestSuite : global::MrKWatkins.EmulatorTestSuites.TestSuite
 {
     /// <summary>

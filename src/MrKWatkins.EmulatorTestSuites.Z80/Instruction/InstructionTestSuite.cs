@@ -4,7 +4,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction;
 /// Base class for instruction-based test suites that provide <typeparamref name="TTestCase"/>s for Z80 emulator implementations.
 /// </summary>
 /// <typeparam name="TTestCase">The type of test cases provided by this test suite.</typeparam>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/z80.html#instruction-test-suites">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/Z80.html#instruction-test-suites">Documentation</seealso>
 public abstract class InstructionTestSuite<TTestCase> : TestSuite
     where TTestCase : InstructionTestCase
 {

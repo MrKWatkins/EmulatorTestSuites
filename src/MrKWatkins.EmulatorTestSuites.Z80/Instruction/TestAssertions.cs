@@ -104,7 +104,7 @@ public enum TestAssertions : ulong
     ShadowHL = 1UL << 16,
 
     /// <summary>
-    /// Tests all the non-internal registers, i.e. all registers except <see cref="WZ" /> and <see cref="Q" />.
+    /// Tests all the non-internal registers, that is, all registers except <see cref="WZ" /> and <see cref="Q" />.
     /// </summary>
     RegistersExceptWZAndQ = A | F | BC | DE | HL | IX | IY | PC | SP | I | R | ShadowAF | ShadowBC | ShadowDE | ShadowHL,
 

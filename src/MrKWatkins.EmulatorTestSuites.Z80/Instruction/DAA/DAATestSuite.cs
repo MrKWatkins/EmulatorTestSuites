@@ -5,7 +5,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Instruction.DAA;
 /// <summary>
 /// The DAA test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/daa.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/DAA.html">Documentation</seealso>
 /// <seealso href="https://github.com/ruyrybeyro/daatable">Original test suite</seealso>
 public sealed class DAATestSuite : InstructionTestSuite<DAATestCase>
 {

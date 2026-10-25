@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/zxspectrum.html</PackageProjectUrl>
+        <PackageProjectUrl>https://mrkwatkins.github.io/EmulatorTestSuites/ZXSpectrum/ZXSpectrum.html</PackageProjectUrl>
     </PropertyGroup>
     <ItemGroup>
         <EmbeddedResource Include="**\*.rom" />

@@ -3,7 +3,7 @@ namespace MrKWatkins.EmulatorTestSuites.ZXSpectrum;
 /// <summary>
 /// Base class for test suites that provide <see cref="ZXSpectrumTestCase" />s for ZX Spectrum emulator implementations.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/zxspectrum.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/ZXSpectrum/ZXSpectrum.html">Documentation</seealso>
 public abstract class ZXSpectrumTestSuite : TestSuite
 {
     /// <summary>

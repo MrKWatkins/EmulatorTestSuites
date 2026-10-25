@@ -6,7 +6,7 @@ namespace MrKWatkins.EmulatorTestSuites.Z80.Program.MarkWoodmass;
 /// <summary>
 /// Mark Woodmass's test suite.
 /// </summary>
-/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/markwoodmass.html">Documentation</seealso>
+/// <seealso href="https://mrkwatkins.github.io/EmulatorTestSuites/Z80/MarkWoodmass.html">Documentation</seealso>
 /// <seealso href="https://worldofspectrum.org/forums/discussion/20345">Original test suite</seealso>
 public sealed class MarkWoodmassTestSuite : ProgramTestSuite<MarkWoodmassTestCase>
 {

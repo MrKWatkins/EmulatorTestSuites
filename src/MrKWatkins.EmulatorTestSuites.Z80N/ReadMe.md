@@ -22,7 +22,7 @@ To use the test suites, you will need to:
   on the harness when they write to a Next register.
 * Create unit tests for the test suites you want to run. These can be in the framework of your choosing and will be simple calls to the test suite class.
 
-Check the [documentation](https://mrkwatkins.github.io/EmulatorTestSuites/z80n.html) for details of the test harnesses and example unit test code.
+Check the [documentation](https://mrkwatkins.github.io/EmulatorTestSuites/Z80N/Z80N.html) for details of the test harnesses and example unit test code.
 
 ## Licence
 

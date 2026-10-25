@@ -13,7 +13,7 @@ The suite automatically detects whether the emulator behaves like an early-timin
 
 ## Notes
 
-* There are two sets of tests, contended and uncontended. The contended tests require ZX Spectrum memory/IO contention to be implemented to pass.
+* The two sets of tests are contended and uncontended. The contended tests require ZX Spectrum memory/IO contention to be implemented to pass.
 * Note that despite the naming some of the uncontended tests also require contention to pass. They are 22 "LD A,(ii+n); LD r,(ii+n)", 32 "INI; INIR; IND; INDR", 33 "OUTI; OTIR; OUTD; OTDR" and 34 "RST 18".
 * Tests 35, 36 and 37 require a 48K-style floating bus implementation as well as the usual Spectrum timing behaviour to pass.
 * The test harness must expose `StartFrame()` so the tests can synchronise to a Spectrum frame. If the composed Z80 harness is steppable, the tests will use step execution; otherwise they run instruction-by-instruction.
