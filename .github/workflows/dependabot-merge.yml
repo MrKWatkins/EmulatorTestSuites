@@ -1,4 +1,4 @@
-name: Dependabot merge
+name: Dependabot Merge
 on:
   workflow_run:
     workflows: ["Build and Test"]
